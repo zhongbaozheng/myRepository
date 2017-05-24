@@ -145,6 +145,10 @@ public abstract class BaseFragment extends Fragment {
             ToastUtil.show(getActivity(), text);
     }
 
+    public void toastShow(Context context,String msg){
+        Toast.makeText(context,msg,Toast.LENGTH_SHORT).show();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return super.onCreateView(inflater, container, savedInstanceState);

@@ -52,7 +52,7 @@
             android:textSize="8sp"
             android:text="解除授权"
             android:layout_marginLeft="20dp"
-            android:background="@drawable/shape_layout"
+            android:background="@drawable/fill_border2"
             android:id="@+id/manager_change_mod_btn"
             android:layout_width="45dp"
             android:layout_height="30dp" />
@@ -61,7 +61,7 @@
             android:textSize="8sp"
             android:text="更新"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/shape_layout"
+            android:background="@drawable/fill_border2"
             android:id="@+id/manager_oprerate_update_btn"
             android:layout_width="35dp"
             android:layout_height="30dp" />
@@ -69,7 +69,7 @@
             android:textSize="8sp"
             android:text="删除"
             android:layout_marginLeft="5dp"
-            android:background="@drawable/shape_layout"
+            android:background="@drawable/fill_border2"
             android:id="@+id/manager_delete_btn"
             android:layout_width="35dp"
             android:layout_height="30dp" />

@@ -52,6 +52,7 @@ public class FragmentDoorControlManage extends FragmentAlarm2 implements Recycle
     public RecyclerView.Adapter getAdapter() {
         mAdapter = new RecycleDoorMangerAdapter(getActivity(),mList);
         mAdapter.setOnItemClickListner(this);
+        Toast.makeText(getActivity(),"长按可以查看详细信息！",Toast.LENGTH_SHORT).show();
         return mAdapter;
     }
 

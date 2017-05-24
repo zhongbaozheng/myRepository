@@ -64,7 +64,7 @@ public class RecycleDoorMangerAdapter extends BaseRecycleAdapter {
         return mList.size();
     }
 
-    class Holder extends BaseHolder implements View.OnClickListener{
+    class Holder extends BaseHolder implements View.OnClickListener,View.OnLongClickListener{
         private TextView userNameTv;
         private TextView cardTv;
         private TextView selectionNameTv;
@@ -78,7 +78,7 @@ public class RecycleDoorMangerAdapter extends BaseRecycleAdapter {
         public Holder(View itemView) {
             super(itemView);
             view = itemView;
-            itemView.setOnClickListener(this);
+            itemView.setOnLongClickListener(this);
             itemView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         }
 
@@ -120,12 +120,16 @@ public class RecycleDoorMangerAdapter extends BaseRecycleAdapter {
                     getOnItemClickListner().onItemDelete(getPosition());
                 }else if(v.getId() == changemodBtn.getId()){
                     getOnItemClickListner().onItemChangeMod(getPosition());
-                }else{
-                    if(v.getId() == view.getId()){
-                        getOnItemClickListner().onItemClick(getPosition());
-                    }
                 }
             }
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            if(v.getId() == view.getId()){
+                getOnItemClickListner().onItemClick(getPosition());
+            }
+            return true;
         }
     }
 }

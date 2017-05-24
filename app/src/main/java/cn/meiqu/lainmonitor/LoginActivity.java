@@ -99,7 +99,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
             Toast.makeText(this, "请输入账号！", Toast.LENGTH_SHORT).show();
             return;
         } else if (StringUtil.isEmpty(password)) {
-            Toast.makeText(this, "请输入账号！", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "请输入密码！", Toast.LENGTH_SHORT).show();
             return;
         } else {
             requestLogin();

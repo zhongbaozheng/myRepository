@@ -361,6 +361,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 //        MobclickAgent.onPause(this);
 //    }
 
+    public void toastShow(Context context,String msg){
+        Toast.makeText(context,msg,Toast.LENGTH_SHORT).show();
+    }
+
     @Override
     protected void onResume() {
         // TODO Auto-generated method stub

@@ -9,7 +9,7 @@
         android:id="@+id/tv"
         android:layout_width="fill_parent"
         android:layout_height="60dp"
-        android:background="@color/item_bg"
+        android:background="@drawable/fill_border"
         android:gravity="center"
         android:textColor="@color/black3"
         android:textSize="16dp" />
