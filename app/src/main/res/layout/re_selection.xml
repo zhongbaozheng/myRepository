@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginTop="5dp"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/selection_name"
+        android:textSize="16sp"
+        android:text="天安门"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/update_tv"
+        android:layout_marginLeft="130dp"
+        android:layout_alignLeft="@id/selection_name"
+        android:padding="8dp"
+        android:text="修改"
+        android:background="@drawable/shape_layout"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

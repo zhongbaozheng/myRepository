@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/shape_layout"
+    android:layout_width="match_parent" android:layout_height="wrap_content">
+
+    <TextView
+        android:background="@color/color_blue"
+        android:textSize="16sp"
+        android:gravity="center_vertical"
+        android:text="      温度：22.0°C                                 湿度: 23.3%"
+        android:id="@+id/ra_air_temperature_and_humidity"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/ra_air_name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <LinearLayout
+        android:id="@+id/ll_open_close"
+        android:layout_below="@id/ra_air_temperature_and_humidity"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <cn.meiqu.baseproject.view.RippleView
+            android:padding="5dp"
+            android:id="@+id/ra_open_rip"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:background="@drawable/shape_view"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:text="开机"
+                android:id="@+id/ra_air_open_tv"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                />
+        </cn.meiqu.baseproject.view.RippleView>
+
+        <cn.meiqu.baseproject.view.RippleView
+            android:padding="5dp"
+            android:id="@+id/ra_close_rip"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textColor="@color/white"
+                android:background="@drawable/shape_view"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:text="关闭"
+                android:id="@+id/ra_air_close_tv"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                />
+        </cn.meiqu.baseproject.view.RippleView>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_below="@id/ll_open_close"
+        android:background="@color/color_gravy"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"/>
+    <!-- *****************************************************************************************-->
+
+    <LinearLayout
+        android:id="@+id/ll_1"
+        android:layout_below="@id/ll_open_close"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_marginLeft="5dp"
+                android:text="压缩机1"
+                android:id="@+id/ysj1_state"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp" />
+            <!-- <ToggleButton
+            android:textColor="#000"
+            android:text=""
+            android:textOn="开"
+            android:textOff="关"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:checked="false"
+            android:clickable="false"
+            android:id="@+id/switch1_state"
+            android:background="@drawable/toggle_state"
+            android:layout_marginRight="55dp"
+            />-->
+            <ToggleButton
+                android:text=""
+                android:textOn=""
+                android:textOff=""
+                android:checked="false"
+                android:clickable="false"
+                android:layout_marginRight="3dp"
+                android:id="@+id/ysj1_state_show"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/toggle_state"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_marginLeft="15dp"
+                android:text="热气旁通阀"
+                android:id="@+id/rqp_state"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp" />
+            <ToggleButton
+                android:text=""
+                android:textOn=""
+                android:textOff=""
+                android:checked="false"
+                android:clickable="false"
+               android:layout_marginRight="3dp"
+                android:id="@+id/rqp_state_show"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/toggle_state"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- *****************************************************************************************-->
+    <LinearLayout
+        android:id="@+id/ll_2"
+        android:layout_below="@id/ll_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_marginLeft="5dp"
+                android:text="外风机1"
+                android:id="@+id/wfj1_state"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp" />
+            <ToggleButton
+                android:text=""
+                android:textOn=""
+                android:textOff=""
+                android:checked="false"
+                android:clickable="false"
+                android:layout_marginRight="3dp"
+                android:id="@+id/wfj1_state_show"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/toggle_state"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_marginLeft="15dp"
+                android:text="加湿器排水阀"
+                android:id="@+id/jsqpsf_state"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp" />
+            <ToggleButton
+                android:text=""
+                android:textOn=""
+                android:textOff=""
+                android:checked="false"
+                android:clickable="false"
+                android:layout_marginRight="3dp"
+                android:id="@+id/jsqpsf_state_show"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/toggle_state"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- *****************************************************************************************-->
+
+    <!-- *****************************************************************************************-->
+    <!-- ******************************************************* -->
+    <LinearLayout
+        android:id="@+id/ll_4"
+        android:layout_below="@+id/ll_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_marginLeft="5dp"
+                android:text="除湿阀"
+                android:id="@+id/csf2_state"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp" />
+            <ToggleButton
+                android:text=""
+                android:textOn=""
+                android:textOff=""
+                android:checked="false"
+                android:clickable="false"
+                android:layout_marginRight="3dp"
+                android:id="@+id/csf2_state_show"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/toggle_state"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_marginLeft="15dp"
+                android:text="运行模式"
+                android:id="@+id/yxm_state"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp" />
+            <ToggleButton
+                android:text=""
+                android:textOn=""
+                android:textOff=""
+                android:checked="false"
+                android:clickable="false"
+                android:layout_marginRight="3dp"
+                android:id="@+id/yxm_state_show"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/toggle_state"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+        </RelativeLayout>
+    </LinearLayout>
+    <!-- *************************************************** -->
+    <LinearLayout
+        android:id="@+id/ll_5"
+        android:layout_below="@id/ll_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_marginLeft="5dp"
+                android:text="内风机2"
+                android:id="@+id/nfj2_state"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp" />
+            <ToggleButton
+                android:text=""
+                android:textOn=""
+                android:textOff=""
+                android:checked="false"
+                android:clickable="false"
+                android:layout_marginRight="3dp"
+                android:id="@+id/nfj2_state_show"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/toggle_state"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_marginLeft="15dp"
+                android:text="开关机状态"
+                android:id="@+id/kgj_state"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp" />
+            <ToggleButton
+                android:text=""
+                android:textOn=""
+                android:textOff=""
+                android:checked="false"
+                android:clickable="false"
+                android:layout_marginRight="3dp"
+                android:id="@+id/kgj_state_show"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/toggle_state"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- *********************************************************** -->
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/warnning_state"
+        android:layout_below="@id/ll_5"
+        android:text="报警状态"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- ******************************************************** -->
+    <LinearLayout
+        android:id="@+id/ll_6"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/warnning_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_marginLeft="5dp"
+                android:text="加湿器低电流"
+                android:id="@+id/jsqddl_alarm_state"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp" />
+            <ToggleButton
+                android:text=""
+                android:textOn=""
+                android:textOff=""
+                android:checked="false"
+                android:clickable="false"
+                android:layout_marginRight="3dp"
+                android:id="@+id/jsqddl_alarm_state_show"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/toggle_state"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_marginLeft="15dp"
+                android:text="回风探头故障"
+                android:id="@+id/hftt_alarm_state"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp" />
+            <ToggleButton
+                android:text=""
+                android:textOn=""
+                android:textOff=""
+                android:checked="false"
+                android:clickable="false"
+                android:layout_marginRight="3dp"
+                android:id="@+id/hftt_alarm_state_show"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/toggle_state"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!--- ***************************************** -->
+    <LinearLayout
+        android:id="@+id/ll_7"
+        android:layout_below="@id/ll_6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_marginLeft="5dp"
+                android:text="加湿器高水位保护"
+                android:id="@+id/jsqgsw_alarm_state"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp" />
+            <ToggleButton
+                android:text=""
+                android:textOn=""
+                android:textOff=""
+                android:checked="false"
+                android:clickable="false"
+                android:layout_marginRight="3dp"
+                android:id="@+id/jsqgsw_alarm_state_show"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/toggle_state"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_marginLeft="15dp"
+                android:text="内风机2过载保护"
+                android:id="@+id/nfj2gz_alarm_state"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp" />
+            <ToggleButton
+                android:text=""
+                android:textOn=""
+                android:textOff=""
+                android:checked="false"
+                android:clickable="false"
+                android:layout_marginRight="3dp"
+                android:id="@+id/nfj2gz_state_alarm_show"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/toggle_state"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- ***************************************** -->
+    <LinearLayout
+        android:id="@+id/ll_8"
+        android:layout_below="@id/ll_7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_marginLeft="5dp"
+                android:text="压缩机2低压保护"
+                android:id="@+id/ysj2dy_alarm_state"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp" />
+            <ToggleButton
+                android:text=""
+                android:textOn=""
+                android:textOff=""
+                android:checked="false"
+                android:clickable="false"
+                android:layout_marginRight="3dp"
+                android:id="@+id/ysj2dy_alarm_state_show"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/toggle_state"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_marginLeft="15dp"
+                android:text="压缩机2高压保护"
+                android:id="@+id/ysj2gy_alarm_state"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp" />
+            <ToggleButton
+                android:text=""
+                android:textOn=""
+                android:textOff=""
+                android:checked="false"
+                android:clickable="false"
+                android:layout_marginRight="3dp"
+                android:id="@+id/ysj2gy_alarm_state_show"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/toggle_state"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- *********************************************** -->
+    <LinearLayout
+        android:id="@+id/ll_9"
+        android:layout_below="@id/ll_8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_marginLeft="5dp"
+                android:text="通讯故障"
+                android:id="@+id/tx_state"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp" />
+            <ToggleButton
+                android:text=""
+                android:textOn=""
+                android:textOff=""
+                android:checked="false"
+                android:clickable="false"
+                android:layout_marginRight="3dp"
+                android:id="@+id/tx_state_show"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/toggle_state"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:textSize="18sp"
+        android:gravity="center"
+        android:id="@+id/ra_air_name"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:textColor="@color/colorPrimary"
+        android:text="一号空调"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <LinearLayout
+        android:id="@+id/ll_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/ll_2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <RelativeLayout
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_marginLeft="5dp"
+                android:text="压缩机2"
+                android:id="@+id/ysj2_state"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp" />
+            <ToggleButton
+                android:text=""
+                android:textOn=""
+                android:textOff=""
+                android:checked="false"
+                android:clickable="false"
+                android:layout_marginRight="3dp"
+                android:id="@+id/ysj2_state_show"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/toggle_state"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center"
+                android:textSize="16sp"
+                android:layout_marginLeft="15dp"
+                android:text="加湿器进水阀"
+                android:id="@+id/jsqjsf_state"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp" />
+            <ToggleButton
+                android:text=""
+                android:textOn=""
+                android:textOff=""
+                android:checked="false"
+                android:clickable="false"
+                android:layout_marginRight="3dp"
+                android:id="@+id/jsqjsf_state_show"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/toggle_state"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- 显示背景
+    <Button
+        android:clickable="false"
+        android:background="@drawable/shape_state"
+        android:layout_width="20dp"
+        android:layout_height="20dp" />
+-->
+
+
+</RelativeLayout>

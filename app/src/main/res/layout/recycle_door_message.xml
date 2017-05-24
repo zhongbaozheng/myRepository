@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:gravity="center"
+        android:text="门禁名称"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="10dp"
+        android:id="@+id/door_name_tv" />
+
+    <TextView
+        android:gravity="center"
+        android:text="门禁地址"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:id="@+id/door_address_tv" />
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="40dp">
+        <TextView
+            android:gravity="center"
+            android:background="@drawable/shape_layout"
+            android:text="修改"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:id="@+id/door_change_tv" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

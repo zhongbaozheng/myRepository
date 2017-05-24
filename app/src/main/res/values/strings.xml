@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">机房监控</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="companyName">广州莱安智能化系统开发公司</string>
+    <string name="companyAddr">http://www.lain.com.cn</string>
+    <string name="title_activity_control">ControlActivity</string>
+
+</resources>

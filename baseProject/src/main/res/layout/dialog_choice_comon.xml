@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:padding="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/listV_item"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_dialog_comon_item"
+            android:divider="@color/main_color"
+            android:dividerHeight="1px"
+            android:listSelector="@null"></ListView>
+
+        <cn.meiqu.meiqubusiness.view.RippleView
+            android:id="@+id/rippleView_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="10dp"
+            ripple:rv_centered="true"
+            ripple:rv_color="@color/ripple"
+            ripple:rv_rippleDuration="100">
+
+            <Button
+                android:id="@+id/bt_cancel"
+                android:layout_width="fill_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_dialog_comon_cansel"
+                android:text="取消"
+                android:textColor="@color/black9"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </cn.meiqu.meiqubusiness.view.RippleView>
+    </LinearLayout>
+
+</RelativeLayout>

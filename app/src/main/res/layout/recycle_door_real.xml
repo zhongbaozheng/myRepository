@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tv_userName"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="6dp"
+        android:singleLine="true"
+        android:text="用户名称"
+        android:textColor="@color/white"
+        android:textSize="8dp" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="6dp"
+        android:singleLine="true"
+        android:text="卡号"
+        android:textColor="@color/white"
+        android:textSize="8dp" />
+
+    <TextView
+        android:id="@+id/tv_sectionName"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="6dp"
+        android:singleLine="true"
+        android:text="所属部门"
+        android:textColor="@color/white"
+        android:textSize="8dp" />
+
+    <TextView
+        android:id="@+id/tv_doorName"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="6dp"
+        android:singleLine="true"
+        android:text="门禁名称"
+        android:textColor="@color/white"
+        android:textSize="8dp" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="6dp"
+        android:singleLine="true"
+        android:text="开门时间"
+        android:textColor="@color/white"
+        android:textSize="8dp" />
+</LinearLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="activity_anim" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/a_open_enter</item>
+        <item name="android:activityOpenExitAnimation">@anim/a_open_exit</item>
+        <item name="android:activityCloseEnterAnimation">@anim/a_close_enter</item>
+        <item name="android:activityCloseExitAnimation">@anim/a_close_exit</item>
+    </style>
+
+    <style name="defaultDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.4</item>
+    </style>
+
+    <style name="bottom_animation" parent="android:Animation">
+        <item name="@android:windowEnterAnimation">@anim/dialog_slide_in_bottom</item>
+        <item name="@android:windowExitAnimation">@anim/dialog_slide_out_bottom</item>
+    </style>
+
+    <style name="activity_root">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/colorPrimaryDark</item>
+    </style>
+    <style name="fragment_root">
+        <item name="android:id">@+id/frame_fragment</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/window_background</item>
+    </style>
+
+    <style name="PopupAnimation" mce_bogus="1" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/popup_enter</item>
+        <item name="android:windowExitAnimation">@anim/popup_exit</item>
+    </style>
+</resources>

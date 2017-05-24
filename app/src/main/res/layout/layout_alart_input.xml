@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="6dp">
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="星期:"
+            android:textColor="@color/black3"
+            android:textSize="14dp" />
+
+        <EditText
+            android:id="@+id/edt_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:editable="false"
+            android:textSize="14dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="6dp">
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="时间段1:"
+            android:textColor="@color/black3"
+            android:textSize="14dp" />
+
+        <EditText
+            android:id="@+id/edt_time1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="datetime"
+            android:layout_marginLeft="8dp"
+            android:textSize="14dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="6dp">
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="时间段2:"
+            android:textColor="@color/black3"
+            android:textSize="14dp" />
+
+        <EditText
+            android:id="@+id/edt_time2"
+            android:layout_width="fill_parent"
+            android:inputType="datetime"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:textSize="14dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="6dp">
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="时间段3:"
+            android:textColor="@color/black3"
+            android:textSize="14dp" />
+
+        <EditText
+            android:id="@+id/edt_time3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="datetime"
+            android:layout_marginLeft="8dp"
+            android:textSize="14dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="6dp">
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="时间间隔:"
+            android:textColor="@color/black3"
+            android:textSize="14dp" />
+
+        <EditText
+            android:id="@+id/edt_interval"
+            android:layout_width="fill_parent"
+            android:inputType="number"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:textSize="14dp" />
+    </LinearLayout>
+</LinearLayout>

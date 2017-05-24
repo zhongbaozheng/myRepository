@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+        <item android:title="环境监控">
+            <menu>
+                <item android:title="        温湿度" />
+                <item android:title="        非定位漏水" />
+                <item android:title="        定位漏水" />
+                <item android:title="        点式漏水" />
+                <item android:title="        分体空调" />
+                <item android:title="        精密空调" />
+                <item android:title="        新风机" />
+                <item android:title="        抽湿加湿" />
+                <item android:title="        灯光照明" />
+                <item android:title="        二氧化碳" />
+                <item android:title="        防雷" />
+            </menu>
+        </item>
+
+    <group android:checkableBehavior="single">
+        <item android:title="动力监控">
+            <menu>
+                <item android:title="        电量仪" />
+                <item android:title="        配电监控" />
+                <item android:title="        市电监控" />
+                <item android:title="        UPS" />
+            </menu>
+        </item>
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item android:title="安防监控">
+            <menu>
+                <item android:title="        红外监控" />
+                <item android:title="        烟感监控" />
+                <item android:title="        消防监控" />
+                <item android:title="        门磁监控" />
+                <item android:title="        烟感监控" />
+                <item android:title="        门禁监控" />
+                <item android:title="        视频监控" />
+            </menu>
+        </item>
+    </group>
+    <group android:checkableBehavior="single">
+        <item android:title="运维监控">
+            <menu>
+                <item android:title="        服务器" />
+            </menu>
+        </item>
+    </group>
+    <group android:checkableBehavior="single">
+        <item android:title="系统设置">
+            <menu>
+                <item
+
+                    android:title="        设备管理" />
+                <item android:title="        管理员" />
+                <item android:title="        IP/域名设置" />
+            </menu>
+        </item>
+    </group>
+</menu>

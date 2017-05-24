@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_item"
+        android:orientation="vertical"
+        android:paddingBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="44dp"
+                    android:background="@color/colorPrimary"
+                    android:gravity="center"
+                    android:text="地址"
+                    android:textColor="@color/white"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/tv_addr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:textColor="@color/black3"
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="44dp"
+                    android:background="@color/colorPrimary"
+                    android:gravity="center"
+                    android:text="设备名称"
+                    android:textColor="@color/white"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:minWidth="56dp"
+                    android:padding="2dp"
+                    android:textColor="@color/black3"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="44dp"
+                    android:background="@color/colorPrimary"
+                    android:gravity="center"
+                    android:text="学习操作"
+                    android:textColor="@color/white"
+                    android:textSize="14dp" />
+
+                <cn.meiqu.baseproject.view.RippleView
+                    android:id="@+id/ripple_studyBoot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/tv_studyBoot"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorAccent"
+                        android:gravity="center"
+                        android:minWidth="56dp"
+                        android:padding="2dp"
+                        android:text="学习开机"
+                        android:textColor="@color/white"
+                        android:textSize="14dp" />
+                </cn.meiqu.baseproject.view.RippleView>
+
+                <cn.meiqu.baseproject.view.RippleView
+                    android:id="@+id/ripple_studyOff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/tv_studyOff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorAccent"
+                        android:gravity="center"
+                        android:minWidth="56dp"
+                        android:padding="2dp"
+                        android:text="学习关机"
+                        android:textColor="@color/white"
+                        android:textSize="14dp" />
+                </cn.meiqu.baseproject.view.RippleView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="44dp"
+                    android:background="@color/colorPrimary"
+                    android:gravity="center"
+                    android:text="学习操作"
+                    android:textColor="@color/white"
+                    android:textSize="14dp" />
+
+                <cn.meiqu.baseproject.view.RippleView
+                    android:id="@+id/ripple_on"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorPrimary"
+                        android:gravity="center"
+                        android:minWidth="56dp"
+                        android:padding="2dp"
+                        android:text="开启"
+                        android:textColor="@color/white"
+                        android:textSize="14dp" />
+                </cn.meiqu.baseproject.view.RippleView>
+
+                <cn.meiqu.baseproject.view.RippleView
+                    android:id="@+id/ripple_off"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorPrimary"
+                        android:gravity="center"
+                        android:minWidth="56dp"
+                        android:padding="2dp"
+                        android:text="关闭"
+                        android:textColor="@color/white"
+                        android:textSize="14dp" />
+                </cn.meiqu.baseproject.view.RippleView>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

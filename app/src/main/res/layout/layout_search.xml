@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/item_bg"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <EditText
+        android:id="@+id/tv_start"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:editable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:gravity="center"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:text="开始时间"
+        android:textColor="@color/colorAccent"
+        android:textSize="12dp" />
+
+    <TextView
+        android:layout_width="10dp"
+        android:layout_height="1dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:maxWidth="70dp"
+        android:textSize="12dp" />
+
+    <EditText
+        android:id="@+id/tv_end"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:editable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:gravity="center"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:text="结束时间"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:textColor="@color/colorAccent"
+        android:textSize="12dp" />
+
+    <EditText
+        android:id="@+id/tv_range"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:editable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:gravity="center"
+        android:maxWidth="70dp"
+        android:padding="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:singleLine="true"
+        android:text="当天"
+        android:textColor="@color/colorAccent"
+        android:textSize="12dp" />
+
+    <EditText
+        android:id="@+id/tv_device"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:editable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:gravity="center"
+        android:padding="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:singleLine="true"
+        android:text="所有设备"
+        android:textColor="@color/colorAccent"
+        android:textSize="12dp" />
+</LinearLayout>

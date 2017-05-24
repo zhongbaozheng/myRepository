@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/title"/>
+
+    <TextView
+        android:textSize="18sp"
+        android:gravity="center"
+        android:text="用户添加"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+    <View
+        android:background="@color/black5"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ll_1"
+        android:layout_gravity="center_vertical"
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginLeft="50dp"
+            android:text="选择门禁："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="50dp"
+            android:id="@+id/re_checkBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_2"
+        android:layout_below="@id/ll_1"
+        android:layout_gravity="center_vertical"
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+        <TextView
+            android:layout_marginLeft="50dp"
+            android:text="所属部门："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Spinner android:id="@+id/spinner"
+                android:dropDownVerticalOffset="25dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_3"
+        android:layout_below="@id/ll_2"
+        android:layout_gravity="center_vertical"
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+        <TextView
+            android:layout_marginLeft="50dp"
+            android:text="用户名称："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2" />
+
+        <EditText
+            android:textSize="13sp"
+            android:background="@color/color_gravy"
+            android:id="@+id/user_name_ed"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@id/ll_3"
+        android:id="@+id/ll_4"
+        android:layout_gravity="center_vertical"
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+        <TextView
+            android:layout_marginLeft="50dp"
+            android:text="用户卡号："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:textSize="13sp"
+            android:background="@color/color_gravy"
+            android:id="@+id/user_card_ed"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:background="@drawable/shape_layout"
+        android:layout_marginRight="10dp"
+        android:padding="10dp"
+        android:layout_below="@id/ll_4"
+        android:layout_alignParentRight="true"
+        android:text="提交"
+        android:id="@+id/commit_btn"
+        android:layout_width="60dp"
+        android:layout_height="40dp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

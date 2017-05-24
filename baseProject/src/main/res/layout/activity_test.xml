@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:CircleIndicator="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/activity_root">
+
+    <FrameLayout
+        android:id="@+id/frame_fragment"
+        style="@style/fragment_root" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="120dp">
+
+        <cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager>
+
+        <cn.meiqu.baseproject.view.circleIndicate.CircleIndicator
+            android:id="@+id/indicator"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="6dp"
+            CircleIndicator:ci_background="@android:color/white"
+            CircleIndicator:ci_gravity="right"
+            CircleIndicator:ci_margin="5dp"
+            CircleIndicator:ci_mode="outside"
+            CircleIndicator:ci_radius="5dp"
+            CircleIndicator:ci_selected_background="@color/colorPrimaryDark" />
+    </RelativeLayout>
+</RelativeLayout>

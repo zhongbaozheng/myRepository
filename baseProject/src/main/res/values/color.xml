@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#373737</color>
+
+    <color name="red">#f00</color>
+    <color name="title_color">#00000000</color>
+    <color name="history_color">#999999</color>
+    <color name="bg_activity">@android:color/white</color>
+    <color name="black">@android:color/black</color>
+    <color name="transparent">#00000000</color>
+    <color name="window_background">#ffffff</color>
+    <color name="main_color">#111111</color>
+
+
+    <color name="item_bg">#f0f0f0</color>
+    <color name="off_bg">#c0c0c0</color>
+    <color name="color_green">#B4D443</color>
+    <color name="color_gravy">#c0c0c0</color>
+    <color name="color_blue">#32A4B9</color>
+    <color name="color_white">#ffffff</color>
+    <color name="color_more_green">#007800</color>
+    <color name="color_red">#ED4A4B</color>
+    <color name="color_server">#40CCB8</color>
+    <color name="color_black">#333333</color>
+    <color name="color_value_white">#ffffff</color>
+    <color name="color_title_1">#4487A2</color>
+    <color name="color_backround">#373737</color>
+
+
+
+    <color name="div">#bbb</color>
+    <color name="ripple">#58FAAC</color>
+    <color name="ll_listIP">#eeeeee</color>
+    <color name="white">#ffffff</color>
+    <!-- 粉色 -->
+    <color name="selfe">#EEEEEE</color>
+    <!-- 灰色 -->
+    <color name="seloryellow">#FEF88A</color>
+    <!-- 橙黄色 -->
+    <color name="selfeji">#F477B4</color>
+    <!-- 粉紫色2 -->
+    <color name="selwife">#B7B7B7</color>
+    <!-- 白灰色 -->
+    <color name="selzhi">#EF6CAC</color>
+    <!-- 浅紫色 -->
+    <color name="selfenzhi">#EE2085</color>
+    <!-- 粉紫色 2 -->
+    <color name="selfenred">#F34C9D</color>
+    <!-- 粉红色 2 -->
+    <color name="selreds">#FD5657</color>
+    <!-- 少红色 -->
+    <color name="selorgerd">#FD5354</color>
+    <!-- 橙色 -->
+    <color name="selorgerds">#FB9816</color>
+    <!-- 橙色 -->
+    <color name="selred">#EC1E83</color>
+    <!-- 粉色 -->
+    <color name="fen">#aaaeb2</color>
+    <!-- 灰1 -->
+    <color name="fen2">#a3aaad</color>
+    <!-- 灰2 -->
+    <color name="zt_chefen">#8f9199</color>
+    <!-- 深灰 -->
+    <color name="tip_gray">#999</color>
+    <color name="black5">#555</color>
+    <color name="black7">#777</color>
+    <color name="black9">#999999</color>
+    <color name="black3">#333333</color>
+    <color name="device_list1">#418fca</color>
+    <color name="device_list2">#c98f40</color>
+    <color name="white3">#20ffffff</color>
+
+</resources>

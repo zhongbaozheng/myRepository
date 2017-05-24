@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <LinearLayout
+        android:background="@color/colorPrimary"
+        android:id="@+id/ll_manager"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:layout_height="30dp">
+        <TextView
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:text="用户名"
+            android:id="@+id/manager_name_tv"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:text="卡号"
+            android:id="@+id/manager_card_tv"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginLeft="8dp"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:text="所属部门"
+            android:id="@+id/manager_select_name_tv"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:text="开通门禁"
+            android:id="@+id/manager_applymod_tv"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:text="权限"
+            android:id="@+id/manager_state_tv"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:text="操作"
+            android:id="@+id/manager_operate_tv"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,16 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="BaseTheme">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <!--<item name="android:statusBarColor">#00000000</item>-->
+        <!-- 避免控件都会顶到状态栏上 -->
+
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="FullTheme" parent="AppTheme">
+        <item name="android:statusBarColor">#00000000</item>
+    </style>
+</resources>

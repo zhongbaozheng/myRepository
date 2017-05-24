@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/activity_root"
+    android:orientation="vertical">
+
+    <include layout="@layout/title" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/window_background">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:paddingTop="90dp">
+
+            <LinearLayout
+                android:background="@drawable/fill_border"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/i_login_account" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="账号："
+                    android:textColor="@color/black3"
+                    android:textSize="13dp" />
+
+                <cn.meiqu.baseproject.view.ClearEditText
+                    android:id="@+id/edt_uesrname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="请输入账号"
+                    android:inputType="textEmailAddress"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="@color/black3"
+                    android:textColorHint="@color/black9"
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#d9d9d9" />
+
+            <LinearLayout
+                android:background="@drawable/fill_border"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/i_login_pwd" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="密码："
+                    android:textColor="@color/black3"
+                    android:textSize="13dp" />
+
+                <cn.meiqu.baseproject.view.ClearEditText
+                    android:id="@+id/edt_pwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="请输入密码"
+                    android:inputType="textPassword"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="@color/black3"
+                    android:textColorHint="@color/black9"
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#d9d9d9" />
+
+
+            <cn.meiqu.baseproject.view.RippleView
+                android:id="@+id/ripple_login"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="26dp">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/bg_rect_round_coloraccent"
+                    android:gravity="center"
+                    android:text="登录"
+                    android:textColor="@color/white"
+                    android:textSize="20dp" />
+            </cn.meiqu.baseproject.view.RippleView>
+
+            <TextView
+                android:id="@+id/tv_pwd_forget"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="若登录一直不成功，请点击右下角图标"
+                android:textColor="@color/black9"
+                android:textSize="12dp" />
+
+        </LinearLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            app:rippleColor="@color/color_backround"
+            android:background="@color/color_backround"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/fab_margin"
+            android:src="@android:drawable/ic_menu_preferences" />
+    </RelativeLayout>
+
+
+</LinearLayout>

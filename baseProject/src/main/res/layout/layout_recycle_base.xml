@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<cn.meiqu.baseproject.view.superrecyclerview.SuperRecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/recycleV"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_empty="@layout/layout_recycle_empty"
+    app:scrollbarStyle="outsideOverlay" />

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <cn.meiqu.meiqubusiness.view.RippleView
+        android:id="@+id/ripple_item"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        ripple:rv_centered="true"
+        ripple:rv_color="@color/ripple"
+        ripple:rv_rippleDuration="100">
+
+        <Button
+            android:id="@+id/btn_item"
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:background="@null"
+            android:text="从手机相册选择"
+            android:textColor="@color/main_color"
+            android:textSize="18sp" />
+    </cn.meiqu.meiqubusiness.view.RippleView>
+</LinearLayout>

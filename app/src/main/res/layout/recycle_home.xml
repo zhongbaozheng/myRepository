@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.meiqu.baseproject.view.RippleView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:background="@color/item_bg"
+        android:gravity="center"
+        android:textColor="@color/black3"
+        android:textSize="16dp" />
+</cn.meiqu.baseproject.view.RippleView>

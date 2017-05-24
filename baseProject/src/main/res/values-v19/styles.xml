@@ -1,0 +1,12 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="BaseTheme">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <!-- 避免控件都会顶到状态栏上 -->
+
+    </style>
+
+    <style name="FullTheme" parent="AppTheme"></style>
+</resources>
