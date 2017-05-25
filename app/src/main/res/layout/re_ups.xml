@@ -6,22 +6,23 @@
         android:orientation="horizontal"
         android:id="@+id/ll_ups"
         android:layout_width="match_parent"
-        android:layout_height="210dp">
+        android:layout_height="190dp">
         <LinearLayout
             android:layout_weight="5"
             android:orientation="vertical"
             android:layout_width="0dp"
             android:layout_height="wrap_content">
             <TextView
+                android:padding="3dp"
                 android:textColor="@color/colorPrimary"
                 android:gravity="center"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:text="三相输入量"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <TextView
-                android:padding="5dp"
-                android:textSize="11sp"
+                android:layout_marginLeft="5dp"
+                android:textSize="10sp"
                 android:text="666666666666666666666666666"
                 android:id="@+id/triphase_input_tv"
                 android:layout_width="match_parent"
@@ -40,18 +41,20 @@
         android:orientation="vertical"
         android:layout_width="0dp"
         android:layout_height="match_parent">
+
         <TextView
+            android:padding="3dp"
             android:id="@+id/ups_name"
             android:textColor="@color/colorPrimary"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:gravity="center"
             android:text="Name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
-            android:layout_marginTop="5dp"
-            android:textSize="11sp"
+            android:layout_marginTop="2dp"
+            android:textSize="10sp"
             android:text="666666666666666666666666666"
             android:id="@+id/main_tv"
             android:layout_width="match_parent"
@@ -71,15 +74,16 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:padding="3dp"
                 android:textColor="@color/colorPrimary"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:gravity="center"
                 android:text="三相输出量"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <TextView
-                android:padding="5dp"
-                android:textSize="11sp"
+                android:layout_marginLeft="5dp"
+                android:textSize="10sp"
                 android:text="666666666666666666666666666"
                 android:id="@+id/triphase_output_tv"
                 android:layout_width="match_parent"
@@ -96,9 +100,9 @@
         android:layout_height="2dp"/>
     <TextView
         android:id="@+id/ups_state"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:textColor="@color/colorPrimary"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:gravity="center"
         android:layout_below="@id/ups_v"
         android:text="UPS状态"

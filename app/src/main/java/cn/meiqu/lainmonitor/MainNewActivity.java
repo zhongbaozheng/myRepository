@@ -87,7 +87,7 @@ public class MainNewActivity extends BaseActivity {
         mTabL.setupWithViewPager(mViewP);
         mTabL.setTabTextColors(getResources().getColor(R.color.black3), getResources().getColor(R.color.colorAccent));//设置文本在选中和为选中时候的颜色
         mTabL.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorAccent));
-        mTabL.setTabMode(TabLayout.MODE_FIXED);
+        mTabL.setTabMode(TabLayout.MODE_SCROLLABLE);
         //初始化数据
         initData();
     }

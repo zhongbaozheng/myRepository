@@ -127,10 +127,10 @@ public class FragmentServer extends FragmentNormal{
         mSwap1.setText("交换区总量\n\n"+serverBean.swapTotal);
         mSwap2.setText("已使用\n\n"+serverBean.swapUsed);
         mSwap3.setText("剩余\n\n"+serverBean.swapFree);
-        mDisk1.setText("      "+serverBean.diskName[0]+"\n总容量："+serverBean.disInfo.Cdisk[0]+"G\n已使用："+serverBean.disInfo.Cdisk[1]+"G\n未使用："+serverBean.disInfo.Cdisk[2]+"G");
-        mDisk2.setText("      "+serverBean.diskName[1]+"\n总容量："+serverBean.disInfo.Ddisk[0]+"G\n已使用："+serverBean.disInfo.Ddisk[1]+"G\n未使用："+serverBean.disInfo.Ddisk[2]+"G");
-        mDisk3.setText("      "+serverBean.diskName[2]+"\n总容量："+serverBean.disInfo.Edisk[0]+"G\n已使用："+serverBean.disInfo.Edisk[1]+"G\n未使用："+serverBean.disInfo.Edisk[2]+"G");
-        mDisk4.setText("      "+serverBean.diskName[3]+"\n总容量："+serverBean.disInfo.Fdisk[0]+"G\n已使用："+serverBean.disInfo.Fdisk[1]+"G\n未使用："+serverBean.disInfo.Fdisk[2]+"G");
+        mDisk1.setText("      "+serverBean.diskName[0]+"\n\n总容量："+serverBean.disInfo.Cdisk[0]+"G\n\n已使用："+serverBean.disInfo.Cdisk[1]+"G\n\n未使用："+serverBean.disInfo.Cdisk[2]+"G");
+        mDisk2.setText("      "+serverBean.diskName[1]+"\n\n总容量："+serverBean.disInfo.Ddisk[0]+"G\n\n已使用："+serverBean.disInfo.Ddisk[1]+"G\n\n未使用："+serverBean.disInfo.Ddisk[2]+"G");
+        mDisk3.setText("      "+serverBean.diskName[2]+"\n\n总容量："+serverBean.disInfo.Edisk[0]+"G\n\n已使用："+serverBean.disInfo.Edisk[1]+"G\n\n未使用："+serverBean.disInfo.Edisk[2]+"G");
+        mDisk4.setText("      "+serverBean.diskName[3]+"\n\n总容量："+serverBean.disInfo.Fdisk[0]+"G\n\n已使用："+serverBean.disInfo.Fdisk[1]+"G\n\n未使用："+serverBean.disInfo.Fdisk[2]+"G");
 
     }
 }

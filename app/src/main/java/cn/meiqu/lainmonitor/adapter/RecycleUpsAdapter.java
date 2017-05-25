@@ -101,11 +101,11 @@ public class RecycleUpsAdapter extends BaseRecycleAdapter {
 
         private void setBean(UPSBean bean){
             mUpsName.setText(bean.name);
-            triphaseInputTv.setText("\nA相输入电压："+bean.intAvol+" V\n\nB相输入电压："+bean.intBvol+" V\n\nC相输入电压："+bean.intCvol
+            triphaseInputTv.setText("A相输入电压："+bean.intAvol+" V\n\nB相输入电压："+bean.intBvol+" V\n\nC相输入电压："+bean.intCvol
             +" V\n\nA相旁路电压："+bean.bypAvol+" V\n\nB相旁路电压："+bean.bypBvol+" V\n\nC相旁路电压："+bean.bypCvol+" V");
-            mainTv.setText("\n 电池电压："+bean.batVol+" V\n\n 电池容量："+bean.batCapacity+" %\n\n 剩余时间："+bean.resTime+" min\n\n 旁路电流："+
+            mainTv.setText(" 电池电压："+bean.batVol+" V\n\n 电池容量："+bean.batCapacity+" %\n\n 剩余时间："+bean.resTime+" min\n\n 旁路电流："+
             bean.batCur+" A\n\n 电池温度："+bean.batTemp+" °C\n\n 输入频率："+bean.intFrequency+" Hz\n\n 旁路频率："+bean.bypFrequency+" Hz");
-            triphaseOutputTv.setText("\nA相输出电压："+bean.outAvol+" V\n\nB相输出电压："+bean.outBvol+" V\n\nC相输出电压："+bean.outCvol
+            triphaseOutputTv.setText("A相输出电压："+bean.outAvol+" V\n\nB相输出电压："+bean.outBvol+" V\n\nC相输出电压："+bean.outCvol
                     +" V\n\nA相负载百分比："+bean.loadA+" %\n\nB相负载百分比："+bean.loadB+" %\n\nC相负载百分比："+bean.loadC+" %");
             if(bean.intFault == 1){
                 mUpsRun.setText("UPS运行：正常");

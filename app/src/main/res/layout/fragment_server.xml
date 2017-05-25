@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="@color/black9"
     android:layout_height="match_parent">
 
     <in.srain.cube.views.ptr.PtrClassicFrameLayout
@@ -18,16 +17,21 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:layout_marginTop="25dp"
             android:textSize="16sp"
-            android:textColor="@color/white"
             android:gravity="center"
             android:text="CPU使用情况"
             android:id="@+id/server_item_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+        <View
+            android:layout_marginTop="20dp"
+            android:background="@color/color_backround"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
 
         <LinearLayout
-            android:layout_marginTop="20dp"
+
             android:background="@color/white3"
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -92,6 +96,10 @@
                 android:layout_height="match_parent" />
 
         </LinearLayout>
+        <View
+            android:background="@color/color_backround"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
 
         <LinearLayout
             android:layout_marginTop="10dp"
@@ -112,14 +120,18 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
-        <LinearLayout
+        <View
             android:layout_marginTop="10dp"
+            android:background="@color/color_backround"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+        <LinearLayout
             android:background="@color/white3"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="70dp">
             <TextView
-                android:textSize="11sp"
+                android:textSize="10sp"
                 android:gravity="center"
                 android:text="总物理内存"
                 android:layout_weight="1"
@@ -128,7 +140,7 @@
                 android:layout_height="match_parent" />
             <TextView
                 android:text="已使用"
-                android:textSize="11sp"
+                android:textSize="10sp"
                 android:gravity="center"
                 android:layout_weight="1"
                 android:id="@+id/sys_tv2"
@@ -137,7 +149,7 @@
 
             <TextView
                 android:text="剩余"
-                android:textSize="11sp"
+                android:textSize="10sp"
                 android:gravity="center"
                 android:layout_weight="1"
                 android:id="@+id/sys_tv3"
@@ -151,7 +163,7 @@
 
             <TextView
                 android:text="交换区总量"
-                android:textSize="11sp"
+                android:textSize="10sp"
                 android:gravity="center"
                 android:layout_weight="1"
                 android:id="@+id/swap_tv1"
@@ -159,7 +171,7 @@
                 android:layout_height="match_parent" />
             <TextView
                 android:text="已使用"
-                android:textSize="11sp"
+                android:textSize="10sp"
                 android:gravity="center"
                 android:layout_weight="1"
                 android:id="@+id/swap_tv2"
@@ -167,7 +179,7 @@
                 android:layout_height="match_parent" />
             <TextView
                 android:text="剩余"
-                android:textSize="11sp"
+                android:textSize="10sp"
                 android:gravity="center"
                 android:layout_weight="1"
                 android:id="@+id/swap_tv3"
@@ -175,6 +187,11 @@
                 android:layout_height="match_parent" />
 
         </LinearLayout>
+        <View
+            android:background="@color/color_backround"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
 
         <TextView
             android:layout_marginTop="10dp"
@@ -183,15 +200,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <LinearLayout
-            android:padding="2dp"
+        <View
             android:layout_marginTop="10dp"
+            android:background="@color/color_backround"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <LinearLayout
             android:background="@color/white3"
             android:layout_width="match_parent"
             android:layout_height="100dp">
             <TextView
                 android:text="C盘"
-                android:textSize="11sp"
+                android:textSize="10sp"
                 android:gravity="center_vertical"
                 android:layout_weight="1"
                 android:id="@+id/disk_tv1"
@@ -199,7 +220,7 @@
                 android:layout_height="match_parent" />
             <TextView
                 android:text="D盘"
-                android:textSize="11sp"
+                android:textSize="10sp"
                 android:gravity="center_vertical"
                 android:layout_weight="1"
                 android:id="@+id/disk_tv2"
@@ -207,7 +228,7 @@
                 android:layout_height="match_parent" />
             <TextView
                 android:text="E盘"
-                android:textSize="11sp"
+                android:textSize="10sp"
                 android:gravity="center_vertical"
                 android:layout_weight="1"
                 android:id="@+id/disk_tv3"
@@ -215,7 +236,7 @@
                 android:layout_height="match_parent" />
             <TextView
                 android:text="F盘"
-                android:textSize="11sp"
+                android:textSize="10sp"
                 android:gravity="center_vertical"
                 android:layout_weight="1"
                 android:id="@+id/disk_tv4"
@@ -223,6 +244,11 @@
                 android:layout_height="match_parent" />
 
         </LinearLayout>
+
+        <View
+            android:background="@color/color_backround"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
     </LinearLayout>
 
     </in.srain.cube.views.ptr.PtrClassicFrameLayout>
