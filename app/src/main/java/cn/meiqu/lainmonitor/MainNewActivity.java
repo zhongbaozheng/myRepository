@@ -38,12 +38,14 @@ import cn.meiqu.baseproject.util.UpdateUtil;
 import cn.meiqu.lainmonitor.adapter.PagerHomeAdapter;
 import cn.meiqu.lainmonitor.aui.ControlActivity;
 import cn.meiqu.lainmonitor.bean.HomePage;
+import cn.meiqu.lainmonitor.view.ShapeIndicatorView;
 
 public class MainNewActivity extends BaseActivity {
     String className = getClass().getName();
     String action_getHomePage = className + API.getHomePage;
     private TabLayout mTabL;
     private ViewPager mViewP;
+    private ShapeIndicatorView shapeIndicatorView;
     private PagerHomeAdapter adapter;
     private List<Fragment> fragments = new ArrayList<>();
     ArrayList<HomePage> homePages = new ArrayList<>();
@@ -69,6 +71,7 @@ public class MainNewActivity extends BaseActivity {
 //        setSupportActionBar(toolbar);
 
         Toolbar toolbar = (Toolbar) findViewById(cn.meiqu.baseproject.R.id.toolBar);
+        shapeIndicatorView = (ShapeIndicatorView)findViewById(R.id.shapeIndicator);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(false);
@@ -85,8 +88,10 @@ public class MainNewActivity extends BaseActivity {
         adapter = new PagerHomeAdapter(getSupportFragmentManager(), fragments, titles);
         mViewP.setAdapter(adapter);
         mTabL.setupWithViewPager(mViewP);
-        mTabL.setTabTextColors(getResources().getColor(R.color.black3), getResources().getColor(R.color.colorAccent));//设置文本在选中和为选中时候的颜色
-        mTabL.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorAccent));
+        shapeIndicatorView.setupWithTabLayout(mTabL);
+        shapeIndicatorView.setupWithViewPager(mViewP);
+        mTabL.setTabTextColors(getResources().getColor(R.color.black3), getResources().getColor(R.color.white));//设置文本在选中和为选中时候的颜色
+//        mTabL.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorAccent));//设置指示器的颜色
         mTabL.setTabMode(TabLayout.MODE_SCROLLABLE);
         //初始化数据
         initData();

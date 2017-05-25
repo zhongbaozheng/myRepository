@@ -20,12 +20,20 @@
         android:layout_height="1px"
         android:background="@color/colorAccent" />
 
-    <android.support.design.widget.TabLayout
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+       <cn.meiqu.lainmonitor.view.ShapeIndicatorView
+           android:id="@+id/shapeIndicator"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent" />
+
+        <android.support.design.widget.TabLayout
         android:id="@+id/tabL"
-        android:layout_width="fill_parent"
-        android:layout_height="48dp"
-        android:background="@color/window_background">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     </android.support.design.widget.TabLayout>
+    </FrameLayout>
 
 </LinearLayout>
