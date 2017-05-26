@@ -84,7 +84,7 @@ public class StartActivity extends BaseActivity {
             IpSettingActivity.isFirst = true;
             jumpFinish(IpSettingActivity.class);
         } else if (SettingDao.getInstance().getIsLogin()) {
-            jumpFinish(MainNewActivity.class);
+            jumpFinish(MainActivity.class);
         } else {
             jumpFinish(LoginActivity.class);
         }

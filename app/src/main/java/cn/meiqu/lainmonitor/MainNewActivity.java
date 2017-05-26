@@ -71,7 +71,6 @@ public class MainNewActivity extends BaseActivity {
 //        setSupportActionBar(toolbar);
 
         Toolbar toolbar = (Toolbar) findViewById(cn.meiqu.baseproject.R.id.toolBar);
-        shapeIndicatorView = (ShapeIndicatorView)findViewById(R.id.shapeIndicator);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(false);
@@ -79,6 +78,8 @@ public class MainNewActivity extends BaseActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         ((TextView) findViewById(R.id.tv_title)).setVisibility(View.VISIBLE);
         ((TextView) findViewById(R.id.tv_title)).setText("莱安监控系统");
+
+        shapeIndicatorView = (ShapeIndicatorView)findViewById(R.id.shapeIndicator);
 
         mTabL = (TabLayout) findViewById(R.id.tabL);
         mViewP = (ViewPager) findViewById(R.id.viewP);

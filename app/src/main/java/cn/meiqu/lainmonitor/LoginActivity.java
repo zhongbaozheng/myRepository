@@ -70,10 +70,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
             JSONArray array = new JSONArray(data);
             JSONObject object = array.getJSONObject(0);
             if (object.optString("status").equals("1")) {
-                SettingDao.getInstance().setIsLogin();
+                SettingDao.getInstance().setIsLogin(1);
                 SettingDao.getInstance().setAccount(userName);
                 SettingDao.getInstance().setPwd(password);
-                jumpFinish(MainNewActivity.class);
+                jumpFinish(MainActivity.class);
             } else {
                 toast(object.optString("msg"));
             }

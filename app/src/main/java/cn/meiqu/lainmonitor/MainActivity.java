@@ -1,44 +1,43 @@
 package cn.meiqu.lainmonitor;
 
+import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 import cn.meiqu.baseproject.API;
 import cn.meiqu.baseproject.baseUi.BaseActivity;
 import cn.meiqu.baseproject.httpGet.HttpGetController;
 import cn.meiqu.baseproject.util.LogUtil;
+import cn.meiqu.baseproject.util.UpdateUtil;
+import cn.meiqu.lainmonitor.adapter.PagerHomeAdapter;
+import cn.meiqu.lainmonitor.aui.ControlActivity;
+import cn.meiqu.lainmonitor.bean.HomePage;
 import cn.meiqu.lainmonitor.view.SmoothDrawerLayout;
 
-public class MainActivity extends BaseActivity
-        implements NavigationView.OnNavigationItemSelectedListener, DrawerLayout.DrawerListener {
-    String className = getClass().getName();
-    String action_getHomePage = className + API.getHomePage;
-    String action_getHomeChildPage = className + API.getHomeChildPage;
-    private SmoothDrawerLayout mDrawerLayout;
-    private NavigationView mNavView;
+public class MainActivity extends AppCompatActivity{
 
-    private void assignViews() {
-        initTitle("温湿度");
-        mDrawerLayout = (SmoothDrawerLayout) findViewById(R.id.drawer_layout);
-        mNavView = (NavigationView) findViewById(R.id.nav_view);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolBar);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, mDrawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        mDrawerLayout.setDrawerListener(toggle);
-        toggle.syncState();
-        mNavView.setNavigationItemSelectedListener(this);
-        mDrawerLayout.addDrawerListener(this);
-//        mNavView.getMenu().getItem(1).getSubMenu().getItem(0).set
-//        mNavView.getMenu().add(R.id.menu1, 1, 1, "test");
-//        mNavView.getMenu().getItem(1).getSubMenu().add("dddd");
-    }
+    private String[] mTitles = {"主页","我的"};
+    private ArrayList<Fragment> mFragments = new ArrayList<>();
 
+    private ViewPager mViewPager;
+    private TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,86 +45,60 @@ public class MainActivity extends BaseActivity
         setContentView(R.layout.activity_main);
         initTransparent();
         assignViews();
-        initFragment();
-        //
-        initReceiver(new String[]{action_getHomePage, action_getHomeChildPage});
-        HttpGetController.getInstance().getHomePage(className);
-    }
-
-    @Override
-    public void initFragment() {
-//        findViewById(R.id.frame_fragment).setAlpha(0.1f);
-//        findViewById(R.id.frame_fragment).animate().alpha(1.0f).setDuration(500).start();
-//        showFirst(new FragmentTemp());
-//        showFirst(new FragmentServer());
-    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        for (int i = 0; i < mNavView.getMenu().size(); i++) {
-            for (int j = 0; j < mNavView.getMenu().getItem(i).getSubMenu().size(); j++) {
-                if (mNavView.getMenu().getItem(i).getSubMenu().getItem(j).isChecked()) {
-                    mNavView.getMenu().getItem(i).getSubMenu().getItem(j).setCheckable(false);
-                    break;
-                }
-            }
-        }
-        item.setCheckable(true);
-        getSupportActionBar().setTitle(item.getTitle().toString().trim());
-        int id = item.getItemId();
-        LogUtil.log("item.getItemId=" + id);
-        initFragment();
-//
-//        if (id == R.id.nav_camera) {
-//            // Handle the camera action
-//        } else if (id == R.id.nav_gallery) {
-//
-//        } else if (id == R.id.nav_slideshow) {
-//
-//        } else if (id == R.id.nav_manage) {
-//
-//        } else if (id == R.id.nav_share) {
-//
-//        } else if (id == R.id.nav_send) {
-//
-//        }
-        mDrawerLayout.closeDrawer(GravityCompat.START);
-        return true;
-    }
-
-    @Override
-    public void onDrawerSlide(View drawerView, float slideOffset) {
-        mDrawerLayout.getChildAt(0).setTranslationX(slideOffset * drawerView.getWidth() / 2);
-    }
-
-    @Override
-    public void onDrawerOpened(View drawerView) {
-    }
-
-    @Override
-    public void onDrawerClosed(View drawerView) {
+        UpdateUtil.checkUpdate(getApplication(), false);
+        addFragments();
+        setViewPager();
 
     }
 
-    @Override
-    public void onDrawerStateChanged(int newState) {
+    private void addFragments(){
+        mFragments.add(new HomeFragment());
+        mFragments.add(new MineFragment());
+    }
+
+    private void setViewPager(){
+
+        PagerHomeAdapter tabAdapter = new PagerHomeAdapter(getSupportFragmentManager(),mFragments,mTitles);
+        mViewPager.setAdapter(tabAdapter);
+        tabLayout.setTabTextColors(getResources().getColor(R.color.white), getResources().getColor(R.color.color_green));//设置文本在选中和为选中时候的颜色
+        tabLayout.setupWithViewPager(mViewPager);
+    }
+
+
+
+    public void assignViews(){
+        Toolbar toolbar = (Toolbar) findViewById(R.id.layout_title);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setDisplayShowHomeEnabled(false);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        ((TextView) findViewById(R.id.tv_title)).setVisibility(View.VISIBLE);
+        ((TextView) findViewById(R.id.tv_title)).setText("莱安监控系统");
+
+        mViewPager = (ViewPager)findViewById(R.id.viewPager);
+        tabLayout = (TabLayout)findViewById(R.id.table);
 
     }
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
+
+    public void initTransparent(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.TRANSPARENT);
         }
     }
 
-    @Override
-    public void onHttpHandle(String action, String data) {
 
+    public void jumpControlActivity(String pId, String cId, String name) {
+        Intent intent = new Intent(this, ControlActivity.class);
+        intent.putExtra(ControlActivity.extra_pId, pId);
+        intent.putExtra(ControlActivity.extra_cId, cId);
+        intent.putExtra(ControlActivity.extra_name, name);
+        startActivity(intent);
     }
 
 }

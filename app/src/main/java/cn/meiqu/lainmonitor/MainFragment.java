@@ -117,7 +117,7 @@ public class MainFragment extends BaseFragment implements SwipeRefreshLayout.OnR
     @Override
     public void onRefresh() {
         requestPage();
-        ((MainNewActivity)getActivity()).mHandler.sendEmptyMessage(1);
+//        ((MainNewActivity)getActivity()).mHandler.sendEmptyMessage(1);
     }
 
     @Override
@@ -127,7 +127,8 @@ public class MainFragment extends BaseFragment implements SwipeRefreshLayout.OnR
             ((BaseActivity) getActivity()).jump(IpSettingActivity.class);
         } else {
             //跳转到对应的界面id这里对应的是numberId，就是每一个界面的id,当点击的话就传入一个homePage.getId()，并跳到对应的界面
-            ((MainNewActivity) getActivity()).jumpControlActivity(numberId, homePage.getId() + "", homePage.getName());
+//            ((MainNewActivity) getActivity()).jumpControlActivity(numberId, homePage.getId() + "", homePage.getName());
+            ((MainActivity) getActivity()).jumpControlActivity(numberId, homePage.getId() + "", homePage.getName());
         }
     }
 }

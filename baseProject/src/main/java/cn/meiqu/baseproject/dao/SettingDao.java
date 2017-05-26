@@ -111,9 +111,10 @@ public class SettingDao {
         return get(hostAddr);
     }
 
-    public void setIsLogin() {
-        set(isLogined, "1");
+    public void setIsLogin(int number) {
+        set(isLogined, ""+number);
     }
+
 
     public boolean getIsLogin() {
         return get(isLogined).equals("1");
