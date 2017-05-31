@@ -199,7 +199,6 @@ public class UserManagerActivity extends BaseActivity implements View.OnClickLis
                 }else{
                     Toast.makeText(this,"您的输入有误！",Toast.LENGTH_SHORT).show();
                 }
-
                 break;
         }
     }

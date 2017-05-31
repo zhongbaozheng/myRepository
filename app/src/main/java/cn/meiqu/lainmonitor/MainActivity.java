@@ -14,6 +14,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -29,6 +30,7 @@ import cn.meiqu.baseproject.util.UpdateUtil;
 import cn.meiqu.lainmonitor.adapter.PagerHomeAdapter;
 import cn.meiqu.lainmonitor.aui.ControlActivity;
 import cn.meiqu.lainmonitor.bean.HomePage;
+import cn.meiqu.lainmonitor.view.NoScrollViewPager;
 import cn.meiqu.lainmonitor.view.SmoothDrawerLayout;
 
 public class MainActivity extends AppCompatActivity{
@@ -36,7 +38,8 @@ public class MainActivity extends AppCompatActivity{
     private String[] mTitles = {"主页","我的"};
     private ArrayList<Fragment> mFragments = new ArrayList<>();
 
-    private ViewPager mViewPager;
+    //禁止滑动
+    private NoScrollViewPager mViewPager;
     private TabLayout tabLayout;
 
     @Override
@@ -76,7 +79,7 @@ public class MainActivity extends AppCompatActivity{
         ((TextView) findViewById(R.id.tv_title)).setVisibility(View.VISIBLE);
         ((TextView) findViewById(R.id.tv_title)).setText("莱安监控系统");
 
-        mViewPager = (ViewPager)findViewById(R.id.viewPager);
+        mViewPager = (NoScrollViewPager) findViewById(R.id.viewPager);
         tabLayout = (TabLayout)findViewById(R.id.table);
 
     }

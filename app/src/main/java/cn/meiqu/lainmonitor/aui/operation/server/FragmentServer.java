@@ -1,5 +1,6 @@
 package cn.meiqu.lainmonitor.aui.operation.server;
 
+import android.app.ProgressDialog;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -45,13 +46,6 @@ public class FragmentServer extends FragmentNormal{
     private TextView mDisk3;
     private TextView mDisk4;
 
-    private ProgressBar mProgress;
-
-
-
-
-
-
     @Override
     public String getAction() {
         return action_getData;
@@ -60,7 +54,6 @@ public class FragmentServer extends FragmentNormal{
     @Override
     public void requestData() {
         HttpGetController.getInstance().getServerData(className);
-        mProgress.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -72,7 +65,6 @@ public class FragmentServer extends FragmentNormal{
             mList.addAll(temps);
         }
         setData(mList.get(0));
-        mProgress.setVisibility(View.GONE);
     }
 
     @Override
@@ -106,7 +98,6 @@ public class FragmentServer extends FragmentNormal{
         mDisk2 = (TextView)findViewById(R.id.disk_tv2);
         mDisk3 = (TextView)findViewById(R.id.disk_tv3);
         mDisk4 = (TextView)findViewById(R.id.disk_tv4);
-        mProgress = new ProgressBar(getActivity());
 
     }
 

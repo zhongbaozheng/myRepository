@@ -51,7 +51,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         setContentView(R.layout.activity_login);
         initTransparent();
         assignViews();
-        Log.e("actionLogin",action_login);
         initReceiver(new String[]{action_login});
     }
 
@@ -75,7 +74,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                 SettingDao.getInstance().setPwd(password);
                 jumpFinish(MainActivity.class);
             } else {
-                toast(object.optString("msg"));
+                Toast.makeText(this, "您输入的用户名或密码有误！", Toast.LENGTH_SHORT).show();
             }
         } catch (JSONException e) {
             e.printStackTrace();

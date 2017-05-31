@@ -25,15 +25,15 @@
             android:name=".aui.ControlActivity"
             android:label="@string/title_activity_control"></activity>
         <activity
-            android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustPan"
             android:name=".activity.UserManagerActivity"/>
         <activity
+            android:windowSoftInputMode="adjustPan"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="adjustResize"
             android:name=".activity.DoorControlActivity"/>
         <activity
-            android:windowSoftInputMode="adjustResize"
+            android:windowSoftInputMode="adjustPan"
             android:theme="@style/AppTheme"
             android:name=".activity.SelectionActivity"/>
     </application>
