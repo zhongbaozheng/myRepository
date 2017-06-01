@@ -157,6 +157,8 @@ public class API {
     public static String changModUrl = "ktr-mrms/relieveDoorUserJson.html";
     //请求权限
     public static String requestModUrl = "ktr-mrms/accreditDoorUserJson.html";
+    //电量仪信息返回
+    public static String batteryUrl = "ktr-mrms/queElectricMeterManageJson.html";
 
     public static String getBaseUrl() {
         String baseUrl = StringUtil.isEmpty(SettingDao.getInstance().getHostIp()) ? SettingDao.getInstance().getHostAddr() : SettingDao.getInstance().getHostIp();

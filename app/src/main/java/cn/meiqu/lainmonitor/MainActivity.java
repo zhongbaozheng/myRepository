@@ -21,6 +21,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.zip.Inflater;
 
 import cn.meiqu.baseproject.API;
 import cn.meiqu.baseproject.baseUi.BaseActivity;
@@ -30,6 +31,7 @@ import cn.meiqu.baseproject.util.UpdateUtil;
 import cn.meiqu.lainmonitor.adapter.PagerHomeAdapter;
 import cn.meiqu.lainmonitor.aui.ControlActivity;
 import cn.meiqu.lainmonitor.bean.HomePage;
+import cn.meiqu.lainmonitor.untils.AndroidBug54971Workaround;
 import cn.meiqu.lainmonitor.view.NoScrollViewPager;
 import cn.meiqu.lainmonitor.view.SmoothDrawerLayout;
 
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        AndroidBug54971Workaround.assistActivity(findViewById(R.id.viewPager));
         initTransparent();
         assignViews();
         UpdateUtil.checkUpdate(getApplication(), false);

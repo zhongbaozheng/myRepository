@@ -198,6 +198,10 @@ public class HttpGetController {
         get(API.requestModUrl,params.toString(),className);
     }
 
+    //获取电量仪信息
+    public void getBaterry(String className){
+        post(API.batteryUrl,getTokenBuild(),className);
+    }
 
     public void getSElecReal(String className) {
         post(API.getSElecReal, getTokenBuild(), className);
