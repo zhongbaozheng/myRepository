@@ -75,7 +75,8 @@ public class FragmentElecManage extends FragmentReal implements RecycleBatteryAd
         bundle.putString("postion",position);
         f.setArguments(bundle);
         transaction.replace(containerId, f,f.getClass().getName());
-        transaction.addToBackStack(null);//写了默认返回上一个fragment
+        getFragmentManager().popBackStack();
+//        transaction.addToBackStack(null);//写了默认返回上一个fragment
         transaction.commit();
     }
 
