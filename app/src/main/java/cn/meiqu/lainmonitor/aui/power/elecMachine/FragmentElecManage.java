@@ -11,15 +11,14 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
-
 import cn.meiqu.baseproject.API;
 import cn.meiqu.baseproject.httpGet.HttpGetController;
-import cn.meiqu.lainmonitor.FragmentWeb;
 import cn.meiqu.lainmonitor.R;
 import cn.meiqu.lainmonitor.adapter.RecycleBatteryAdapter;
 import cn.meiqu.lainmonitor.aui.FragmentReal;
 import cn.meiqu.lainmonitor.bean.Baterry;
-import cn.meiqu.lainmonitor.bean.ElecMachine;
+
+import android.view.View;
 
 /**
  * Created by Fatel on 16-5-27.
@@ -66,7 +65,7 @@ public class FragmentElecManage extends FragmentReal implements RecycleBatteryAd
     public void onItemClick(int postion) {
         //开启我们的fragment
         Toast.makeText(getActivity(), ""+postion, Toast.LENGTH_SHORT).show();
-        AddToFragment(new FragmentBattery(), R.id.container_id,postion+"");
+        AddToFragment(new FragmentBattery(), R.id.fragment_containId,postion+"");
     }
 
     public void AddToFragment(Fragment f, int containerId,String position) {
@@ -74,9 +73,11 @@ public class FragmentElecManage extends FragmentReal implements RecycleBatteryAd
         Bundle bundle = new Bundle();
         bundle.putString("postion",position);
         f.setArguments(bundle);
+
+        //没办法再用Activity
         transaction.replace(containerId, f,f.getClass().getName());
-        getFragmentManager().popBackStack();
-//        transaction.addToBackStack(null);//写了默认返回上一个fragment
+//        getFragmentManager().popBackStack();
+        transaction.addToBackStack(null);//写了默认返回上一个fragment
         transaction.commit();
     }
 
