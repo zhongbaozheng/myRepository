@@ -18,8 +18,6 @@ import cn.meiqu.lainmonitor.adapter.RecycleBatteryAdapter;
 import cn.meiqu.lainmonitor.aui.FragmentReal;
 import cn.meiqu.lainmonitor.bean.Baterry;
 
-import android.view.View;
-
 /**
  * Created by Fatel on 16-5-27.
  */
@@ -73,7 +71,7 @@ public class FragmentElecManage extends FragmentReal implements RecycleBatteryAd
         Bundle bundle = new Bundle();
         bundle.putString("postion",position);
         f.setArguments(bundle);
-
+        
         //没办法再用Activity
         transaction.replace(containerId, f,f.getClass().getName());
 //        getFragmentManager().popBackStack();
