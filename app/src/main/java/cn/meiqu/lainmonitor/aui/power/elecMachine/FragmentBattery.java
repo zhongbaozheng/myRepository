@@ -28,7 +28,7 @@ public class FragmentBattery extends FragmentNormal {
 
     @Override
     public int getLayoutId() {
-        return R.layout.f_baterry;
+        return R.layout.activtiy_battery;
     }
 
     @Override

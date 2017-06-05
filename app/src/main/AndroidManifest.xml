@@ -23,7 +23,9 @@
         <activity android:name=".LoginActivity" />
         <activity
             android:name=".aui.ControlActivity"
-            android:label="@string/title_activity_control"></activity>
+            android:label="@string/title_activity_control">
+        </activity>
+        <activity android:name=".aui.power.elecMachine.ElecMachineManageActivity"/>
         <activity
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan"

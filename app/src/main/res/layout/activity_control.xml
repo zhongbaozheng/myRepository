@@ -7,7 +7,9 @@
 
     <include layout="@layout/title" />
 
-    <FrameLayout style="@style/fragment_root">
+    <FrameLayout
+        android:id="@+id/frame_fragment"
+        style="@style/fragment_root">
 
     </FrameLayout>
 </LinearLayout>

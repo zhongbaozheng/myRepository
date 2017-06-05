@@ -32,4 +32,5 @@ dependencies {
     compile 'com.jaeger.statusbaruitl:library:1.0.0'
     compile 'com.squareup.okhttp:okhttp:2.0.0'
     compile 'in.srain.cube:ultra-ptr:1.0.11'
+    compile 'com.jakewharton:butterknife:8.4.0'
 }

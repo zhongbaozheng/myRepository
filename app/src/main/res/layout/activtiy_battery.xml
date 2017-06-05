@@ -1,0 +1,878 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/title" />
+
+
+    <in.srain.cube.views.ptr.PtrClassicFrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ptr_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/battery_scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+       <LinearLayout
+           android:orientation="vertical"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+           <!-- *********************************************  -->
+           <LinearLayout
+               android:padding="5dp"
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+
+               <LinearLayout
+                   android:layout_weight="1"
+                   android:gravity="center"
+                   android:orientation="horizontal"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content">
+                   <TextView
+                       android:id="@+id/tv_1"
+                       android:text="所在位置："
+                       android:textSize="12sp"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content" />
+                   <EditText
+                       android:gravity="center"
+                       android:textSize="12sp"
+                       android:id="@+id/ed_1"
+                       android:background="@drawable/frame_border"
+                       android:layout_width="40dp"
+                       android:layout_height="wrap_content" />
+
+               </LinearLayout>
+
+
+               <LinearLayout
+                   android:layout_weight="1"
+                   android:gravity="center"
+                   android:orientation="horizontal"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content">
+                   <TextView
+                       android:textSize="12sp"
+                       android:id="@+id/tv_2"
+                       android:text="所在位置："
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content" />
+                   <EditText
+                       android:gravity="center"
+                       android:textSize="12sp"
+                       android:id="@+id/ed_2"
+                       android:background="@drawable/frame_border"
+                       android:layout_width="40dp"
+                       android:layout_height="wrap_content" />
+
+               </LinearLayout>
+
+
+               <LinearLayout
+                   android:layout_weight="1"
+                   android:gravity="center"
+                   android:orientation="horizontal"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content">
+                   <TextView
+                       android:textSize="12sp"
+                       android:id="@+id/tv_3"
+                       android:text="所在位置："
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content" />
+                   <EditText
+                       android:gravity="center"
+                       android:textSize="12sp"
+                       android:id="@+id/ed_3"
+                       android:background="@drawable/frame_border"
+                       android:layout_width="40dp"
+                       android:layout_height="wrap_content" />
+
+               </LinearLayout>
+
+
+           </LinearLayout>
+
+           <LinearLayout
+               android:gravity="center"
+               android:background="@color/color_backround"
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="25dp">
+               <TextView
+                  style="@style/TextBackGround"
+                   android:text="参数名称"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"/>
+               <TextView
+                   android:text="上限"
+                   style="@style/TextBackGround"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"/>
+               <TextView
+                   android:text="下限"
+                   style="@style/TextBackGround"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"/>
+           </LinearLayout>
+
+           <!-- ************************************** -->
+
+           <LinearLayout
+               android:layout_marginTop="3dp"
+               android:gravity="center"
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:id="@+id/tv_4"
+                   style="@style/TextBackGround2"
+                   android:text="A相"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"/>
+              <LinearLayout
+                  android:gravity="center"
+                  android:layout_weight="1"
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content" >
+                  <EditText
+                      style="@style/Edit"
+                      android:id="@+id/ed_4_1"
+                      />
+              </LinearLayout>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       android:id="@+id/ed_4_2"
+                       style="@style/Edit"/>
+               </LinearLayout>
+           </LinearLayout>
+
+
+           <!-- ******************************************** -->
+
+           <LinearLayout
+               android:layout_marginTop="3dp"
+               android:gravity="center"
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:id="@+id/tv_5"
+                   style="@style/TextBackGround2"
+                   android:text="A相"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"/>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       style="@style/Edit"
+                       android:id="@+id/ed_5_1"
+                       />
+               </LinearLayout>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       android:id="@+id/ed_5_2"
+                       style="@style/Edit"/>
+               </LinearLayout>
+           </LinearLayout>
+
+           <!-- ************************ -->
+
+           <LinearLayout
+               android:layout_marginTop="3dp"
+               android:gravity="center"
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:id="@+id/tv_6"
+                   style="@style/TextBackGround2"
+                   android:text="A相"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"/>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       style="@style/Edit"
+                       android:id="@+id/ed_6_1"
+                       />
+               </LinearLayout>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       android:id="@+id/ed_6_2"
+                       style="@style/Edit"/>
+               </LinearLayout>
+           </LinearLayout>
+           <!-- *********************************** -->
+
+           <LinearLayout
+               android:layout_marginTop="3dp"
+               android:gravity="center"
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:id="@+id/tv_7"
+                   style="@style/TextBackGround2"
+                   android:text="A相"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"/>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       style="@style/Edit"
+                       android:id="@+id/ed_7_1"
+                       />
+               </LinearLayout>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       android:id="@+id/ed_7_2"
+                       style="@style/Edit"/>
+               </LinearLayout>
+           </LinearLayout>
+           <!-- ** ************************** -->
+
+           <LinearLayout
+               android:layout_marginTop="3dp"
+               android:gravity="center"
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:id="@+id/tv_8"
+                   style="@style/TextBackGround2"
+                   android:text="A相"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"/>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       style="@style/Edit"
+                       android:id="@+id/ed_8_1"
+                       />
+               </LinearLayout>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       android:id="@+id/ed_8_2"
+                       style="@style/Edit"/>
+               </LinearLayout>
+           </LinearLayout>
+           <!-- **************************************** -->
+
+           <LinearLayout
+               android:layout_marginTop="3dp"
+               android:gravity="center"
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:id="@+id/tv_9"
+                   style="@style/TextBackGround2"
+                   android:text="A相"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"/>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       style="@style/Edit"
+                       android:id="@+id/ed_9_1"
+                       />
+               </LinearLayout>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       android:id="@+id/ed_9_2"
+                       style="@style/Edit"/>
+               </LinearLayout>
+           </LinearLayout>
+           <!-- ** ********************** -->
+
+           <LinearLayout
+               android:layout_marginTop="3dp"
+               android:gravity="center"
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:id="@+id/tv_10"
+                   style="@style/TextBackGround2"
+                   android:text="A相"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"/>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       style="@style/Edit"
+                       android:id="@+id/ed_10_1"
+                       />
+               </LinearLayout>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       android:id="@+id/ed_10_2"
+                       style="@style/Edit"/>
+               </LinearLayout>
+           </LinearLayout>
+           <!--- 8*****************************************-->
+
+           <LinearLayout
+               android:layout_marginTop="3dp"
+               android:gravity="center"
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:id="@+id/tv_11"
+                   style="@style/TextBackGround2"
+                   android:text="A相"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"/>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       style="@style/Edit"
+                       android:id="@+id/ed_11_1"
+                       />
+               </LinearLayout>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       android:id="@+id/ed_11_2"
+                       style="@style/Edit"/>
+               </LinearLayout>
+           </LinearLayout>
+           <!-- **********************************************-->
+
+           <LinearLayout
+               android:layout_marginTop="3dp"
+               android:gravity="center"
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:id="@+id/tv_12"
+                   style="@style/TextBackGround2"
+                   android:text="A相"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"/>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       style="@style/Edit"
+                       android:id="@+id/ed_12_1"
+                       />
+               </LinearLayout>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       android:id="@+id/ed_12_2"
+                       style="@style/Edit"/>
+               </LinearLayout>
+           </LinearLayout>
+           <!-- ****************************-->
+
+           <LinearLayout
+               android:layout_marginTop="3dp"
+               android:gravity="center"
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:id="@+id/tv_13"
+                   style="@style/TextBackGround2"
+                   android:text="A相"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"/>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       style="@style/Edit"
+                       android:id="@+id/ed_13_1"
+                       />
+               </LinearLayout>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       android:id="@+id/ed_13_2"
+                       style="@style/Edit"/>
+               </LinearLayout>
+           </LinearLayout>
+           <!-- **************************************-->
+
+           <LinearLayout
+               android:layout_marginTop="3dp"
+               android:gravity="center"
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:id="@+id/tv_14"
+                   style="@style/TextBackGround2"
+                   android:text="A相"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"/>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       style="@style/Edit"
+                       android:id="@+id/ed_14_1"
+                       />
+               </LinearLayout>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       android:id="@+id/ed_14_2"
+                       style="@style/Edit"/>
+               </LinearLayout>
+           </LinearLayout>
+           <!-- **************************************** -->
+
+           <LinearLayout
+               android:layout_marginTop="3dp"
+               android:gravity="center"
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:id="@+id/tv_15"
+                   style="@style/TextBackGround2"
+                   android:text="A相"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"/>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       style="@style/Edit"
+                       android:id="@+id/ed_15_1"
+                       />
+               </LinearLayout>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       android:id="@+id/ed_15_2"
+                       style="@style/Edit"/>
+               </LinearLayout>
+           </LinearLayout>
+           <!-- **************************** -->
+
+           <LinearLayout
+               android:layout_marginTop="3dp"
+               android:gravity="center"
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:id="@+id/tv_16"
+                   style="@style/TextBackGround2"
+                   android:text="A相"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"/>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       style="@style/Edit"
+                       android:id="@+id/ed_16_1"
+                       />
+               </LinearLayout>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       android:id="@+id/ed_16_2"
+                       style="@style/Edit"/>
+               </LinearLayout>
+           </LinearLayout>
+           <!-- *********************************** -->
+
+           <LinearLayout
+               android:layout_marginTop="3dp"
+               android:gravity="center"
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:id="@+id/tv_17"
+                   style="@style/TextBackGround2"
+                   android:text="A相"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"/>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       style="@style/Edit"
+                       android:id="@+id/ed_17_1"
+                       />
+               </LinearLayout>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       android:id="@+id/ed_17_2"
+                       style="@style/Edit"/>
+               </LinearLayout>
+           </LinearLayout>
+           <!-- ********************************* -->
+
+           <LinearLayout
+               android:layout_marginTop="3dp"
+               android:gravity="center"
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:id="@+id/tv_18"
+                   style="@style/TextBackGround2"
+                   android:text="A相"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"/>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       style="@style/Edit"
+                       android:id="@+id/ed_18_1"
+                       />
+               </LinearLayout>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       android:id="@+id/ed_18_2"
+                       style="@style/Edit"/>
+               </LinearLayout>
+           </LinearLayout>
+           <!-- ********************************* -->
+
+           <LinearLayout
+               android:layout_marginTop="3dp"
+               android:gravity="center"
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:id="@+id/tv_19"
+                   style="@style/TextBackGround2"
+                   android:text="A相"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"/>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       style="@style/Edit"
+                       android:id="@+id/ed_19_1"
+                       />
+               </LinearLayout>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       android:id="@+id/ed_19_2"
+                       style="@style/Edit"/>
+               </LinearLayout>
+           </LinearLayout>
+           <!-- ************************************** -->
+
+           <LinearLayout
+               android:layout_marginTop="3dp"
+               android:gravity="center"
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:id="@+id/tv_20"
+                   style="@style/TextBackGround2"
+                   android:text="A相"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"/>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       style="@style/Edit"
+                       android:id="@+id/ed_20_1"
+                       />
+               </LinearLayout>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       android:id="@+id/ed_20_2"
+                       style="@style/Edit"/>
+               </LinearLayout>
+           </LinearLayout>
+           <!-- ******************************* -->
+
+           <LinearLayout
+               android:layout_marginTop="3dp"
+               android:gravity="center"
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:id="@+id/tv_21"
+                   style="@style/TextBackGround2"
+                   android:text="A相"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"/>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       style="@style/Edit"
+                       android:id="@+id/ed_21_1"
+                       />
+               </LinearLayout>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       android:id="@+id/ed_21_2"
+                       style="@style/Edit"/>
+               </LinearLayout>
+           </LinearLayout>
+           <!-- ******************************* -->
+
+           <LinearLayout
+               android:layout_marginTop="3dp"
+               android:gravity="center"
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:id="@+id/tv_22"
+                   style="@style/TextBackGround2"
+                   android:text="A相"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"/>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       style="@style/Edit"
+                       android:id="@+id/ed_22_1"
+                       />
+               </LinearLayout>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       android:id="@+id/ed_22_2"
+                       style="@style/Edit"/>
+               </LinearLayout>
+           </LinearLayout>
+           <!-- ****** *********************************************-->
+
+           <LinearLayout
+               android:layout_marginTop="3dp"
+               android:gravity="center"
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:id="@+id/tv_23"
+                   style="@style/TextBackGround2"
+                   android:text="A相"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"/>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       style="@style/Edit"
+                       android:id="@+id/ed_23_1"
+                       />
+               </LinearLayout>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       android:id="@+id/ed_23_2"
+                       style="@style/Edit"/>
+               </LinearLayout>
+           </LinearLayout>
+           <!-- ************************************* -->
+
+           <LinearLayout
+               android:layout_marginTop="3dp"
+               android:gravity="center"
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:id="@+id/tv_24"
+                   style="@style/TextBackGround2"
+                   android:text="A相"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"/>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       style="@style/Edit"
+                       android:id="@+id/ed_24_1"
+                       />
+               </LinearLayout>
+               <LinearLayout
+                   android:gravity="center"
+                   android:layout_weight="1"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content" >
+                   <EditText
+                       android:id="@+id/ed_24_2"
+                       style="@style/Edit"/>
+               </LinearLayout>
+           </LinearLayout>
+
+           <!--- **************************************** -->
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <TextView
+                    android:textColor="@color/color_backround"
+                    android:background="@drawable/fill_border2"
+                    android:gravity="center"
+                    android:text="删除"
+                    android:layout_marginLeft="80dp"
+                    android:id="@+id/delete_tv"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp" />
+                <TextView
+                    android:textColor="@color/color_backround"
+                    android:text="提交"
+                    android:layout_marginLeft="80dp"
+                    android:background="@drawable/fill_border2"
+                    android:gravity="center"
+                    android:id="@+id/commit_tv"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp" />
+            </LinearLayout>
+
+
+       </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+        </in.srain.cube.views.ptr.PtrClassicFrameLayout>
+
+
+</LinearLayout>

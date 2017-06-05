@@ -1,5 +1,6 @@
 package cn.meiqu.lainmonitor.aui.power.elecMachine;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -16,6 +17,7 @@ import cn.meiqu.baseproject.httpGet.HttpGetController;
 import cn.meiqu.lainmonitor.R;
 import cn.meiqu.lainmonitor.adapter.RecycleBatteryAdapter;
 import cn.meiqu.lainmonitor.aui.FragmentReal;
+import cn.meiqu.lainmonitor.aui.power.FragmentPower;
 import cn.meiqu.lainmonitor.bean.Baterry;
 
 /**
@@ -63,7 +65,8 @@ public class FragmentElecManage extends FragmentReal implements RecycleBatteryAd
     public void onItemClick(int postion) {
         //开启我们的fragment
         Toast.makeText(getActivity(), ""+postion, Toast.LENGTH_SHORT).show();
-        AddToFragment(new FragmentBattery(), R.id.fragment_containId,postion+"");
+        startActivity(new Intent(getActivity(), ElecMachineManageActivity.class));
+//        AddToFragment(new FragmentBattery(), R.id.frame_fragment,postion+"");
     }
 
     public void AddToFragment(Fragment f, int containerId,String position) {
@@ -71,10 +74,11 @@ public class FragmentElecManage extends FragmentReal implements RecycleBatteryAd
         Bundle bundle = new Bundle();
         bundle.putString("postion",position);
         f.setArguments(bundle);
-        
         //没办法再用Activity
         transaction.replace(containerId, f,f.getClass().getName());
 //        getFragmentManager().popBackStack();
+//        transaction.hide(getParentFragment());
+
         transaction.addToBackStack(null);//写了默认返回上一个fragment
         transaction.commit();
     }

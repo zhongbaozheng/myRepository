@@ -31,6 +31,7 @@ import com.umeng.analytics.MobclickAgent;
 
 import java.util.ArrayList;
 
+import butterknife.ButterKnife;
 import cn.meiqu.baseproject.R;
 import cn.meiqu.baseproject.bean.MsgBean;
 import cn.meiqu.baseproject.dialog.LoadingDialog;
