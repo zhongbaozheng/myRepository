@@ -77,8 +77,8 @@ public class RecycleBatteryAdapter extends BaseRecycleAdapter {
         public void instanceView(int position) {
             Baterry baterry = mList.get(position);
             mPosition = position;
+            mBaterryIdTv.setText("设备位置："+baterry.deviceLocationPojo.dlName);
             mBaterryNameTv.setText("设备名称："+baterry.emmName);
-            mBaterryIdTv.setText("设备位置："+baterry.emmId);
             mBaterryAddressTv.setText("设备地址："+baterry.emmAddress);
             mBaterryIpTv.setText("Ip："+baterry.ipPort);
         }

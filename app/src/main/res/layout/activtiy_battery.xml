@@ -36,11 +36,12 @@
                    android:layout_height="wrap_content">
                    <TextView
                        android:id="@+id/tv_1"
-                       android:text="所在位置："
+                       android:text="设备地址："
                        android:textSize="12sp"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content" />
                    <EditText
+                       android:editable="false"
                        android:gravity="center"
                        android:textSize="12sp"
                        android:id="@+id/ed_1"
@@ -64,6 +65,7 @@
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content" />
                    <EditText
+                       android:editable="false"
                        android:gravity="center"
                        android:textSize="12sp"
                        android:id="@+id/ed_2"
@@ -83,7 +85,7 @@
                    <TextView
                        android:textSize="12sp"
                        android:id="@+id/tv_3"
-                       android:text="所在位置："
+                       android:text="设备名称："
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content" />
                    <EditText
@@ -133,7 +135,7 @@
                <TextView
                    android:id="@+id/tv_4"
                    style="@style/TextBackGround2"
-                   android:text="A相"
+                   android:text="A相电压"
                    android:layout_weight="1"
                    android:layout_width="0dp"/>
               <LinearLayout
@@ -169,7 +171,7 @@
                <TextView
                    android:id="@+id/tv_5"
                    style="@style/TextBackGround2"
-                   android:text="A相"
+                   android:text="A相电流"
                    android:layout_weight="1"
                    android:layout_width="0dp"/>
                <LinearLayout
@@ -204,7 +206,7 @@
                <TextView
                    android:id="@+id/tv_6"
                    style="@style/TextBackGround2"
-                   android:text="A相"
+                   android:text="AB相电压"
                    android:layout_weight="1"
                    android:layout_width="0dp"/>
                <LinearLayout
@@ -238,7 +240,7 @@
                <TextView
                    android:id="@+id/tv_7"
                    style="@style/TextBackGround2"
-                   android:text="A相"
+                   android:text="A相有功功率"
                    android:layout_weight="1"
                    android:layout_width="0dp"/>
                <LinearLayout
@@ -272,7 +274,7 @@
                <TextView
                    android:id="@+id/tv_8"
                    style="@style/TextBackGround2"
-                   android:text="A相"
+                   android:text="A相无功功率"
                    android:layout_weight="1"
                    android:layout_width="0dp"/>
                <LinearLayout
@@ -306,7 +308,7 @@
                <TextView
                    android:id="@+id/tv_9"
                    style="@style/TextBackGround2"
-                   android:text="A相"
+                   android:text="A相功率因素"
                    android:layout_weight="1"
                    android:layout_width="0dp"/>
                <LinearLayout
@@ -340,7 +342,7 @@
                <TextView
                    android:id="@+id/tv_10"
                    style="@style/TextBackGround2"
-                   android:text="A相"
+                   android:text="B相电压"
                    android:layout_weight="1"
                    android:layout_width="0dp"/>
                <LinearLayout
@@ -374,7 +376,7 @@
                <TextView
                    android:id="@+id/tv_11"
                    style="@style/TextBackGround2"
-                   android:text="A相"
+                   android:text="B相电流"
                    android:layout_weight="1"
                    android:layout_width="0dp"/>
                <LinearLayout
@@ -408,7 +410,7 @@
                <TextView
                    android:id="@+id/tv_12"
                    style="@style/TextBackGround2"
-                   android:text="A相"
+                   android:text="BC相电压"
                    android:layout_weight="1"
                    android:layout_width="0dp"/>
                <LinearLayout
@@ -442,7 +444,7 @@
                <TextView
                    android:id="@+id/tv_13"
                    style="@style/TextBackGround2"
-                   android:text="A相"
+                   android:text="B相有功功率"
                    android:layout_weight="1"
                    android:layout_width="0dp"/>
                <LinearLayout
@@ -476,7 +478,7 @@
                <TextView
                    android:id="@+id/tv_14"
                    style="@style/TextBackGround2"
-                   android:text="A相"
+                   android:text="B相无功功率"
                    android:layout_weight="1"
                    android:layout_width="0dp"/>
                <LinearLayout
@@ -510,7 +512,7 @@
                <TextView
                    android:id="@+id/tv_15"
                    style="@style/TextBackGround2"
-                   android:text="A相"
+                   android:text="B相功率因素"
                    android:layout_weight="1"
                    android:layout_width="0dp"/>
                <LinearLayout
@@ -544,7 +546,7 @@
                <TextView
                    android:id="@+id/tv_16"
                    style="@style/TextBackGround2"
-                   android:text="A相"
+                   android:text="C相电压"
                    android:layout_weight="1"
                    android:layout_width="0dp"/>
                <LinearLayout
@@ -578,7 +580,7 @@
                <TextView
                    android:id="@+id/tv_17"
                    style="@style/TextBackGround2"
-                   android:text="A相"
+                   android:text="C相电流"
                    android:layout_weight="1"
                    android:layout_width="0dp"/>
                <LinearLayout
@@ -612,7 +614,7 @@
                <TextView
                    android:id="@+id/tv_18"
                    style="@style/TextBackGround2"
-                   android:text="A相"
+                   android:text="CA相电压"
                    android:layout_weight="1"
                    android:layout_width="0dp"/>
                <LinearLayout
@@ -646,7 +648,7 @@
                <TextView
                    android:id="@+id/tv_19"
                    style="@style/TextBackGround2"
-                   android:text="A相"
+                   android:text="C相有功功率"
                    android:layout_weight="1"
                    android:layout_width="0dp"/>
                <LinearLayout
@@ -680,7 +682,7 @@
                <TextView
                    android:id="@+id/tv_20"
                    style="@style/TextBackGround2"
-                   android:text="A相"
+                   android:text="C相无功功率"
                    android:layout_weight="1"
                    android:layout_width="0dp"/>
                <LinearLayout
@@ -714,7 +716,7 @@
                <TextView
                    android:id="@+id/tv_21"
                    style="@style/TextBackGround2"
-                   android:text="A相"
+                   android:text="C相功率因素"
                    android:layout_weight="1"
                    android:layout_width="0dp"/>
                <LinearLayout
@@ -748,7 +750,7 @@
                <TextView
                    android:id="@+id/tv_22"
                    style="@style/TextBackGround2"
-                   android:text="A相"
+                   android:text="总有功功率"
                    android:layout_weight="1"
                    android:layout_width="0dp"/>
                <LinearLayout
@@ -782,7 +784,7 @@
                <TextView
                    android:id="@+id/tv_23"
                    style="@style/TextBackGround2"
-                   android:text="A相"
+                   android:text="总无功功率"
                    android:layout_weight="1"
                    android:layout_width="0dp"/>
                <LinearLayout
@@ -816,7 +818,7 @@
                <TextView
                    android:id="@+id/tv_24"
                    style="@style/TextBackGround2"
-                   android:text="A相"
+                   android:text="总功率因素"
                    android:layout_weight="1"
                    android:layout_width="0dp"/>
                <LinearLayout

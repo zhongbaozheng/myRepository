@@ -26,8 +26,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.umeng.analytics.MobclickAgent;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -157,7 +160,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             //cn.meiqu.lainmonitor.MainNewActivityktr-mrms/queHeadJson.html
             Log.e("homeAction",action);
             //[{"id":1,"isShow":1,"name":"主页","number":1},{"id":3,"isShow":1,"name":"动力监控","number":3}]
-            Log.e("homeData",data);
+//            Log.e("homeData",data);
             onHttpHandle(action, data);
         }
     }
@@ -183,6 +186,18 @@ public abstract class BaseActivity extends AppCompatActivity {
             MsgBean bean = msgBeanArrayList.get(0);
             Toast.makeText(this,bean.msg,Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void showMsgNotArray(String data){
+        try {
+
+            String msg = new JSONObject(data).get("msg").toString();
+            Toast.makeText(this,msg,Toast.LENGTH_SHORT).show();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
     public void dismissProgressDialog() {

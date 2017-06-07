@@ -75,57 +75,57 @@ public class Baterry {
     public int ip;
     public String  ipPort;
 
-    public int maxABvol;
-    public int maxAcur;
-    public int maxApap;
-    public int maxAppf;
-    public int maxAprp;
-    public int maxAvol;
+    public Double maxABvol;
+    public Double maxAcur;
+    public Double maxApap;
+    public Double maxAppf;
+    public Double maxAprp;
+    public Double maxAvol;
 
-    public int maxBCvol;
-    public int maxBcur;
-    public int maxBpap;
-    public int maxBppf;
-    public int maxBprp;
-    public int maxBvol;
+    public Double maxBCvol;
+    public Double maxBcur;
+    public Double maxBpap;
+    public Double maxBppf;
+    public Double maxBprp;
+    public Double maxBvol;
 
-    public int maxCAvol;
-    public int maxCcur;
-    public int maxCpap;
-    public int maxCppf;
-    public int maxCprp;
-    public int maxCvol;
+    public Double maxCAvol;
+    public Double maxCcur;
+    public Double maxCpap;
+    public Double maxCppf;
+    public Double maxCprp;
+    public Double maxCvol;
 
-    public int maxTpap;
-    public int maxTppf;
-    public int maxTprp;
+    public Double maxTpap;
+    public Double maxTppf;
+    public Double maxTprp;
 
-    public int minABvol;
-    public int minAcur;
-    public int minApap;
-    public int minAppf;
-    public int minAprp;
-    public int minAvol;
+    public Double minABvol;
+    public Double minAcur;
+    public Double minApap;
+    public Double minAppf;
+    public Double minAprp;
+    public Double minAvol;
 
-    public int minBCvol;
-    public int minBcur;
-    public int minBpap;
-    public int minBppf;
-    public int minBprp;
-    public int minBvol;
+    public Double minBCvol;
+    public Double minBcur;
+    public Double minBpap;
+    public Double minBppf;
+    public Double minBprp;
+    public Double minBvol;
 
-    public int minCAvol;
-    public int minCcur;
-    public int minCpap;
-    public int minCppf;
-    public int minCprp;
-    public int minCvol;
+    public Double minCAvol;
+    public Double minCcur;
+    public Double minCpap;
+    public Double minCppf;
+    public Double minCprp;
+    public Double minCvol;
 
-    public int minTpap;
-    public int minTppf;
-    public int minTprp;
+    public Double minTpap;
+    public Double minTppf;
+    public Double minTprp;
 
-    public int number;
-    public int sn;
+    public Double number;
+    public Double sn;
 
 }
