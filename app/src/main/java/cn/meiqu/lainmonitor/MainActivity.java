@@ -14,12 +14,14 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.zip.Inflater;
 
 import cn.meiqu.baseproject.API;
 import cn.meiqu.baseproject.baseUi.BaseActivity;
@@ -29,6 +31,8 @@ import cn.meiqu.baseproject.util.UpdateUtil;
 import cn.meiqu.lainmonitor.adapter.PagerHomeAdapter;
 import cn.meiqu.lainmonitor.aui.ControlActivity;
 import cn.meiqu.lainmonitor.bean.HomePage;
+import cn.meiqu.lainmonitor.untils.AndroidBug54971Workaround;
+import cn.meiqu.lainmonitor.view.NoScrollViewPager;
 import cn.meiqu.lainmonitor.view.SmoothDrawerLayout;
 
 public class MainActivity extends AppCompatActivity{
@@ -36,13 +40,15 @@ public class MainActivity extends AppCompatActivity{
     private String[] mTitles = {"主页","我的"};
     private ArrayList<Fragment> mFragments = new ArrayList<>();
 
-    private ViewPager mViewPager;
+    //禁止滑动
+    private NoScrollViewPager mViewPager;
     private TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        AndroidBug54971Workaround.assistActivity(findViewById(R.id.viewPager));
         initTransparent();
         assignViews();
         UpdateUtil.checkUpdate(getApplication(), false);
@@ -76,7 +82,7 @@ public class MainActivity extends AppCompatActivity{
         ((TextView) findViewById(R.id.tv_title)).setVisibility(View.VISIBLE);
         ((TextView) findViewById(R.id.tv_title)).setText("莱安监控系统");
 
-        mViewPager = (ViewPager)findViewById(R.id.viewPager);
+        mViewPager = (NoScrollViewPager) findViewById(R.id.viewPager);
         tabLayout = (TabLayout)findViewById(R.id.table);
 
     }

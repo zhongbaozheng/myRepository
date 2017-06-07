@@ -157,6 +157,14 @@ public class API {
     public static String changModUrl = "ktr-mrms/relieveDoorUserJson.html";
     //请求权限
     public static String requestModUrl = "ktr-mrms/accreditDoorUserJson.html";
+    //电量仪信息返回
+    public static String batteryUrl = "ktr-mrms/queElectricMeterManageJson.html";
+    //删除
+    public static String deleteElctroMachineUrl = "ktr-mrms/delElectricMeterManageInfoJson.html";
+    //更新
+    public static String updateElctroMachineUrl = "ktr-mrms/updElectricMeterManageInfoJson.html";
+    //添加电量仪设备
+    public static String addElctroMachineUrl = "ktr-mrms/addElectricMeterManageInfoJson.html";
 
     public static String getBaseUrl() {
         String baseUrl = StringUtil.isEmpty(SettingDao.getInstance().getHostIp()) ? SettingDao.getInstance().getHostAddr() : SettingDao.getInstance().getHostIp();

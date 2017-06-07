@@ -3,27 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="3dp">
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_item"
+        android:background="@drawable/fill_border"
         android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingRight="5dp">
 
             <TextView
                 android:id="@+id/tv_name"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:padding="10dp"
+                android:padding="8dp"
                 android:textColor="@color/colorAccent"
                 android:textSize="16dp"
                 android:textStyle="bold" />
@@ -102,7 +101,6 @@
                         android:textColor="@color/black3"
                         android:textSize="14dp" />
                 </LinearLayout>
-                //c
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -258,10 +256,10 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:gravity="right"
+            android:gravity="left"
+            android:orientation="vertical"
             android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:orientation="vertical">
+            android:paddingRight="8dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -281,6 +279,7 @@
                     android:id="@+id/tv_ABvol"
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
                     android:layout_marginRight="2dp"
                     android:background="@color/colorPrimary"
                     android:gravity="center"
@@ -314,6 +313,7 @@
                     android:id="@+id/tv_BCvo"
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
                     android:layout_marginRight="2dp"
                     android:background="@color/colorPrimary"
                     android:gravity="center"
@@ -347,6 +347,7 @@
                     android:id="@+id/tv_CAvo"
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
                     android:layout_marginRight="2dp"
                     android:background="@color/colorPrimary"
                     android:gravity="center"
@@ -479,6 +480,7 @@
                     android:id="@+id/tv_Tpap"
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginRight="2dp"
                     android:background="@color/colorPrimary"
                     android:gravity="center"
@@ -611,6 +613,7 @@
                     android:id="@+id/tv_Tprp"
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginRight="2dp"
                     android:background="@color/colorPrimary"
                     android:gravity="center"
@@ -678,6 +681,7 @@
                     android:id="@+id/tv_Bppf"
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
                     android:layout_marginRight="2dp"
                     android:background="@color/colorPrimary"
                     android:gravity="center"
@@ -743,6 +747,7 @@
                     android:textSize="14dp" />
 
                 <TextView
+                    android:layout_marginLeft="10dp"
                     android:id="@+id/tv_Tppf"
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"

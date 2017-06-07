@@ -1,21 +1,19 @@
 package cn.meiqu.lainmonitor.aui;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import cn.meiqu.baseproject.baseUi.BaseFragment;
+import cn.meiqu.lainmonitor.MainActivity;
 import cn.meiqu.lainmonitor.R;
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 import in.srain.cube.views.ptr.PtrHandler;
+
+import static android.app.ProgressDialog.show;
 
 /**
  * Created by Administrator on 2017/5/5.
@@ -45,6 +43,8 @@ public abstract class FragmentNormal extends BaseFragment{
         mPtr = (PtrClassicFrameLayout) findViewById(R.id.ptr_view);
     }
 
+    private ProgressDialog mDialog ;
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if (getActions() == null) {
@@ -73,6 +73,7 @@ public abstract class FragmentNormal extends BaseFragment{
 
     @Override
     public void onResume() {
+        mDialog = ProgressDialog.show(getActivity(),"提示","正在加载...");
         requestData();
         super.onResume();
     }
@@ -81,6 +82,7 @@ public abstract class FragmentNormal extends BaseFragment{
     public void onHttpHandle(String action, String data) {
             if (action.equals(getAction())) {
                 handleData(data);
+                mDialog.dismiss();
                 mPtr.refreshComplete();
             }
     }

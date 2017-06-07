@@ -2,6 +2,7 @@ package cn.meiqu.baseproject.httpGet;
 
 
 import android.util.Log;
+import android.util.StringBuilderPrinter;
 
 import com.squareup.okhttp.FormEncodingBuilder;
 
@@ -198,6 +199,28 @@ public class HttpGetController {
         get(API.requestModUrl,params.toString(),className);
     }
 
+    //获取电量仪信息
+    public void getBaterry(String className){
+        post(API.batteryUrl,getTokenBuild(),className);
+    }
+    //删除电量仪设备
+    public void deleteBattery(String className,String address,String id,String ip){
+        StringBuilder params = new StringBuilder();
+        params.append("address="+address+"&ip="+ip+"&id="+id);
+        get(API.deleteElctroMachineUrl,params.toString(),className);
+    }
+    //更新电量仪设备
+    public void updateBattery(String className,String jsonStr){
+        StringBuilder params = new StringBuilder();
+        params.append("emObj="+jsonStr);
+        get(API.updateElctroMachineUrl,params.toString(),className);
+    }
+    ////Add电量仪设备
+    public void addBattery(String className,String ip,String location,String address,String name){
+        StringBuilder params = new StringBuilder();
+        params.append("address="+address+"&location="+location+"&name="+name+"&ipAddress="+ip);
+        get(API.addElctroMachineUrl,params.toString(),className);
+    }
 
     public void getSElecReal(String className) {
         post(API.getSElecReal, getTokenBuild(), className);

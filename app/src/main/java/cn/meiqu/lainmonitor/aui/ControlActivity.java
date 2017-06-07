@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.widget.Toast;
 
+import butterknife.ButterKnife;
 import cn.meiqu.baseproject.baseUi.BaseActivity;
 import cn.meiqu.lainmonitor.R;
 import cn.meiqu.lainmonitor.aui.env.FragmentEnv;
@@ -32,6 +33,7 @@ public class ControlActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_control);
+        ButterKnife.bind(this);
         pId = getIntent().getStringExtra(extra_pId);
         cId = getIntent().getStringExtra(extra_cId);
         name = getIntent().getStringExtra(extra_name);
