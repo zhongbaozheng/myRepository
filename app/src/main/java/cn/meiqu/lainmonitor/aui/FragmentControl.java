@@ -30,7 +30,7 @@ import cn.meiqu.lainmonitor.bean.ThirdPage;
 public abstract class FragmentControl extends BaseFragment {
     String className = getClass().getName();
     String action_getPage = className + API.getHomeChildThirdPage;
-    private TabLayout mTabL;
+    public TabLayout mTabL;
     private ViewPager mViewP;
     private PagerHomeAdapter adapter;
     public List<Fragment> fragments = new ArrayList<>();

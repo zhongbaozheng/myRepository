@@ -1,6 +1,7 @@
 package cn.meiqu.lainmonitor.aui.system;
 
 import android.support.v4.app.Fragment;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +39,9 @@ public class FragmentSystem extends FragmentControl {
         }
         //管理员
         else if (number2.equals("3")) {
+            fragments.add(new FragmentAdmin());
+            mTabL.setVisibility(View.GONE);
+        }else if(number2.equals("4")){
 
         }
     }
