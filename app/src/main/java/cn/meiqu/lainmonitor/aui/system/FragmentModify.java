@@ -92,7 +92,6 @@ public class FragmentModify extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        //把背景设置为白色
         View view = inflater.inflate(R.layout.f_modify,null);
         ButterKnife.bind(this,view);
         initReceiver(new String[]{action_getData,action_update});
@@ -238,36 +237,50 @@ public class FragmentModify extends BaseFragment {
             case R.id.day1:
                 if(mCheck1.isChecked()){
                     Mon = 1;
+                }else{
+                    Mon = 0;
                 }
                 break;
             case R.id.day2:
                 if(mCheck2.isChecked()){
                     Tues = 1;
+                }else{
+                    Tues = 0;
                 }
                 break;
             case R.id.day3:
                 if(mCheck3.isChecked()){
                     Wed = 1;
+                }else{
+                    Wed = 0;
                 }
                 break;
             case R.id.day4:
                 if(mCheck4.isChecked()){
                     Thr = 1;
+                }else{
+                    Thr = 0;
                 }
                 break;
             case R.id.day5:
                 if(mCheck5.isChecked()){
                     Fri = 1;
+                }else{
+                    Fri = 0;
                 }
                 break;
             case R.id.day6:
                 if(mCheck6.isChecked()){
                     Sat = 1;
+                }else{
+                    Sat = 0;
                 }
                 break;
             case R.id.day7:
                 if(mCheck7.isChecked()){
                     Sun = 1;
+                }else{
+                    Sun = 0;
                 }
                 break;
         }
