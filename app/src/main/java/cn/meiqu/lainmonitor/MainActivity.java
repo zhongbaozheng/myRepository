@@ -1,39 +1,32 @@
 package cn.meiqu.lainmonitor;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
-import android.view.MotionEvent;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.zip.Inflater;
 
-import cn.meiqu.baseproject.API;
-import cn.meiqu.baseproject.baseUi.BaseActivity;
-import cn.meiqu.baseproject.httpGet.HttpGetController;
-import cn.meiqu.baseproject.util.LogUtil;
 import cn.meiqu.baseproject.util.UpdateUtil;
 import cn.meiqu.lainmonitor.adapter.PagerHomeAdapter;
 import cn.meiqu.lainmonitor.aui.ControlActivity;
-import cn.meiqu.lainmonitor.bean.HomePage;
-import cn.meiqu.lainmonitor.untils.AndroidBug54971Workaround;
+import cn.meiqu.lainmonitor.untils.AndroidWorkaround;
+import cn.meiqu.lainmonitor.untils.VirtualUtil;
 import cn.meiqu.lainmonitor.view.NoScrollViewPager;
-import cn.meiqu.lainmonitor.view.SmoothDrawerLayout;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -48,8 +41,7 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        AndroidBug54971Workaround.assistActivity(findViewById(R.id.viewPager));
-        initTransparent();
+//        initTransparent();
         assignViews();
         UpdateUtil.checkUpdate(getApplication(), false);
         addFragments();

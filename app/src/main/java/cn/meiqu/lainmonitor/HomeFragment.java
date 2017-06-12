@@ -24,12 +24,9 @@ import cn.meiqu.baseproject.dao.SettingDao;
 import cn.meiqu.baseproject.httpGet.HttpGetController;
 import cn.meiqu.baseproject.util.LogUtil;
 import cn.meiqu.baseproject.util.StringUtil;
-import cn.meiqu.baseproject.util.UpdateUtil;
 import cn.meiqu.lainmonitor.adapter.PagerHomeAdapter;
 import cn.meiqu.lainmonitor.aui.ControlActivity;
 import cn.meiqu.lainmonitor.bean.HomePage;
-import cn.meiqu.lainmonitor.untils.AndroidBug54971Workaround;
-import cn.meiqu.lainmonitor.view.ShapeIndicatorView;
 
 /**
  * Created by Administrator on 2017/5/26.
@@ -54,7 +51,6 @@ public class HomeFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
        homeView = inflater.inflate(R.layout.home_fragment,container,false);
-        AndroidBug54971Workaround.assistActivity(homeView.findViewById(R.id.viewP));
         assignViews();
         initPager();
         initReceiver(new String[]{action_getHomePage});

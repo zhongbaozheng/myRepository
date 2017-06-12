@@ -13,4 +13,6 @@
     <color name="color_value_white">#ffffff</color>
     <color name="color_title_1">#4487A2</color>
     <color name="color_backround">#373737</color>
+
+    <color name="common_pressed">#20000000</color>
 </resources>
