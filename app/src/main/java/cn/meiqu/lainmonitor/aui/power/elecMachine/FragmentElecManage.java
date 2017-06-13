@@ -106,7 +106,7 @@ public class FragmentElecManage extends FragmentReal implements RecycleBatteryAd
                                 && !ipEd.getText().toString().equals("") && !addressEd.getText().toString().equals("")){
                             HttpGetController.getInstance().addBattery(className,"6",locationEd.getText().toString(),addressEd.getText().toString(),nameEd.getText().toString());
                         }else{
-                            Toast.makeText(getActivity(),"添加失败，输入不能为空！",Toast.LENGTH_SHORT).show();
+                            toast(getActivity(),"添加失败，输入不能为空！");
                         }
                     }
                 }).setNegativeButton("取消", new DialogInterface.OnClickListener() {

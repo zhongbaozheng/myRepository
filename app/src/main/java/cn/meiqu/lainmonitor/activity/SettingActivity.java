@@ -42,7 +42,7 @@ public class SettingActivity extends BaseActivity {
                 SettingDao.getInstance().setIsLogin(0);
                 SettingDao.getInstance().setAccount("");
                 SettingDao.getInstance().setPwd("");
-                Toast.makeText(this,"已退出！",Toast.LENGTH_SHORT).show();
+                toast("已退出！");
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {

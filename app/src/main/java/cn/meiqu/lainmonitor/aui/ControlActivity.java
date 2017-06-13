@@ -1,5 +1,6 @@
 package cn.meiqu.lainmonitor.aui;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -28,6 +29,7 @@ public class ControlActivity extends BaseActivity {
     String cId = "";
     String name = "";
     Fragment f = new Fragment();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

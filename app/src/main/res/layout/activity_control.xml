@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/black"
     style="@style/activity_root"
     android:orientation="vertical"
     tools:context="cn.meiqu.lainmonitor.aui.ControlActivity">

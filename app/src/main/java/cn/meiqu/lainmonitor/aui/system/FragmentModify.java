@@ -204,9 +204,9 @@ public class FragmentModify extends BaseFragment {
                             mPasswordEd.getText().toString(),Long.parseLong(mPhoneEd.getText().toString()),mEmailEd.getText().toString(),sex,type,Mon,Tues,Wed,
                             Thr,Fri,Sat,Sun);
                 }else{
-                    Toast.makeText(getActivity(),"两次密码输入不一致！",Toast.LENGTH_SHORT).show();
+                    toast(getActivity(),"两次密码输入不一致！");
                 }else{
-                    Toast.makeText(getActivity(),"输入不能为空！",Toast.LENGTH_SHORT).show();
+                    toast(getActivity(),"输入不能为空！");
                 }
                 break;
             case R.id.man_ra:

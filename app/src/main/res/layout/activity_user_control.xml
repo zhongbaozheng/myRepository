@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/black"
     android:layout_height="match_parent">
     <include
         android:id="@+id/toolBar"
         layout="@layout/title"/>
 
     <TextView
+        android:background="@color/white"
         android:id="@+id/addTv"
         android:layout_below="@id/toolBar"
         android:textSize="18sp"
@@ -22,6 +24,7 @@
         android:layout_height="1dp"/>
 
     <RelativeLayout
+        android:background="@color/white"
         android:layout_below="@id/view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">

@@ -18,13 +18,11 @@ public class ToastUtil {
     public static void show(Context mContext, String text) {
         if (toast == null) {
             toast = new Toast(mContext);
-            toast.setDuration(Toast.LENGTH_LONG);
+            toast.setDuration(Toast.LENGTH_SHORT);
             ViewGroup v = (ViewGroup) LayoutInflater.from(mContext).inflate(R.layout.toast, null);
-            tv = (TextView) v.getChildAt(0);
-            tv2 = (TextView) v.getChildAt(1);
+            tv2 = (TextView) v.findViewById(R.id.text2);
             toast.setView(v);
         }
-        tv.setText(text);
         tv2.setText(text);
         toast.show();
     }

@@ -74,7 +74,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                 SettingDao.getInstance().setPwd(password);
                 jumpFinish(MainActivity.class);
             } else {
-                Toast.makeText(this, "您输入的用户名或密码有误！", Toast.LENGTH_SHORT).show();
+                toast("您输入的用户名或密码有误！");
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -95,10 +95,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         userName = mEdtUesrname.getText().toString();
         password = mEdtPwd.getText().toString();
         if (StringUtil.isEmpty(userName)) {
-            Toast.makeText(this, "请输入账号！", Toast.LENGTH_SHORT).show();
+            toast("请输入账号！");
             return;
         } else if (StringUtil.isEmpty(password)) {
-            Toast.makeText(this, "请输入密码！", Toast.LENGTH_SHORT).show();
+            toast("请输入密码！");
             return;
         } else {
             requestLogin();

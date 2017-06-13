@@ -184,7 +184,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             msgBeanArrayList.clear();
             msgBeanArrayList.addAll(temps);
             MsgBean bean = msgBeanArrayList.get(0);
-            Toast.makeText(this,bean.msg,Toast.LENGTH_SHORT).show();
+            toast(bean.msg);
         }
     }
 
@@ -192,7 +192,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         try {
 
             String msg = new JSONObject(data).get("msg").toString();
-            Toast.makeText(this,msg,Toast.LENGTH_SHORT).show();
+            toast(msg);
 
         }catch (Exception e){
             e.printStackTrace();

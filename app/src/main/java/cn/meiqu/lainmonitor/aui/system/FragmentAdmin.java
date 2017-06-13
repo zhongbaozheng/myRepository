@@ -18,6 +18,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.meiqu.baseproject.dao.SettingDao;
 import cn.meiqu.baseproject.util.Config;
+import cn.meiqu.baseproject.util.ToastUtil;
 import cn.meiqu.lainmonitor.R;
 import cn.meiqu.lainmonitor.aui.FragmentNormal;
 
@@ -60,12 +61,12 @@ public class FragmentAdmin extends Fragment {
                     transaction.replace(R.id.contain_id,new FragmentModify());
                     transaction.addToBackStack(null);
                     transaction.commit();
-                    Toast.makeText(getActivity(),"进入修改！",Toast.LENGTH_SHORT).show();
+                    ToastUtil.show(getActivity(),"进入修改！");
                 }else {
-                    Toast.makeText(getActivity(),"用户名或密码输入有误！",Toast.LENGTH_SHORT).show();
+                    ToastUtil.show(getActivity(),"用户名或密码输入有误！");
                 }
             }else{
-                Toast.makeText(getActivity(),"输入不能为空！",Toast.LENGTH_SHORT).show();
+                ToastUtil.show(getActivity(),"输入不能为空！");
             }
 
         }
