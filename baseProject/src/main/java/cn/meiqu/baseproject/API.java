@@ -178,6 +178,7 @@ public class API {
     }
 
     public static String getAbsolutePath(String url) {
+        Log.e("rul",getBaseUrl()+url);
         return getBaseUrl() + url;
     }
 }

@@ -1,6 +1,7 @@
 package cn.meiqu.lainmonitor;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +20,7 @@ import cn.meiqu.baseproject.util.LogUtil;
 import cn.meiqu.baseproject.util.StringUtil;
 import cn.meiqu.baseproject.view.ClearEditText;
 import cn.meiqu.baseproject.view.RippleView;
+import cn.meiqu.lainmonitor.view.CustomProgress;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener, RippleView.OnRippleCompleteListener {
     String className = getClass().getName();
@@ -31,6 +33,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
 
     String userName = "";
     String password = "";
+
+    private CustomProgress customProgress;
 
     private void assignViews() {
         initTitle("登录");
@@ -60,8 +64,17 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     }
 
     public void requestLogin() {
-        showProgressDialog();
-        HttpGetController.getInstance().login(userName, password, className);
+//        showProgressDialog();
+        customProgress = CustomProgress.show(this,"登录中...",false,null);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                HttpGetController.getInstance().login(userName, password, className);
+            }
+        },2000);
+
+
+
     }
 
     public void handleLogin(String data) {
@@ -73,9 +86,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                 SettingDao.getInstance().setAccount(userName);
                 SettingDao.getInstance().setPwd(password);
                 jumpFinish(MainActivity.class);
+                toast("登录成功！");
             } else {
-                toast("您输入的用户名或密码有误！");
+                toast("登录失败，您输入的用户名或密码有误！");
             }
+            customProgress.dismiss();
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -9,6 +9,7 @@ import cn.meiqu.baseproject.util.Config;
  * Created by Fatel on 15-9-23.
  */
 public abstract class BaseHolder extends RecyclerView.ViewHolder {
+
     public View itemView;
 
     public BaseHolder(View itemView) {
