@@ -165,6 +165,10 @@ public class API {
     public static String updateElctroMachineUrl = "ktr-mrms/updElectricMeterManageInfoJson.html";
     //添加电量仪设备
     public static String addElctroMachineUrl = "ktr-mrms/addElectricMeterManageInfoJson.html";
+    //loginUser
+    public static String showCurrentLoginUserUrl = "ktr-mrms/showCurrentLoginUserJson.html";
+    //更新管理员
+    public static String updateLoginUserUrl = "ktr-mrms/updCurrentLoginUserJson.html";
 
     public static String getBaseUrl() {
         String baseUrl = StringUtil.isEmpty(SettingDao.getInstance().getHostIp()) ? SettingDao.getInstance().getHostAddr() : SettingDao.getInstance().getHostIp();
@@ -174,6 +178,7 @@ public class API {
     }
 
     public static String getAbsolutePath(String url) {
+        Log.e("rul",getBaseUrl()+url);
         return getBaseUrl() + url;
     }
 }

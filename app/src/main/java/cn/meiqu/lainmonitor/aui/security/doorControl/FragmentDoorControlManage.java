@@ -52,7 +52,7 @@ public class FragmentDoorControlManage extends FragmentAlarm2 implements Recycle
     public RecyclerView.Adapter getAdapter() {
         mAdapter = new RecycleDoorMangerAdapter(getActivity(),mList);
         mAdapter.setOnItemClickListner(this);
-        Toast.makeText(getActivity(),"长按可以查看详细信息！",Toast.LENGTH_SHORT).show();
+        toast(getActivity(),"长按可以查看详细信息！");
         return mAdapter;
     }
 
@@ -188,7 +188,7 @@ public class FragmentDoorControlManage extends FragmentAlarm2 implements Recycle
                         if(!nameEd.getText().toString().equals("")){
                             HttpGetController.getInstance().updateDoorUserName(mList.get(position).id+"",nameEd.getText().toString(),className);
                         }else{
-                            Toast.makeText(getActivity(),"输入不能为空!",Toast.LENGTH_SHORT).show();
+                            toast(getActivity(),"输入不能为空！");
                         }
                     }
                 }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -210,8 +210,7 @@ public class FragmentDoorControlManage extends FragmentAlarm2 implements Recycle
 
     @Override
     public void onItemClick(int positon) {
-        Toast.makeText(getActivity(),""+positon,Toast.LENGTH_SHORT).show();
-        //开启一个查看门禁信息
+        ///
 
     }
 }

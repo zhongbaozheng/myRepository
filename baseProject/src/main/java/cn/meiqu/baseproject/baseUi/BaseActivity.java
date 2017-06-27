@@ -1,9 +1,12 @@
 package cn.meiqu.baseproject.baseUi;
 
+import android.Manifest;
+import android.annotation.TargetApi;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -11,6 +14,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.LocalBroadcastManager;
@@ -47,6 +51,7 @@ import cn.meiqu.baseproject.util.ToastUtil;
  * Created by Fatel on 15-4-9.
  */
 public abstract class BaseActivity extends AppCompatActivity {
+
     public FragmentManager fm;
     public BroadcastReceiver receiver;
     public int containerId;
@@ -54,7 +59,11 @@ public abstract class BaseActivity extends AppCompatActivity {
     public static String action_exitApplication = "action_exitApplication";
     public ExitBroadCase exitBroadCase = new ExitBroadCase();
 
-    //
+
+    public String permissionInfo;
+    public final int SDK_PERMISSION_REQUEST = 127;
+
+
     Toolbar toolbar;
     TextView mTvTitle;
     TextView mTvRight;
@@ -128,6 +137,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
+
+
+
     public abstract void onHttpHandle(String action, String data);
 
 
@@ -184,7 +196,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             msgBeanArrayList.clear();
             msgBeanArrayList.addAll(temps);
             MsgBean bean = msgBeanArrayList.get(0);
-            Toast.makeText(this,bean.msg,Toast.LENGTH_SHORT).show();
+            toast(bean.msg);
         }
     }
 
@@ -192,7 +204,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         try {
 
             String msg = new JSONObject(data).get("msg").toString();
-            Toast.makeText(this,msg,Toast.LENGTH_SHORT).show();
+            toast(msg);
 
         }catch (Exception e){
             e.printStackTrace();

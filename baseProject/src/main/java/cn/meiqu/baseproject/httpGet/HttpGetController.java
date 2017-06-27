@@ -222,6 +222,24 @@ public class HttpGetController {
         get(API.addElctroMachineUrl,params.toString(),className);
     }
 
+    //获取User信息
+    public void getAdminMessage(String className,String user,String password){
+        StringBuilder params = new StringBuilder();
+        params.append("loginName="+user+"&loginPassword="+password);
+        get(API.showCurrentLoginUserUrl,params.toString(),className);
+    }
+
+    //更新user
+    public void updateAdmin(String className,int loginId,String loginName,String password,long phoneNumber,String eMail,int radioSex,int radioType
+    ,int monday,int tuesday,int wednesday,int thursday,int friday,int saturday,int sunday){
+        StringBuilder params = new StringBuilder();
+        params.append("loginId="+loginId +"&loginName="+loginName+"&password="+password+"&phoneNumber="+phoneNumber+"&eMail="+eMail+"&radioSex="+radioSex+"&" +
+                "radioType="+radioType+"&monday="+monday+"&tuesday="+tuesday+"&wednesday="+wednesday+"&thursday="+thursday+"&friday="+friday+"&saturday="+saturday
+                +"&sunday="+sunday);
+        get(API.updateLoginUserUrl,params.toString(),className);
+    }
+
+
     public void getSElecReal(String className) {
         post(API.getSElecReal, getTokenBuild(), className);
     }

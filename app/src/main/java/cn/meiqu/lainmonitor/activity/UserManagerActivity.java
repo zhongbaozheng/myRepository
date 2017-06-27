@@ -197,7 +197,7 @@ public class UserManagerActivity extends BaseActivity implements View.OnClickLis
                 if(selectionId!=null && !selectionId.equals("")&& !addressStr.equals("") && !mUserNameEd.getText().toString().equals("") && !mCardEd.getText().toString().equals("") ){
                     addUser(selectionId,addressStr,mUserNameEd.getText().toString(),mCardEd.getText().toString(),className);
                 }else{
-                    Toast.makeText(this,"您的输入有误！",Toast.LENGTH_SHORT).show();
+                    toast("您的输入有误！");
                 }
                 break;
         }

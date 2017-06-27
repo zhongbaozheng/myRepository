@@ -82,8 +82,13 @@ public abstract class BaseFragment extends Fragment {
             msgBeanArrayList.clear();
             msgBeanArrayList.addAll(temps);
             MsgBean bean = msgBeanArrayList.get(0);
-            Toast.makeText(getActivity(),bean.msg,Toast.LENGTH_SHORT).show();
+            toast(getActivity(),bean.msg);
+
         }
+    }
+
+    public void toast(Context context,String msg){
+        ToastUtil.show(context,msg);
     }
 
     public void setTitleRight(String text, View.OnClickListener listener) {

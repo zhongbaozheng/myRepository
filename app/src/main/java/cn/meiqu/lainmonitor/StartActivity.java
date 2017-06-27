@@ -1,11 +1,18 @@
 package cn.meiqu.lainmonitor;
 
+import android.Manifest;
+import android.annotation.TargetApi;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.ScaleAnimation;
+
+import java.util.ArrayList;
 
 import cn.meiqu.baseproject.baseUi.BaseActivity;
 import cn.meiqu.baseproject.dao.SettingDao;
@@ -28,6 +35,7 @@ public class StartActivity extends BaseActivity {
         linearLayout = (View) findViewById(R.id.ll_start);
         startAnim();
     }
+
 
     @Override
     public void initFragment() {

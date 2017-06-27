@@ -4,5 +4,4 @@
     <stroke
         android:width="0.7dp"
         android:color="@color/color_backround" />
-
 </shape>

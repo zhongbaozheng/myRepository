@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import cn.meiqu.baseproject.baseUi.BaseFragment;
 import cn.meiqu.lainmonitor.MainActivity;
 import cn.meiqu.lainmonitor.R;
+import cn.meiqu.lainmonitor.view.CustomProgress;
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 import in.srain.cube.views.ptr.PtrHandler;
@@ -43,7 +44,8 @@ public abstract class FragmentNormal extends BaseFragment{
         mPtr = (PtrClassicFrameLayout) findViewById(R.id.ptr_view);
     }
 
-    private ProgressDialog mDialog ;
+//    private ProgressDialog mDialog ;
+    private CustomProgress customProgress;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -73,7 +75,8 @@ public abstract class FragmentNormal extends BaseFragment{
 
     @Override
     public void onResume() {
-        mDialog = ProgressDialog.show(getActivity(),"提示","正在加载...");
+//        mDialog = ProgressDialog.show(ControlActivity.extra_cId,"提示","正在加载...");
+        customProgress = CustomProgress.show(getActivity(),"正在加载...",true,null);
         requestData();
         super.onResume();
     }
@@ -82,7 +85,8 @@ public abstract class FragmentNormal extends BaseFragment{
     public void onHttpHandle(String action, String data) {
             if (action.equals(getAction())) {
                 handleData(data);
-                mDialog.dismiss();
+//                mDialog.dismiss();
+                customProgress.dismiss();
                 mPtr.refreshComplete();
             }
     }
