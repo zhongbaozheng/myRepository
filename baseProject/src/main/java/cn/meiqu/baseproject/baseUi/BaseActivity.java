@@ -64,9 +64,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     public final int SDK_PERMISSION_REQUEST = 127;
 
 
-    Toolbar toolbar;
-    TextView mTvTitle;
-    TextView mTvRight;
+    public Toolbar toolbar;
+    public TextView mTvTitle;
+    public TextView mTvRight;
     public SwipeRefreshLayout swipeRefresh;
 
     public void initTitle(String title) {

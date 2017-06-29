@@ -46,7 +46,10 @@
             android:name=".activity.SelectionActivity"/>
         <activity android:name=".activity.SettingActivity"/>
         <activity android:name=".hkvideo.RTSPActivity"/>
-        <activity android:name=".hkvideo.SimpleActivity"/>
+        <activity
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:name=".hkvideo.SimpleActivity"/>
+        <activity android:name=".hkvideo.OnlyLoginIdActivity"/>
     </application>
 
 </manifest>

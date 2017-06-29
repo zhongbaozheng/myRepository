@@ -1,28 +1,22 @@
 package cn.meiqu.lainmonitor.hkvideo;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.PixelFormat;
 import android.util.Log;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
-import android.widget.ImageView;
-
 import com.hikvision.netsdk.HCNetSDK;
 import com.hikvision.netsdk.NET_DVR_DEVICEINFO_V30;
-import com.hikvision.netsdk.NET_DVR_JPEGPARA;
 import com.hikvision.netsdk.NET_DVR_PREVIEWINFO;
 import com.hikvision.netsdk.RealPlayCallBack;
 
 import org.MediaPlayer.PlayM4.Player;
 
-import java.io.File;
+import cn.meiqu.baseproject.util.Config;
 
 /**
  * 辅助播放类
- * 
  * @author lzc
  *
  */
@@ -36,15 +30,6 @@ public class PlayAssistant implements Callback
 	private int m_iStartChan = 0; // start channel no
 	private NET_DVR_DEVICEINFO_V30 m_oNetDvrDeviceInfoV30 = null;
 	private SurfaceView mSurfaceView;
-	private ImageView mImage;
-	private boolean play = true;
-
-	public PlayAssistant(ImageView imageView ,boolean isPlay){
-		super();
-		mImage = imageView;
-		play = isPlay;
-
-	}
 
 	public PlayAssistant(SurfaceView mSurfaceView)
 	{
@@ -69,97 +54,44 @@ public class PlayAssistant implements Callback
 	/**
 	 * 开始播放
 	 */
-	public void play(String ip, int port, String user, String psd, int channel,int hasCoverPosition)
-	{
+	public void play(String ip, int port, String user, String psd, final int channel) {
 
-		try
-		{
-
-			if (m_iPlayID >= 0 )
-			{
+			if (m_iPlayID >= 0) {
 				// 1.若正在播放则停止播放
-				if (!HCNetSDK.getInstance().NET_DVR_StopRealPlay(m_iPlayID) )
-				{
+				if (!HCNetSDK.getInstance().NET_DVR_StopRealPlay(m_iPlayID)) {
 					Log.e(TAG, "StopRealPlay is failed!Err:" + HCNetSDK.getInstance().NET_DVR_GetLastError());
 					return;
 				}
 				stopPlayer();
 			}
 
-			if (m_iLogID >= 0 )
-			{
+			if (m_iLogID >= 0) {
 				// 1.若已经登录 则退出登录
-				if (!HCNetSDK.getInstance().NET_DVR_Logout_V30(m_iLogID) )
-				{
+				if (!HCNetSDK.getInstance().NET_DVR_Logout_V30(m_iLogID)) {
 					Log.e(TAG, " NET_DVR_Logout is failed!");
 					return;
 				}
 				m_iLogID = -1;
 			}
-			if(hasCoverPosition>=16){
 
-				Log.e("hasCoverPosition",hasCoverPosition+"");
-				String myJpgPath = "/mnt/sdcard/surface/" + channel + ".jpg";
-				BitmapFactory.Options options = new BitmapFactory.Options();
-				options.inSampleSize = 2;
-				Bitmap bm = BitmapFactory.decodeFile(myJpgPath, options);
-				mImage.setImageBitmap(bm);
-
-			}else{
-
-			// l.登录设备初始化
-			m_iLogID = loginNormalDevice(ip, port, user, psd, channel);
-			if (m_iLogID < 0 )
-			{
-				Log.e("lzc", "This device logins failed!");
-				return;
-			}
-			Log.e(TAG, "Login sucess ****************************1***************************");
-			// 2.初始化成功，开始准备播放
-			if (m_iPlayID < 0 )
-			{
-				if(play){
-
-					 //开始播放
-				startSinglePreview(channel + 32);
-
+				// l.登录设备初始化
+				m_iLogID = loginNormalDevice(ip, port, user, psd, channel);
+				if (m_iLogID < 0) {
+					Log.e("lzc", "This device logins failed!");
+					return;
 				}
-
-			}
-
-			if(m_iLogID>=0 && !play){
-				NET_DVR_JPEGPARA net_dvr_jpegpara = new NET_DVR_JPEGPARA();
-				net_dvr_jpegpara.wPicSize = 1280*720;
-				net_dvr_jpegpara.wPicQuality = 1;
-				File file = new File("/mnt/sdcard/surface/");
-				if(!file.exists()){
-					file.mkdir();
-					Log.e("mkdir","make success");
+				Log.e(TAG, "Login sucess ****************************1***************************");
+				// 2.初始化成功，开始准备播放
+				if (m_iPlayID < 0) {
+					//开始播放
+					new Thread(new Runnable() {
+						@Override
+						public void run() {
+							startSinglePreview(channel + 32);
+						}
+					}).start();
 				}
-				if(file.exists()) {
-					if (HCNetSDK.getInstance().NET_DVR_CaptureJPEGPicture(m_iLogID, channel + 32, net_dvr_jpegpara, "/mnt/sdcard/surface/" + channel + ".jpg")) {
-
-						String myJpgPath = "/mnt/sdcard/surface/" + channel + ".jpg";
-						BitmapFactory.Options options = new BitmapFactory.Options();
-						options.inSampleSize = 2;
-						Bitmap bm = BitmapFactory.decodeFile(myJpgPath, options);
-						mImage.setImageBitmap(bm);
-
-						Log.e(TAG, "capture success");
-					} else {
-						Log.e(TAG, "capture error!");
-					}
-
-				}
-			}
-
-			}
 		}
-		catch (Exception err)
-		{
-			Log.e(TAG, "error: " + err.toString());
-		}
-	}
 
 	/** ͣ 停止播放并退出 */
 	public void stop()
@@ -183,6 +115,51 @@ public class PlayAssistant implements Callback
 				return;
 			}
 			m_iLogID = -1;
+		}
+	}
+
+
+	//暂停播放
+	public void stopPlay(){
+		if (m_iPlayID >= 0 )
+		{
+			// // 1.若正在播放则停止播放
+			if (!HCNetSDK.getInstance().NET_DVR_StopRealPlay(m_iPlayID) )
+			{
+				Log.e(TAG, "StopRealPlay is failed!Err:" + HCNetSDK.getInstance().NET_DVR_GetLastError());
+				return;
+			}
+			m_iPlayID = -1;
+		}
+	}
+
+
+	//开始录像
+	public void startRecord(){
+
+		if(m_iPlayID>=0){
+
+			if(HCNetSDK.getInstance().NET_DVR_SaveRealData(m_iPlayID,
+					"/mnt/sdcard/surface/"+ Config.getInt("channel")+".mp4")){
+				Log.e(TAG,"record success");
+			}else{
+				Log.e(TAG,"record failed");
+			}
+		}
+
+	}
+
+
+	//停止并保存录像文件
+	public void stopRecord(){
+
+		if(m_iPlayID>=0){
+
+			if(HCNetSDK.getInstance().NET_DVR_StopSaveRealData(m_iPlayID)){
+				Log.e(TAG,"stop record success");
+			}else{
+				Log.e(TAG,"stop record failed");
+			}
 		}
 	}
 
