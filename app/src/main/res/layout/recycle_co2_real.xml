@@ -38,7 +38,7 @@
 
             <TextView
                 android:id="@+id/tv_alert"
-                android:layout_width="64dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="2dp"
@@ -62,7 +62,7 @@
 
             <TextView
                 android:id="@+id/tv_real"
-                android:layout_width="64dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="2dp"

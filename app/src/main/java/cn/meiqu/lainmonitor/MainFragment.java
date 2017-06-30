@@ -97,9 +97,9 @@ public class MainFragment extends BaseFragment implements SwipeRefreshLayout.OnR
             if (!temps.isEmpty() && temps.size() != homePages.size()) {
                 homePages.clear();
                 homePages.addAll(temps);
-                if (numberId.equals("6")) {
-                    homePages.add(new HomePage("域名设置", -1));
-                }
+//                if (numberId.equals("6")) {
+//                    homePages.add(new HomePage("域名设置", -1));
+//                }
                 adapter.notifyDataSetChanged();
             }
         }
@@ -127,7 +127,6 @@ public class MainFragment extends BaseFragment implements SwipeRefreshLayout.OnR
             ((BaseActivity) getActivity()).jump(IpSettingActivity.class);
         } else {
             //跳转到对应的界面id这里对应的是numberId，就是每一个界面的id,当点击的话就传入一个homePage.getId()，并跳到对应的界面
-//            ((MainNewActivity) getActivity()).jumpControlActivity(numberId, homePage.getId() + "", homePage.getName());
             ((MainActivity) getActivity()).jumpControlActivity(numberId, homePage.getId() + "", homePage.getName());
         }
     }

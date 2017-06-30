@@ -2,6 +2,7 @@ package cn.meiqu.lainmonitor.hkvideo;
 
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.hikvision.netsdk.HCNetSDK;
@@ -27,9 +29,9 @@ public class SimpleActivity extends BaseActivity implements View.OnClickListener
 
     private SurfaceView surfaceView;
     private PlayAssistant assistant;
-    Button tv;
-    Button tv2;
-    Button tv3;
+    ImageView tv;
+    ImageView tv2;
+    ImageView tv3;
     private boolean flag;
     private boolean flag2;
     private boolean flag3;
@@ -55,9 +57,12 @@ public class SimpleActivity extends BaseActivity implements View.OnClickListener
         assistant = new PlayAssistant(surfaceView);
         assistant.play("192.168.1.65",8000,"admin","lain123456",Config.getInt("channel"));
 
-        tv = new Button(this);
-        tv.setText("停止");
-        tv.setTextColor(getResources().getColor(R.color.colorAccent));
+        tv = new ImageView(this);
+        tv.setMinimumHeight(100);
+        tv.setMinimumWidth(100);
+        tv.setImageResource(R.mipmap.ic_open);
+//        tv.setText("停止");
+        tv.setBackgroundColor(getResources().getColor(R.color.color_transparents));
         lp = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         lp.gravity = Gravity.BOTTOM | Gravity.LEFT;
         lp.setMargins(0,0,0,370);
@@ -67,22 +72,25 @@ public class SimpleActivity extends BaseActivity implements View.OnClickListener
             @Override
             public void onClick(View view) {
                 if(!flag){
-                    tv.setText("停止");
+//                    tv.setText("停止");
+                    tv.setImageResource(R.mipmap.ic_open);
                     assistant.play("192.168.1.65",8000,"admin","lain123456",Config.getInt("channel"));
                     flag = true;
                 }else{
                     assistant.stopPlay();
                     flag = false;
-                    tv.setText("开始");
+//                    tv.setText("开始");
+                    tv.setImageResource(R.mipmap.ic_stop);
                 }
 
             }
         });
 
 
-        tv2 = new Button(this);
-        tv2.setText("录像");
-        tv2.setTextColor(getResources().getColor(R.color.colorAccent));
+        tv2 = new ImageView(this);
+        tv2.setMinimumHeight(100);
+        tv2.setMinimumWidth(100);
+        tv2.setImageResource(R.mipmap.ic_record_stop);
         lp2 = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         lp2.gravity = Gravity.BOTTOM | Gravity.CENTER;
         lp2.setMargins(0,0,0,370);
@@ -93,15 +101,17 @@ public class SimpleActivity extends BaseActivity implements View.OnClickListener
             public void onClick(View view) {
                 if(!flag2){
                     if(flag){
-                        tv2.setText("停止");
+                        tv2.setImageResource(R.mipmap.ic_record_stop);
+//                        tv2.setText("停止");
                         flag2 = true;
                         assistant.startRecord();
                     }else{
-                        Toast.makeText(SimpleActivity.this,"请先预览！",Toast.LENGTH_SHORT).show();
+                        toast("请先预览！");
                     }
 
                 }else{
-                    tv2.setText("录像");
+//                    tv2.setText("录像");
+                    tv2.setImageResource(R.mipmap.ic_record);
                     assistant.stopRecord();
                     flag2 = false;
                 }
@@ -110,9 +120,12 @@ public class SimpleActivity extends BaseActivity implements View.OnClickListener
         });
 
 
-        tv3 = new Button(this);
-        tv3.setText("全屏");
-        tv3.setTextColor(getResources().getColor(R.color.colorAccent));
+        tv3 = new ImageView(this);
+        tv3.setMinimumHeight(100);
+        tv3.setMinimumWidth(100);
+        tv3.setImageResource(R.mipmap.ic_full);
+//        tv3.setText("全屏");
+//        tv3.setTextColor(getResources().getColor(R.color.colorAccent));
          lp3 = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         lp3.gravity = Gravity.BOTTOM | Gravity.RIGHT;
         lp3.setMargins(0,0,0,370);
@@ -123,11 +136,13 @@ public class SimpleActivity extends BaseActivity implements View.OnClickListener
             public void onClick(View view) {
                 if(!flag3){
                     setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-                    tv3.setText("竖屏");
+                    tv3.setImageResource(R.mipmap.ic_full_exit);
+//                    tv3.setText("竖屏");
                     flag3 = true;
                 }else{
                     setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-                    tv3.setText("横屏");
+                    tv3.setImageResource(R.mipmap.ic_full);
+//                    tv3.setText("横屏");
                     flag3 = false;
                 }
             }
@@ -180,7 +195,8 @@ public class SimpleActivity extends BaseActivity implements View.OnClickListener
             tv2.setLayoutParams(lp2);
             tv3.setLayoutParams(lp3);
             toolbar.setVisibility(View.GONE);
-            tv3.setText("竖屏");
+            tv3.setImageResource(R.mipmap.ic_full_exit);
+//            tv3.setText("竖屏");
 
         }
         if(configuration.orientation == Configuration.ORIENTATION_PORTRAIT){
@@ -192,7 +208,8 @@ public class SimpleActivity extends BaseActivity implements View.OnClickListener
             tv.setLayoutParams(lp);
             tv2.setLayoutParams(lp2);
             tv3.setLayoutParams(lp3);
-            tv3.setText("横屏");
+            tv3.setImageResource(R.mipmap.ic_full);
+//            tv3.setText("横屏");
         }
 
     }

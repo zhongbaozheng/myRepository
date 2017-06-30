@@ -239,6 +239,20 @@ public class HttpGetController {
         get(API.updateLoginUserUrl,params.toString(),className);
     }
 
+    //精密空调 -- 开
+    public void openAir(String className,int id){
+        StringBuilder params = new StringBuilder();
+        params.append("Id="+id);
+        get(API.kgjStateOpenUrl,params.toString(),className);
+    }
+    //精密空调 -- 关
+    public void closeAir(String className,int id)
+    {
+        StringBuilder params = new StringBuilder();
+        params.append("Id="+id);
+        get(API.kgjStateCloseUrl,params.toString(),className);
+    }
+
 
     public void getSElecReal(String className) {
         post(API.getSElecReal, getTokenBuild(), className);
