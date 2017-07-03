@@ -101,7 +101,7 @@ public class SimpleActivity extends BaseActivity implements View.OnClickListener
             public void onClick(View view) {
                 if(!flag2){
                     if(flag){
-                        tv2.setImageResource(R.mipmap.ic_record_stop);
+                        tv2.setImageResource(R.mipmap.ic_record);
 //                        tv2.setText("停止");
                         flag2 = true;
                         assistant.startRecord();
@@ -111,7 +111,7 @@ public class SimpleActivity extends BaseActivity implements View.OnClickListener
 
                 }else{
 //                    tv2.setText("录像");
-                    tv2.setImageResource(R.mipmap.ic_record);
+                    tv2.setImageResource(R.mipmap.ic_record_stop);
                     assistant.stopRecord();
                     flag2 = false;
                 }

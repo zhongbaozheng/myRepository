@@ -132,7 +132,7 @@ public class IpSettingActivity extends BaseActivity implements RippleView.OnRipp
         if (StringUtil.isEmpty(addr) && StringUtil.isEmpty(ip)) {
             toast("请输入域名或者IP");
         } else {
-            showProgressDialog();
+//            showProgressDialog();
             SettingDao.getInstance().setHostIp(ip);
             SettingDao.getInstance().setHostAddr(addr);
             Handler mHandler = new Handler();
