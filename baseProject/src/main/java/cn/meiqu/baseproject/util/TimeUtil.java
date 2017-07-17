@@ -1,6 +1,7 @@
 package cn.meiqu.baseproject.util;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -8,6 +9,7 @@ import java.util.Date;
  */
 public class TimeUtil {
     public static final SimpleDateFormat DEFAULT_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    public static final SimpleDateFormat MIN_DATE_FORMAT = new SimpleDateFormat("HH:mm");
     public static final SimpleDateFormat DATE_FORMAT_DATE = new SimpleDateFormat("yyyy-MM-dd");
     public static final SimpleDateFormat Month_FORMAT_DATE = new SimpleDateFormat("MM-dd");
     public static final SimpleDateFormat DEVICE_DATE = new SimpleDateFormat("HH:mm\n MM月dd日 ");
@@ -28,6 +30,20 @@ public class TimeUtil {
             timeFormat = getCurrentTimeInString(Month_FORMAT_DATE);
         }
         return timeFormat;
+    }
+
+
+    public static long getTimeMills(String dateFormat){
+
+        long timeMins = 0;
+
+        try {
+           timeMins = DEFAULT_DATE_FORMAT.parse(dateFormat).getTime();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return timeMins;
     }
 
 

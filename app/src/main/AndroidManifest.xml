@@ -45,11 +45,14 @@
             android:theme="@style/AppTheme"
             android:name=".activity.SelectionActivity"/>
         <activity android:name=".activity.SettingActivity"/>
-        <activity android:name=".hkvideo.RTSPActivity"/>
         <activity
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:name=".hkvideo.SimpleActivity"/>
         <activity android:name=".hkvideo.OnlyLoginIdActivity"/>
+        <activity android:name=".hkvideo.VideoActivity"/>
+        <activity
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:name=".hkvideo.PlayBackActivity"/>
     </application>
 
 </manifest>

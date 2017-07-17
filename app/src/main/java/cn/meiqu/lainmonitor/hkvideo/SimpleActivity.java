@@ -1,12 +1,16 @@
 package cn.meiqu.lainmonitor.hkvideo;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.Color;
+import android.graphics.PointF;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.WindowManager;
@@ -32,12 +36,16 @@ public class SimpleActivity extends BaseActivity implements View.OnClickListener
     ImageView tv;
     ImageView tv2;
     ImageView tv3;
+    ImageView tv4;
     private boolean flag;
     private boolean flag2;
     private boolean flag3;
     FrameLayout.LayoutParams lp;
     FrameLayout.LayoutParams lp2;
     FrameLayout.LayoutParams lp3;
+    FrameLayout.LayoutParams lp4;
+
+    private PointF mPoint;
 
     @Override
     public void onHttpHandle(String action, String data) {
@@ -54,6 +62,7 @@ public class SimpleActivity extends BaseActivity implements View.OnClickListener
         HCNetSDK.getInstance().NET_DVR_Init();
         surfaceView = (SurfaceView)findViewById(R.id.surfaceviewId);
         surfaceView.setOnClickListener(this);
+//        surfaceView.setOnTouchListener(this);
         assistant = new PlayAssistant(surfaceView);
         assistant.play("192.168.1.65",8000,"admin","lain123456",Config.getInt("channel"));
 
@@ -148,6 +157,24 @@ public class SimpleActivity extends BaseActivity implements View.OnClickListener
             }
         });
 
+
+        tv4 = new ImageView(this);
+        tv4.setMinimumHeight(100);
+        tv4.setMinimumWidth(100);
+        tv4.setImageResource(R.mipmap.replay);
+        lp4 = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
+        lp4.gravity = Gravity.RIGHT | Gravity.CENTER;
+        addContentView(tv4,lp4);
+        tv4.setVisibility(View.GONE);
+        tv4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //replay
+                toast("回放");
+                startActivity(new Intent(getApplicationContext(),PlayBackActivity.class));
+            }
+        });
+
     }
 
     @Override
@@ -169,11 +196,13 @@ public class SimpleActivity extends BaseActivity implements View.OnClickListener
                 tv.setVisibility(View.VISIBLE);
                 tv2.setVisibility(View.VISIBLE);
                 tv3.setVisibility(View.VISIBLE);
+                tv4.setVisibility(View.VISIBLE);
                 flag = true;
             }else{
                 tv.setVisibility(View.GONE);
                 tv2.setVisibility(View.GONE);
                 tv3.setVisibility(View.GONE);
+                tv4.setVisibility(View.GONE);
                 flag = false;
             }
 
@@ -213,4 +242,49 @@ public class SimpleActivity extends BaseActivity implements View.OnClickListener
         }
 
     }
+
+//    @Override
+//    public boolean onTouch(View view, MotionEvent motionEvent) {
+//        switch (motionEvent.getAction()){
+//
+//            case MotionEvent.ACTION_DOWN:
+//                if(mPoint == null){
+//                    mPoint = new PointF();
+//                    mPoint.set(motionEvent.getRawX(),motionEvent.getRawY());
+//                    Log.e("x",mPoint.x+"");
+//                    Log.e("x",mPoint.y+"");
+//                }
+//                break;
+//            case MotionEvent.ACTION_MOVE:
+////                Log.e("x-getRawX()",mPoint.x-motionEvent.getRawX()+"");
+//                if(mPoint.x-motionEvent.getRawX()>15){
+//                    //开启左转
+//                    Log.e("x-getRawX()",mPoint.x-motionEvent.getRawX()+"");
+//                    assistant.startPTZControl(3);
+//                }
+//                if(mPoint.x-motionEvent.getRawX()<-5){
+//                    //开启右转
+//                    assistant.startPTZControl(2);
+//                }
+//                if(mPoint.y-motionEvent.getRawY()>5){
+//                    //开启下偏
+//                    assistant.startPTZControl(1);
+//                }
+//                if(mPoint.y-motionEvent.getRawY()<-5){
+//                    //开启上偏
+//                    assistant.startPTZControl(0);
+//                }
+//
+//                break;
+//            case MotionEvent.ACTION_UP:
+//            case MotionEvent.ACTION_CANCEL:
+//                //停止，取消
+//                assistant.startPTZControl(0);
+//                assistant.startPTZControl(1);
+//                assistant.startPTZControl(2);
+//                assistant.startPTZControl(3);
+//                break;
+//        }
+//        return false;
+//    }
 }

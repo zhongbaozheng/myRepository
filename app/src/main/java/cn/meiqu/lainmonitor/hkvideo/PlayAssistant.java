@@ -8,7 +8,13 @@ import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
 import com.hikvision.netsdk.HCNetSDK;
 import com.hikvision.netsdk.NET_DVR_DEVICEINFO_V30;
+import com.hikvision.netsdk.NET_DVR_PLAYBACK_INFO;
 import com.hikvision.netsdk.NET_DVR_PREVIEWINFO;
+import com.hikvision.netsdk.NET_DVR_STREAM_INFO;
+import com.hikvision.netsdk.NET_DVR_TIME;
+import com.hikvision.netsdk.NET_DVR_VOD_PARA;
+import com.hikvision.netsdk.PTZCommand;
+import com.hikvision.netsdk.PlaybackControlCommand;
 import com.hikvision.netsdk.RealPlayCallBack;
 
 import org.MediaPlayer.PlayM4.Player;
@@ -26,10 +32,13 @@ public class PlayAssistant implements Callback
 	private static String TAG = "lzc";
 	private int m_iPort = -1;
 	private int m_iLogID = -1;
-	private int m_iPlayID = -1;
+	public int m_iPlayID = -1;
 	private int m_iStartChan = 0; // start channel no
 	private NET_DVR_DEVICEINFO_V30 m_oNetDvrDeviceInfoV30 = null;
 	private SurfaceView mSurfaceView;
+
+	private int m_iPlaybackID = -1; // return by NET_DVR_PlayBackByTime
+
 
 	public PlayAssistant(SurfaceView mSurfaceView)
 	{
@@ -49,6 +58,138 @@ public class PlayAssistant implements Callback
 		{
 			return false;
 		}
+	}
+
+	/**
+	 * 设置回放参数
+	 * @param startTime
+	 * @param endTime
+	 * @return
+	 */
+	public NET_DVR_VOD_PARA  setPlayBack(NET_DVR_TIME startTime,NET_DVR_TIME endTime){
+
+		NET_DVR_STREAM_INFO net_dvr_stream_info = new NET_DVR_STREAM_INFO();
+		net_dvr_stream_info.byID = new byte[6*1024];
+		net_dvr_stream_info.dwChannel = m_iStartChan;
+
+		NET_DVR_VOD_PARA net_dvr_vod_para = new NET_DVR_VOD_PARA();
+		net_dvr_vod_para.hWnd = mSurfaceView.getHolder().getSurface();
+		net_dvr_vod_para.struBeginTime = startTime;
+		net_dvr_vod_para.struEndTime  = endTime;
+		net_dvr_vod_para.byStreamType = 1;
+		net_dvr_vod_para.struIDInfo = net_dvr_stream_info;
+
+		return net_dvr_vod_para;
+	}
+
+	/**
+	 * 开始回放  参数为 setPlayBack()
+	 */
+	public void playback(NET_DVR_VOD_PARA para,int loginId){
+
+		m_iLogID = loginId;
+
+		if (m_iLogID < 0) {
+			Log.e(TAG, " login falied , net sdk playback failed!");
+			return;
+		}
+
+		m_iPlaybackID = HCNetSDK.getInstance().NET_DVR_PlayBackByTime_V40(m_iLogID, para);
+
+		if (m_iPlaybackID >= 0) {
+			NET_DVR_PLAYBACK_INFO struPlaybackInfo = null;
+			if (!HCNetSDK
+					.getInstance()
+					.NET_DVR_PlayBackControl_V40(
+							m_iPlaybackID,
+							PlaybackControlCommand.NET_DVR_PLAYSTART,
+							null, 0, struPlaybackInfo)) {
+				Log.e(TAG, "net sdk playback start failed!");
+				return;
+			}
+		}
+
+	}
+
+	/**
+	 * 登录功能
+	 * @param ip
+	 * @param port
+	 * @param user
+	 * @param psd
+	 * @param channel
+	 * @return
+	 */
+	public int  login(String ip, int port, String user, String psd, final int channel){
+		return loginNormalDevice(ip, port, user, psd, channel);
+	}
+
+	/**
+	 * 暂停回放
+	 */
+	public void stopPlayBack(){
+
+		if(m_iPlaybackID>=0){
+
+			NET_DVR_PLAYBACK_INFO struPlaybackInfo = null;
+			if (!HCNetSDK
+					.getInstance()
+					. NET_DVR_StopPlayBack(m_iPlaybackID)) {
+				Log.e(TAG,"net sdk playback stop failed!");
+				return;
+			}
+		}
+
+	}
+
+	/**
+	 * 恢复下载
+	 */
+	public void goAheadPlayBack(){
+
+		if(m_iPlaybackID>=0){
+			NET_DVR_PLAYBACK_INFO struPlaybackInfo = null;
+			Log.e("goAheadPlayBack","goAheadPlayBack");
+			if (!HCNetSDK
+					.getInstance()
+					.NET_DVR_PlayBackControl_V40(
+							m_iPlaybackID,
+							PlaybackControlCommand.NET_DVR_PLAYRESTART ,
+							null, 0, struPlaybackInfo)) {
+				Log.e(TAG,"net sdk playback go ahead failed");
+				return;
+			}
+		}
+	}
+
+	/**
+	 * 停止下载录像文件
+	 */
+	public void poausPlayBack(){
+
+		if(m_iPlaybackID>=0){
+			NET_DVR_PLAYBACK_INFO struPlaybackInfo = null;
+			Log.e("poausPlayBack","poausPlayBack");
+			if (!HCNetSDK
+					.getInstance()
+					.NET_DVR_PlayBackControl_V40(
+							m_iPlaybackID,
+							PlaybackControlCommand.NET_DVR_PLAYPAUSE ,
+							null, 0, struPlaybackInfo)) {
+				Log.e(TAG,"net sdk playback go ahead failed");
+				return;
+			}
+		}
+	}
+
+	/**
+	 * seek playBack Listen,进度条播放
+	 * @param startTime
+	 * @param endTime
+	 * @param loginId
+	 */
+	public void seekPlayBack(NET_DVR_TIME startTime,NET_DVR_TIME endTime,int loginId){
+		playback(setPlayBack(startTime,endTime),loginId);
 	}
 
 	/**
@@ -200,7 +341,7 @@ public class PlayAssistant implements Callback
 		previewInfo.lChannel = m_iStartChan;
 		Log.i(TAG, "lChannel:" + previewInfo.lChannel);
 		// 码流类型 0主码 1子码 2码流
-		previewInfo.dwStreamType = 1; // substream
+		previewInfo.dwStreamType = 0; // substream
 		// 阻塞取流1和非阻塞取流0
 		previewInfo.bBlocked = 1;
 		// 开启实时播放
@@ -322,6 +463,59 @@ public class PlayAssistant implements Callback
 		Log.i(TAG, "NET_DVR_Login is Successful!");
 
 		return iLogID;
+	}
+
+	//上下左右
+	//0 1 2 3
+	public void startPTZControl(int contrl){
+		if(m_iLogID<0){
+			Log.e(TAG,"login failed");
+		}else {
+			if(contrl == 0){
+				if(!HCNetSDK.getInstance().NET_DVR_PTZControl_Other(m_iLogID,m_iStartChan, PTZCommand.TILT_UP,0)){
+					Log.e(TAG,"up control failed");
+				}
+			}else if(contrl == 1){
+				if(!HCNetSDK.getInstance().NET_DVR_PTZControl_Other(m_iLogID,m_iStartChan, PTZCommand.TILT_DOWN,0)){
+					Log.e(TAG,"down control failed");
+				}
+			}else if(contrl == 2){
+				if(!HCNetSDK.getInstance().NET_DVR_PTZControl_Other(m_iLogID,m_iStartChan, PTZCommand.PAN_LEFT,0)){
+					Log.e(TAG,"left control failed");
+				}
+			}else if(contrl == 3){
+				if(!HCNetSDK.getInstance().NET_DVR_PTZControl_Other(m_iLogID,m_iStartChan, PTZCommand.PAN_RIGHT,0)){
+					Log.e(TAG,"right control failed");
+				}
+			}
+		}
+	}
+
+
+	//上下左右
+	//0 1 2 3
+	public void stopPTZControl(int contrl){
+		if(m_iLogID<0){
+			Log.e(TAG,"login failed");
+		}else {
+			if(contrl == 0){
+				if(!HCNetSDK.getInstance().NET_DVR_PTZControl_Other(m_iLogID,m_iStartChan, PTZCommand.TILT_UP,1)){
+					Log.e(TAG,"up control failed");
+				}
+			}else if(contrl == 1){
+				if(!HCNetSDK.getInstance().NET_DVR_PTZControl_Other(m_iLogID,m_iStartChan, PTZCommand.TILT_DOWN,1)){
+					Log.e(TAG,"down control failed");
+				}
+			}else if(contrl == 2){
+				if(!HCNetSDK.getInstance().NET_DVR_PTZControl_Other(m_iLogID,m_iStartChan, PTZCommand.PAN_LEFT,1)){
+					Log.e(TAG,"left control failed");
+				}
+			}else if(contrl == 3){
+				if(!HCNetSDK.getInstance().NET_DVR_PTZControl_Other(m_iLogID,m_iStartChan, PTZCommand.PAN_RIGHT,1)){
+					Log.e(TAG,"right control failed");
+				}
+			}
+		}
 	}
 
 	@Override
