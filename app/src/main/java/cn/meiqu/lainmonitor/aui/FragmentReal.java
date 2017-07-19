@@ -2,6 +2,7 @@ package cn.meiqu.lainmonitor.aui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,6 +20,7 @@ public abstract class FragmentReal extends BaseFragment implements SwipeRefreshL
     public String className = getClass().getName() + Math.random() * 10000;
     private SwipeRefreshLayout mSwipe;
     public RecyclerView mRecycleV;
+    public FloatingActionButton mFBtn;
 
     public abstract RecyclerView.Adapter getAdapter();
 
@@ -34,6 +36,7 @@ public abstract class FragmentReal extends BaseFragment implements SwipeRefreshL
 
     private void assignViews() {
         setSwipeRefresh(R.id.swipe, this);
+        mFBtn = (FloatingActionButton)findViewById(R.id.fab);
         mSwipe = (SwipeRefreshLayout) findViewById(R.id.swipe);
         mRecycleV = (RecyclerView) findViewById(R.id.recycleV);
         mRecycleV.setLayoutManager(new GridLayoutManager(getActivity(), 2));
@@ -42,6 +45,7 @@ public abstract class FragmentReal extends BaseFragment implements SwipeRefreshL
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         if (getActions() == null) {
             initReceiver(new String[]{getAction()});
         } else {
@@ -50,6 +54,7 @@ public abstract class FragmentReal extends BaseFragment implements SwipeRefreshL
         if (contain == null) {
             contain = inflater.inflate(R.layout.f_real, null);
             assignViews();
+            initViews();
             setSwipeRefreshing(true);
         }
         return contain;
@@ -59,6 +64,10 @@ public abstract class FragmentReal extends BaseFragment implements SwipeRefreshL
     public void onResume() {
         requestData();
         super.onResume();
+    }
+
+    public void initViews(){
+
     }
 
     @Override

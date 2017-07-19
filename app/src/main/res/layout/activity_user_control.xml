@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/black"
     android:layout_height="match_parent">
-    <include layout="@layout/title"/>
+    <include
+        android:id="@+id/toolBar"
+        layout="@layout/title"/>
 
     <TextView
+        android:background="@color/white"
+        android:id="@+id/addTv"
+        android:layout_below="@id/toolBar"
         android:textSize="18sp"
         android:gravity="center"
         android:text="用户添加"
         android:layout_width="match_parent"
         android:layout_height="50dp" />
     <View
+        android:id="@+id/view"
+        android:layout_below="@id/addTv"
         android:background="@color/black5"
         android:layout_width="match_parent"
         android:layout_height="1dp"/>
 
     <RelativeLayout
+        android:background="@color/white"
+        android:layout_below="@id/view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -120,7 +130,7 @@
     </LinearLayout>
 
     <Button
-        android:background="@drawable/shape_layout"
+        android:background="@drawable/fill_border2"
         android:layout_marginRight="10dp"
         android:padding="10dp"
         android:layout_below="@id/ll_4"
@@ -132,4 +142,4 @@
 
     </RelativeLayout>
 
-</LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:padding="3dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="      用户名："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:textSize="14sp"
+            android:background="@drawable/fill_border"
+            android:id="@+id/admin_account_ed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+        <LinearLayout
+            android:padding="3dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+
+                android:text="          密码："
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:password="true"
+                android:textSize="14sp"
+                android:background="@drawable/fill_border"
+                android:id="@+id/admin_password_ed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:padding="3dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="  确认密码："
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:password="true"
+                android:textSize="14sp"
+                android:background="@drawable/fill_border"
+                android:id="@+id/admin_confirm_ed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:padding="3dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="  联系电话："
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:textSize="14sp"
+                android:background="@drawable/fill_border"
+                android:id="@+id/admin_phone_ed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:padding="3dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="          邮箱："
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:textSize="14sp"
+                android:background="@drawable/fill_border"
+                android:id="@+id/admin_email_ed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:padding="3dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="          性别："
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioGroup
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:textColor="@color/color_backround"
+                    android:id="@+id/man_ra"
+                    android:textSize="14sp"
+                    android:checked="true"
+                    android:text="男"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:textColor="@color/color_backround"
+                    android:id="@+id/femal_ra"
+                    android:textSize="14sp"
+                    android:text="女"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="center"
+            android:padding="3dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="  管理类型："
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioGroup
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <RadioButton
+                    android:checked="true"
+                    android:textSize="12sp"
+                    android:text="超级管理员"
+                    android:id="@+id/super_ra"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:textSize="12sp"
+                    android:id="@+id/next_ra"
+                    android:text="管理员"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:textSize="12sp"
+                    android:id="@+id/nomal_ra"
+                    android:text="普通管理员"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="center"
+            android:padding="3dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="      值班日："
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <CheckBox
+                   android:textSize="12sp"
+                   android:text="星期一"
+                   android:id="@+id/day1"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content" />
+               <CheckBox
+                   android:textSize="12sp"
+                   android:id="@+id/day2"
+                   android:text="星期二"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content" />
+               <CheckBox
+                   android:textSize="12sp"
+                   android:id="@+id/day3"
+                   android:text="星期三"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content" />
+
+           </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:padding="3dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_marginLeft="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <CheckBox
+                    android:textSize="12sp"
+                    android:id="@+id/day4"
+                    android:text="星期四"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <CheckBox
+                    android:textSize="12sp"
+                    android:text="星期五"
+                    android:id="@+id/day5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <CheckBox
+                    android:textSize="12sp"
+                    android:text="星期六"
+                    android:id="@+id/day6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <CheckBox
+                    android:textSize="12sp"
+                    android:text="星期日"
+                    android:id="@+id/day7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:layout_marginTop="20dp"
+        android:id="@+id/fb_modify"
+        android:background="@color/window_background"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        app:fb_text="提交修改"
+        app:fb_textColor="@color/black"
+        app:fb_defaultColor="@color/color_gravy"
+        app:fb_focusColor="@color/color_backround"/>
+
+</RelativeLayout>

@@ -168,6 +168,7 @@ public class RippleView extends RelativeLayout {
                 timer = 0;
                 durationEmpty = -1;
                 timerEmpty = 0;
+                canvas.save();
                 canvas.restore();
                 invalidate();
                 if (onCompletionListener != null) onCompletionListener.onComplete(this);
@@ -330,7 +331,6 @@ public class RippleView extends RelativeLayout {
      *
      * @param rippleColor New color resource
      */
-    @ColorRes
     public void setRippleColor(int rippleColor) {
         this.rippleColor = getResources().getColor(rippleColor);
     }

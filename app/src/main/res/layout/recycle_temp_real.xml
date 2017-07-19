@@ -6,9 +6,9 @@
     android:padding="8dp">
 
     <LinearLayout
+        android:background="@drawable/fill_border"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_item"
         android:orientation="vertical"
         android:padding="10dp">
 

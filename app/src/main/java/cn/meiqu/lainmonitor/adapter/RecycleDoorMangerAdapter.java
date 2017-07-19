@@ -100,11 +100,13 @@ public class RecycleDoorMangerAdapter extends BaseRecycleAdapter {
             userNameTv.setText(bean.name);
             cardTv.setText(bean.card);
             selectionNameTv.setText(bean.sectionName);
-            for(int i = 0;i<bean.daui.size();i++){
-                str = str+bean.daui.get(i).address+",";
+            if(bean.daui.size()>0){
+                for(int i = 0;i<bean.daui.size();i++){
+                    str = str+bean.daui.get(i).address+",";
+                }
+                str = str.substring(0,str.length()-1);
+                applymodTv.setText(str);
             }
-            str = str.substring(0,str.length()-1);
-            applymodTv.setText(str);
             changemodBtn.setText(bean.status == 1?"已授权":"未授权");
             updateBtn.setOnClickListener(this);
             deleteBtn.setOnClickListener(this);

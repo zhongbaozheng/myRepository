@@ -1,5 +1,6 @@
 package cn.meiqu.lainmonitor.aui.security;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ import cn.meiqu.lainmonitor.aui.security.infrared.FragmentInfraredReal;
 import cn.meiqu.lainmonitor.aui.security.smoke.FragmentSmokeAlart;
 import cn.meiqu.lainmonitor.aui.security.smoke.FragmentSmokeReal;
 import cn.meiqu.lainmonitor.bean.ThirdPage;
+import cn.meiqu.lainmonitor.hkvideo.OnlyLoginIdActivity;
 
 /**
  * Created by Fatel on 16-5-24.
@@ -73,7 +75,8 @@ public class FragmentSecy extends FragmentControl {
         }
         //视频监控
         else if (number2.equals("7")) {
-
+            startActivity(new Intent(getActivity(), OnlyLoginIdActivity.class));
+            getActivity().finish();
         }
     }
 

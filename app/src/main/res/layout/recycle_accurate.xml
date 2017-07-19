@@ -36,6 +36,7 @@
                 android:textSize="14sp"
                 android:text="开机"
                 android:id="@+id/ra_air_open_tv"
+                android:layout_marginRight="50dp"
                 android:layout_width="50dp"
                 android:layout_height="30dp"
                 />
@@ -55,6 +56,7 @@
                 android:gravity="center"
                 android:textSize="14sp"
                 android:text="关闭"
+                android:layout_marginLeft="15dp"
                 android:id="@+id/ra_air_close_tv"
                 android:layout_width="50dp"
                 android:layout_height="30dp"
@@ -381,7 +383,7 @@
                 android:layout_marginRight="3dp"
                 android:id="@+id/jsqddl_alarm_state_show"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/toggle_state"
+                android:background="@drawable/toggle_warnning"
                 android:layout_width="35dp"
                 android:layout_height="35dp" />
 
@@ -409,7 +411,7 @@
                 android:layout_marginRight="3dp"
                 android:id="@+id/hftt_alarm_state_show"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/toggle_state"
+                android:background="@drawable/toggle_warnning"
                 android:layout_width="35dp"
                 android:layout_height="35dp" />
         </RelativeLayout>
@@ -444,7 +446,7 @@
                 android:layout_marginRight="3dp"
                 android:id="@+id/jsqgsw_alarm_state_show"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/toggle_state"
+                android:background="@drawable/toggle_warnning"
                 android:layout_width="35dp"
                 android:layout_height="35dp" />
 
@@ -472,7 +474,7 @@
                 android:layout_marginRight="3dp"
                 android:id="@+id/nfj2gz_state_alarm_show"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/toggle_state"
+                android:background="@drawable/toggle_warnning"
                 android:layout_width="35dp"
                 android:layout_height="35dp" />
         </RelativeLayout>
@@ -507,7 +509,7 @@
                 android:layout_marginRight="3dp"
                 android:id="@+id/ysj2dy_alarm_state_show"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/toggle_state"
+                android:background="@drawable/toggle_warnning"
                 android:layout_width="35dp"
                 android:layout_height="35dp" />
 
@@ -536,7 +538,7 @@
                 android:layout_marginRight="3dp"
                 android:id="@+id/ysj2gy_alarm_state_show"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/toggle_state"
+                android:background="@drawable/toggle_warnning"
                 android:layout_width="35dp"
                 android:layout_height="35dp" />
 
@@ -572,7 +574,7 @@
                 android:layout_marginRight="3dp"
                 android:id="@+id/tx_state_show"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/toggle_state"
+                android:background="@drawable/toggle_warnning"
                 android:layout_width="35dp"
                 android:layout_height="35dp" />
 

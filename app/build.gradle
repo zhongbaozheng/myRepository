@@ -1,14 +1,15 @@
 apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
 
 android {
 
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion '25.0.3'
 
     defaultConfig {
         applicationId "cn.meiqu.lainmonitor"
         minSdkVersion 16
-        targetSdkVersion 22
+        targetSdkVersion 23
         versionCode 6
         versionName "1.0.6"
         multiDexEnabled true
@@ -18,6 +19,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    //编译之后，jniLibs就出来了
+    sourceSets.main {
+        jniLibs.srcDirs = ['src/main/libs']
     }
 }
 
@@ -29,4 +35,6 @@ dependencies {
     compile project(':baseProject')
     compile 'com.android.support:cardview-v7:23.3.0'
     compile 'com.github.medyo:fancybuttons:1.8.2'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
 }

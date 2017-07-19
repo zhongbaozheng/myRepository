@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black"
+    android:layout_height="match_parent">
+    <include
+        android:id="@+id/toolBar"
+        layout="@layout/title"/>
+    <RelativeLayout
+        android:layout_below="@id/toolBar"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:id="@+id/fb_logout"
+        android:background="@color/window_background"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentBottom="true"
+        app:fb_text="退出登录"
+        app:fb_textColor="@color/white"
+        app:fb_defaultColor="@color/color_red"
+        app:fb_focusColor="@color/color_backround"/>
+    </RelativeLayout>
+
+</RelativeLayout>

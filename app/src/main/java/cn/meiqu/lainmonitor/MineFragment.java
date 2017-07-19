@@ -1,8 +1,10 @@
 package cn.meiqu.lainmonitor;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import cn.meiqu.baseproject.dao.SettingDao;
-import mehdi.sakout.fancybuttons.FancyButton;
+import cn.meiqu.lainmonitor.activity.SettingActivity;
+import cn.meiqu.lainmonitor.aui.system.FragmentModify;
 
 /**
  * Created by Administrator on 2017/5/25.
@@ -44,21 +47,28 @@ public class MineFragment extends Fragment {
          SettingDao.getInstance().setAccount(userName);
          SettingDao.getInstance().setPwd(password);
          */
-        FancyButton button = (FancyButton) rootView.findViewById(R.id.fb_logout);
-        button.setOnClickListener(new View.OnClickListener() {
+        TextView settingTv = (TextView) rootView.findViewById(R.id.setting_tv);
+        settingTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SettingDao.getInstance().setIsLogin(0);
-                SettingDao.getInstance().setAccount("");
-                SettingDao.getInstance().setPwd("");
+                startActivity(new Intent(getActivity(), SettingActivity.class));
 
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        getActivity().finish();
-                        Toast.makeText(getActivity(),"已退出！",Toast.LENGTH_SHORT).show();
-                    }
-                },1000);
+//                SettingDao.getInstance().setIsLogin(0);
+//                SettingDao.getInstance().setAccount("");
+//                SettingDao.getInstance().setPwd("");
+//
+//                new Handler().postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        getActivity().finish();
+//                        Toast.makeText(getActivity(),"已退出！",Toast.LENGTH_SHORT).show();
+//                    }
+//                },1000);
+
+//                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+//                transaction.replace(R.id.contain_id,new SettingFragment());
+//                transaction.addToBackStack(null);
+//                transaction.commit();
 
 
             }
@@ -68,4 +78,12 @@ public class MineFragment extends Fragment {
         return rootView;
     }
 
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(!SettingDao.getInstance().getIsLogin()){
+            getActivity().finish();
+        }
+    }
 }

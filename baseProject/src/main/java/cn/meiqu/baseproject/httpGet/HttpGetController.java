@@ -2,6 +2,7 @@ package cn.meiqu.baseproject.httpGet;
 
 
 import android.util.Log;
+import android.util.StringBuilderPrinter;
 
 import com.squareup.okhttp.FormEncodingBuilder;
 
@@ -196,6 +197,60 @@ public class HttpGetController {
         StringBuilder params = new StringBuilder();
         params.append("id="+userId+"&userCard="+usercard);
         get(API.requestModUrl,params.toString(),className);
+    }
+
+    //获取电量仪信息
+    public void getBaterry(String className){
+        post(API.batteryUrl,getTokenBuild(),className);
+    }
+    //删除电量仪设备
+    public void deleteBattery(String className,String address,String id,String ip){
+        StringBuilder params = new StringBuilder();
+        params.append("address="+address+"&ip="+ip+"&id="+id);
+        get(API.deleteElctroMachineUrl,params.toString(),className);
+    }
+    //更新电量仪设备
+    public void updateBattery(String className,String jsonStr){
+        StringBuilder params = new StringBuilder();
+        params.append("emObj="+jsonStr);
+        get(API.updateElctroMachineUrl,params.toString(),className);
+    }
+    ////Add电量仪设备
+    public void addBattery(String className,String ip,String location,String address,String name){
+        StringBuilder params = new StringBuilder();
+        params.append("address="+address+"&location="+location+"&name="+name+"&ipAddress="+ip);
+        get(API.addElctroMachineUrl,params.toString(),className);
+    }
+
+    //获取User信息
+    public void getAdminMessage(String className,String user,String password){
+        StringBuilder params = new StringBuilder();
+        params.append("loginName="+user+"&loginPassword="+password);
+        get(API.showCurrentLoginUserUrl,params.toString(),className);
+    }
+
+    //更新user
+    public void updateAdmin(String className,int loginId,String loginName,String password,long phoneNumber,String eMail,int radioSex,int radioType
+    ,int monday,int tuesday,int wednesday,int thursday,int friday,int saturday,int sunday){
+        StringBuilder params = new StringBuilder();
+        params.append("loginId="+loginId +"&loginName="+loginName+"&password="+password+"&phoneNumber="+phoneNumber+"&eMail="+eMail+"&radioSex="+radioSex+"&" +
+                "radioType="+radioType+"&monday="+monday+"&tuesday="+tuesday+"&wednesday="+wednesday+"&thursday="+thursday+"&friday="+friday+"&saturday="+saturday
+                +"&sunday="+sunday);
+        get(API.updateLoginUserUrl,params.toString(),className);
+    }
+
+    //精密空调 -- 开
+    public void openAir(String className,int id){
+        StringBuilder params = new StringBuilder();
+        params.append("Id="+id);
+        get(API.kgjStateOpenUrl,params.toString(),className);
+    }
+    //精密空调 -- 关
+    public void closeAir(String className,int id)
+    {
+        StringBuilder params = new StringBuilder();
+        params.append("Id="+id);
+        get(API.kgjStateCloseUrl,params.toString(),className);
     }
 
 

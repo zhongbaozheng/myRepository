@@ -1,9 +1,12 @@
 package cn.meiqu.baseproject.baseUi;
 
+import android.Manifest;
+import android.annotation.TargetApi;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -11,6 +14,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.LocalBroadcastManager;
@@ -26,11 +30,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.umeng.analytics.MobclickAgent;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
+import butterknife.ButterKnife;
 import cn.meiqu.baseproject.R;
 import cn.meiqu.baseproject.bean.MsgBean;
 import cn.meiqu.baseproject.dialog.LoadingDialog;
@@ -43,6 +51,7 @@ import cn.meiqu.baseproject.util.ToastUtil;
  * Created by Fatel on 15-4-9.
  */
 public abstract class BaseActivity extends AppCompatActivity {
+
     public FragmentManager fm;
     public BroadcastReceiver receiver;
     public int containerId;
@@ -50,10 +59,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     public static String action_exitApplication = "action_exitApplication";
     public ExitBroadCase exitBroadCase = new ExitBroadCase();
 
-    //
-    Toolbar toolbar;
-    TextView mTvTitle;
-    TextView mTvRight;
+
+    public String permissionInfo;
+    public final int SDK_PERMISSION_REQUEST = 127;
+
+
+    public Toolbar toolbar;
+    public TextView mTvTitle;
+    public TextView mTvRight;
     public SwipeRefreshLayout swipeRefresh;
 
     public void initTitle(String title) {
@@ -124,6 +137,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
+
+
+
     public abstract void onHttpHandle(String action, String data);
 
 
@@ -156,7 +172,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             //cn.meiqu.lainmonitor.MainNewActivityktr-mrms/queHeadJson.html
             Log.e("homeAction",action);
             //[{"id":1,"isShow":1,"name":"主页","number":1},{"id":3,"isShow":1,"name":"动力监控","number":3}]
-            Log.e("homeData",data);
+//            Log.e("homeData",data);
             onHttpHandle(action, data);
         }
     }
@@ -180,8 +196,20 @@ public abstract class BaseActivity extends AppCompatActivity {
             msgBeanArrayList.clear();
             msgBeanArrayList.addAll(temps);
             MsgBean bean = msgBeanArrayList.get(0);
-            Toast.makeText(this,bean.msg,Toast.LENGTH_SHORT).show();
+            toast(bean.msg);
         }
+    }
+
+    public void showMsgNotArray(String data){
+        try {
+
+            String msg = new JSONObject(data).get("msg").toString();
+            toast(msg);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
     public void dismissProgressDialog() {
