@@ -41,7 +41,7 @@ public class IpSettingActivity extends BaseActivity implements RippleView.OnRipp
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ip_setting);
         assignViews();
-//        permissionManage();
+        permissionManage();
     }
 
 
@@ -81,6 +81,10 @@ public class IpSettingActivity extends BaseActivity implements RippleView.OnRipp
 //        if (addPermission(permissions, Manifest.permission.READ_PHONE_STATE)) {
 //            permissionInfo += "Manifest.permission.READ_PHONE_STATE Deny \n";
 //        }
+        if(addPermission(permissions,Manifest.permission.ACCESS_FINE_LOCATION)){
+            permissionInfo += "Manifest.permission.ACCESS_FINE_LOCATION Deny \n";
+        }
+
 
         if (permissions.size() > 0) {
             requestPermissions(permissions.toArray(new String[permissions.size()]), SDK_PERMISSION_REQUEST);

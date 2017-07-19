@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/black"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/title"/>
+
+    <LinearLayout
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:id="@+id/ll_time"
+        android:padding="5dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+
+            android:id="@+id/start_time_ed"
+            android:singleLine="true"
+            android:textSize="10dp"
+            android:text="1970-01-01"
+            android:background="@drawable/fill_border"
+            android:layout_width="70dp"
+            android:layout_height="40dp" />
+        <EditText
+
+            android:id="@+id/start_min_ed"
+            android:singleLine="true"
+            android:textSize="10dp"
+            android:text="00:00"
+            android:background="@drawable/fill_border"
+            android:layout_width="50dp"
+            android:layout_height="40dp" />
+
+        <View
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/black"
+            android:layout_width="20dp"
+            android:layout_height="1dp"/>
+
+
+        <EditText
+
+            android:id="@+id/end_time_ed"
+            android:singleLine="true"
+            android:textSize="10dp"
+            android:text="1970-01-01"
+            android:background="@drawable/fill_border"
+            android:layout_width="70dp"
+            android:layout_height="40dp" />
+        <EditText
+
+            android:id="@+id/end_min_ed"
+            android:singleLine="true"
+            android:textSize="10dp"
+            android:text="00:00"
+            android:background="@drawable/fill_border"
+            android:layout_width="50dp"
+            android:layout_height="40dp" />
+
+        <TextView
+            android:textSize="10dp"
+            android:id="@+id/concern_tv"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/shape_layout"
+            android:gravity="center"
+            android:text="确定"
+            android:layout_width="50dp"
+            android:layout_height="40dp" />
+
+    </LinearLayout>
+
+
+
+    <RelativeLayout
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="370dp"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <SurfaceView
+            android:id="@+id/surfaceviewId"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
+
+    </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

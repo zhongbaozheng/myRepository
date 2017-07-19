@@ -2,6 +2,7 @@ package cn.meiqu.baseproject.util;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +21,8 @@ public class ToastUtil {
             toast = new Toast(mContext);
             toast.setDuration(Toast.LENGTH_SHORT);
             ViewGroup v = (ViewGroup) LayoutInflater.from(mContext).inflate(R.layout.toast, null);
+            tv = (TextView) v.findViewById(R.id.text1);
+            tv.setVisibility(View.GONE);
             tv2 = (TextView) v.findViewById(R.id.text2);
             toast.setView(v);
         }

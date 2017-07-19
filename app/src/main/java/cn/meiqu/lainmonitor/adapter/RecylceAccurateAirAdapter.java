@@ -15,6 +15,7 @@ import java.util.BitSet;
 
 import cn.meiqu.baseproject.baseRecycle.BaseHolder;
 import cn.meiqu.baseproject.baseRecycle.BaseRecycleAdapter;
+import cn.meiqu.baseproject.httpGet.HttpGetController;
 import cn.meiqu.lainmonitor.R;
 import cn.meiqu.lainmonitor.bean.AirAcurrateBean;
 
@@ -26,10 +27,12 @@ public class RecylceAccurateAirAdapter extends BaseRecycleAdapter{
 
     private Context mContext;
     private ArrayList<AirAcurrateBean> mAirAcurrateBeanList;
+    private String mClassName;
 
-    public RecylceAccurateAirAdapter(Context context,ArrayList<AirAcurrateBean> list){
+    public RecylceAccurateAirAdapter(Context context,ArrayList<AirAcurrateBean> list,String className){
         mContext = context;
         mAirAcurrateBeanList = list;
+        mClassName = className;
     }
 
     @Override
@@ -142,7 +145,7 @@ public class RecylceAccurateAirAdapter extends BaseRecycleAdapter{
         }
 
 
-        private void setState(AirAcurrateBean airAcurrateBean){
+        private void setState(final AirAcurrateBean airAcurrateBean){
             mIdName.setText(airAcurrateBean.name);
             mTempHumity.setText("      温度:  "+airAcurrateBean.temp+"°C                           湿度: "+airAcurrateBean.hum+"%");
             mRqptfState.setChecked(airAcurrateBean.rqptState == 1);
@@ -177,13 +180,27 @@ public class RecylceAccurateAirAdapter extends BaseRecycleAdapter{
                 @Override
                 public void onClick(View view) {
                     //将发送控制请求
-                    Toast.makeText(mContext,"关",Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(mContext,"关",Toast.LENGTH_SHORT).show();
+                    /**
+                     * 精密空调开机请求
+                     http://localhost:8090/ktr-mrms/ opencracJson.html？Id=1
+
+                     精密空调关机机请求
+                     http://localhost:8090/ktr-mrms/ closecracJson.html？Id=1
+                     */
+                    if(airAcurrateBean.kgjState == 1){
+                        //发送关
+                        HttpGetController.getInstance().closeAir(mClassName,1);
+                    }else{
+                        //发送开
+                        HttpGetController.getInstance().openAir(mClassName,1);
+                    }
                 }
             });
             mOpenTv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(mContext,"开",Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(mContext,"开",Toast.LENGTH_SHORT).show();
                 }
             });
 

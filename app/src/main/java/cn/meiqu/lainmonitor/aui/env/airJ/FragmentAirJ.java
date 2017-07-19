@@ -20,14 +20,32 @@ import cn.meiqu.lainmonitor.bean.AirAcurrateBean;
 public class FragmentAirJ extends FragmentVertial {
 
     String action_getData = className + API.accurateAirUrl;
+    String action_isOpen  = className + API.kgjStateOpenUrl;
+    String action_isClose   = className + API.kgjStateCloseUrl;
+
     private ArrayList<AirAcurrateBean> mAirAcurrateBeanList = new ArrayList<AirAcurrateBean>();
     private RecylceAccurateAirAdapter mAdapter;
 
     @Override
+    public void onHttpHandle(String action, String data) {
+        if(action.equals(action_getData)){
+            handleGetData(data);
+        }
+        if(action.equals(action_isOpen)){
+            showMsg(data);
+        }
+        if(action.equals(action_isClose)){
+            showMsg(data);
+        }
+    }
+
+    @Override
     public RecyclerView.Adapter getAdapter() {
-        mAdapter = new RecylceAccurateAirAdapter(getActivity(),mAirAcurrateBeanList);
+        mAdapter = new RecylceAccurateAirAdapter(getActivity(),mAirAcurrateBeanList,className);
+        initReceiver(new String[]{action_getData,action_isClose,action_isOpen});
         return mAdapter;
     }
+
 
     @Override
     public String getAction() {
@@ -41,6 +59,10 @@ public class FragmentAirJ extends FragmentVertial {
 
     @Override
     public void handleData(String data) {
+
+    }
+
+    public void handleGetData(String data){
         ArrayList<AirAcurrateBean> temps = new Gson().
                 fromJson(data,new TypeToken<ArrayList<AirAcurrateBean>>(){}.getType());
         if(temps != null){

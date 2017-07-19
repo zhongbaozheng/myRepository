@@ -1,5 +1,7 @@
 package cn.meiqu.lainmonitor.hkvideo;
 
+import android.graphics.Bitmap;
+
 /**
  * Created by Administrator on 2017/6/21.
  */
@@ -11,6 +13,8 @@ public class DeviceBean {
     public int nPort;     //ip端口号
     public String strUser;  //登录名
     public String strPsd;   //密码
+
+    public Bitmap bitmap;
 
     public int getChannel() {
         return channel;
@@ -52,11 +56,13 @@ public class DeviceBean {
         this.strPsd = strPsd;
     }
 
-    public DeviceBean(int chan){
-        channel = chan;
+    public DeviceBean(){
 
     }
 
+    public DeviceBean(int position){
+        channel = position;
+    }
 
 
 }

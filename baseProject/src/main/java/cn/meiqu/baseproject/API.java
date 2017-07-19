@@ -170,6 +170,11 @@ public class API {
     //更新管理员
     public static String updateLoginUserUrl = "ktr-mrms/updCurrentLoginUserJson.html";
 
+    //精密空调发送控制
+    public static String kgjStateOpenUrl = "ktr-mrms/opencracJson.html";
+    public static String kgjStateCloseUrl = "ktr-mrms/closecracJson.html";
+
+
     public static String getBaseUrl() {
         String baseUrl = StringUtil.isEmpty(SettingDao.getInstance().getHostIp()) ? SettingDao.getInstance().getHostAddr() : SettingDao.getInstance().getHostIp();
         Log.e("baseUrl",baseUrl);
@@ -178,7 +183,7 @@ public class API {
     }
 
     public static String getAbsolutePath(String url) {
-        Log.e("rul",getBaseUrl()+url);
+        Log.e("absoultePath",getBaseUrl()+url);
         return getBaseUrl() + url;
     }
 }
