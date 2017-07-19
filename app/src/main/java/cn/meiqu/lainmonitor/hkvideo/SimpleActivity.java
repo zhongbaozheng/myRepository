@@ -29,7 +29,7 @@ import cn.meiqu.lainmonitor.R;
  * Created by Administrator on 2017/6/24.
  */
 
-public class SimpleActivity extends BaseActivity implements View.OnClickListener{
+public class SimpleActivity extends BaseActivity implements View.OnClickListener,View.OnTouchListener{
 
     private SurfaceView surfaceView;
     private PlayAssistant assistant;
@@ -62,7 +62,7 @@ public class SimpleActivity extends BaseActivity implements View.OnClickListener
         HCNetSDK.getInstance().NET_DVR_Init();
         surfaceView = (SurfaceView)findViewById(R.id.surfaceviewId);
         surfaceView.setOnClickListener(this);
-//        surfaceView.setOnTouchListener(this);
+        surfaceView.setOnTouchListener(this);
         assistant = new PlayAssistant(surfaceView);
         assistant.play("192.168.1.65",8000,"admin","lain123456",Config.getInt("channel"));
 
@@ -243,48 +243,50 @@ public class SimpleActivity extends BaseActivity implements View.OnClickListener
 
     }
 
-//    @Override
-//    public boolean onTouch(View view, MotionEvent motionEvent) {
-//        switch (motionEvent.getAction()){
-//
-//            case MotionEvent.ACTION_DOWN:
-//                if(mPoint == null){
-//                    mPoint = new PointF();
-//                    mPoint.set(motionEvent.getRawX(),motionEvent.getRawY());
-//                    Log.e("x",mPoint.x+"");
-//                    Log.e("x",mPoint.y+"");
-//                }
-//                break;
-//            case MotionEvent.ACTION_MOVE:
-////                Log.e("x-getRawX()",mPoint.x-motionEvent.getRawX()+"");
-//                if(mPoint.x-motionEvent.getRawX()>15){
-//                    //开启左转
-//                    Log.e("x-getRawX()",mPoint.x-motionEvent.getRawX()+"");
-//                    assistant.startPTZControl(3);
-//                }
-//                if(mPoint.x-motionEvent.getRawX()<-5){
-//                    //开启右转
-//                    assistant.startPTZControl(2);
-//                }
-//                if(mPoint.y-motionEvent.getRawY()>5){
-//                    //开启下偏
-//                    assistant.startPTZControl(1);
-//                }
-//                if(mPoint.y-motionEvent.getRawY()<-5){
-//                    //开启上偏
-//                    assistant.startPTZControl(0);
-//                }
-//
-//                break;
-//            case MotionEvent.ACTION_UP:
-//            case MotionEvent.ACTION_CANCEL:
-//                //停止，取消
-//                assistant.startPTZControl(0);
-//                assistant.startPTZControl(1);
-//                assistant.startPTZControl(2);
-//                assistant.startPTZControl(3);
-//                break;
-//        }
-//        return false;
-//    }
+    @Override
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        switch (motionEvent.getAction()){
+
+            case MotionEvent.ACTION_DOWN:
+
+                mPoint = new PointF();
+                mPoint.set(motionEvent.getRawX(),motionEvent.getRawY());
+                Log.e("x",mPoint.x+"");
+                Log.e("Y",mPoint.y+"");
+                break;
+            case MotionEvent.ACTION_MOVE:
+                Log.e("x-getRawX()",mPoint.x-motionEvent.getRawX()+"");
+                if(mPoint.x-motionEvent.getRawX()>15){
+                    //开启左转
+                    Log.e("left",mPoint.x-motionEvent.getRawX()+"");
+                    assistant.startPTZControl(3);
+                }
+                if(mPoint.x-motionEvent.getRawX()<-15){
+                    //开启右转
+                    assistant.startPTZControl(2);
+                    Log.e("right",mPoint.x-motionEvent.getRawX()+"");
+                }
+                if(mPoint.y-motionEvent.getRawY()>5){
+                    //开启下偏
+                    assistant.startPTZControl(1);
+                }
+                if(mPoint.y-motionEvent.getRawY()<-5){
+                    //开启上偏
+                    assistant.startPTZControl(0);
+                }
+
+                break;
+            case MotionEvent.ACTION_UP:
+            case MotionEvent.ACTION_CANCEL:
+                //停止，取消
+                assistant.startPTZControl(0);
+                assistant.startPTZControl(1);
+                assistant.startPTZControl(2);
+                assistant.startPTZControl(3);
+                break;
+        }
+        return super.dispatchGenericMotionEvent(motionEvent);
+    }
+
+
 }

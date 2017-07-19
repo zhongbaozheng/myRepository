@@ -6,6 +6,8 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.SurfaceView;
@@ -57,6 +59,9 @@ public class PlayBackActivity extends BaseActivity implements View.OnClickListen
     LinearLayout linearLayout;
 
     private Thread mProgressThread;
+    private  int  isStop = -1;   //-1表示没有点击的状态，0表示继续，1停止
+    private long progressMillns;
+    private float mProgress;
 
     int loginId;
 
@@ -72,6 +77,17 @@ public class PlayBackActivity extends BaseActivity implements View.OnClickListen
 
     String showTime = "";
     SeekBar seekBar;
+
+    private Handler mHandler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+
+            if(msg.what == 1){
+                mProgress = (float)msg.obj;
+                seekBar.setProgress((int) mProgress);
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,15 +111,12 @@ public class PlayBackActivity extends BaseActivity implements View.OnClickListen
 
 
 
-
-
     private void addViews(){
 
         iV = new ImageView(this);
         iV.setMinimumHeight(100);
         iV.setMinimumWidth(100);
         iV.setImageResource(R.mipmap.ic_stop);
-//        tv.setText("停止");
         iV.setBackgroundColor(getResources().getColor(R.color.color_transparents));
         FrameLayout.LayoutParams lp1 = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
         lp1.gravity = Gravity.CENTER ;
@@ -116,15 +129,22 @@ public class PlayBackActivity extends BaseActivity implements View.OnClickListen
 
                 assistant.poausPlayBack();
 
-                if(!isPlay){
-                    iV.setImageResource(R.mipmap.ic_open);
-                    assistant.goAheadPlayBack();
-                    isPlay = true;
-                }else{
+                if(checkDate()){
 
-                    isPlay = false;
-                    iV.setImageResource(R.mipmap.ic_stop);
-                    assistant.poausPlayBack();
+                    if(!isPlay){
+                        iV.setImageResource(R.mipmap.ic_open);
+                        assistant.goAheadPlayBack();
+                        isPlay = true;
+                        isStop = 0;
+                        progressThreadNotify();
+                    }else{
+
+                        isPlay = false;
+                        iV.setImageResource(R.mipmap.ic_stop);
+                        assistant.poausPlayBack();
+                        isStop = 1;
+
+                    }
                 }
 
             }
@@ -186,9 +206,10 @@ public class PlayBackActivity extends BaseActivity implements View.OnClickListen
                 time3.dwHour = phrase2.hour;
                 time3.dwMinute = phrase2.min;
                 time3.dwSecond = phrase2.second;
-
                 assistant.seekPlayBack(time3,time2,loginId);
-
+                //赋值，继续开启
+                progressMillns = (long) ((endStand - startStand)*seekBar.getProgress()*1.0/100);
+                isStop = -1;
             }
         });
         seekBar.setBackgroundColor(Color.WHITE);
@@ -249,6 +270,9 @@ public class PlayBackActivity extends BaseActivity implements View.OnClickListen
                 setData();
                 iV.setImageResource(R.mipmap.ic_open);
                 seekBar.setProgress(0);
+                createProgessThread();
+                mProgressThread.start();
+                progressMillns = 0;
             }
 
         }
@@ -297,6 +321,51 @@ public class PlayBackActivity extends BaseActivity implements View.OnClickListen
         }
 
         return timePhrase;
+    }
+
+    //控制进度条继续
+    public synchronized void progressThreadNotify(){
+
+        synchronized (mProgressThread){
+
+            if(isStop == 0){
+                mProgressThread.notify();
+            }else {
+                toast("wating wait...");
+            }
+        }
+
+    }
+
+
+    public void createProgessThread(){
+        mProgressThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    while(true){
+                        Thread.sleep(1000);
+                        progressMillns = progressMillns + 1*1000;
+                        mProgress = progressMillns*100/(endStand - startStand);
+                        Message message = new Message();
+                        message.what = 1;
+                        message.obj = mProgress;
+                        mHandler.sendMessage(message);
+
+                        synchronized (mProgressThread){
+                            //控制暂停
+                            Log.e("isStop",isStop+"");
+                            if(isStop == 1){
+                                mProgressThread.wait();
+                            }
+                        }
+                    }
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
 
@@ -458,6 +527,13 @@ public class PlayBackActivity extends BaseActivity implements View.OnClickListen
     @Override
     public void onHttpHandle(String action, String data) {
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        assistant.Cleanup();
+        mProgressThread.interrupt();
     }
 
     @Override
