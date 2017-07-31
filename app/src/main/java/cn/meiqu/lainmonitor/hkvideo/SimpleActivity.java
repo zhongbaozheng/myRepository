@@ -256,36 +256,37 @@ public class SimpleActivity extends BaseActivity implements View.OnClickListener
                 break;
             case MotionEvent.ACTION_MOVE:
                 Log.e("x-getRawX()",mPoint.x-motionEvent.getRawX()+"");
-                if(mPoint.x-motionEvent.getRawX()>15){
-                    //开启左转
-                    Log.e("left",mPoint.x-motionEvent.getRawX()+"");
-                    assistant.startPTZControl(3);
-                }
-                if(mPoint.x-motionEvent.getRawX()<-15){
-                    //开启右转
-                    assistant.startPTZControl(2);
-                    Log.e("right",mPoint.x-motionEvent.getRawX()+"");
-                }
-                if(mPoint.y-motionEvent.getRawY()>5){
-                    //开启下偏
-                    assistant.startPTZControl(1);
-                }
-                if(mPoint.y-motionEvent.getRawY()<-5){
-                    //开启上偏
-                    assistant.startPTZControl(0);
-                }
+//                if(mPoint.x-motionEvent.getRawX()>15){
+//                    //开启左转
+//                    Log.e("left",mPoint.x-motionEvent.getRawX()+"");
+//                    assistant.startPTZControl(3);
+//                }
+//                if(mPoint.x-motionEvent.getRawX()<-15){
+//                    //开启右转
+//                    assistant.startPTZControl(2);
+//                    Log.e("right",mPoint.x-motionEvent.getRawX()+"");
+//                }
+//                if(mPoint.y-motionEvent.getRawY()>5){
+//                    //开启下偏
+//                    assistant.startPTZControl(1);
+//                }
+//                if(mPoint.y-motionEvent.getRawY()<-5){
+//                    //开启上偏
+//                    assistant.startPTZControl(0);
+//                }
 
-                break;
+                super.onTouchEvent(motionEvent);
+                return true;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
                 //停止，取消
-                assistant.startPTZControl(0);
-                assistant.startPTZControl(1);
-                assistant.startPTZControl(2);
-                assistant.startPTZControl(3);
+//                assistant.startPTZControl(0);
+//                assistant.startPTZControl(1);
+//                assistant.startPTZControl(2);
+//                assistant.startPTZControl(3);
                 break;
         }
-        return super.dispatchGenericMotionEvent(motionEvent);
+        return super.onTouchEvent(motionEvent);
     }
 
 
