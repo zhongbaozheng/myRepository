@@ -104,6 +104,7 @@ public class HttpGetBase {
         this.uri = uri;
         this.action = action;
         String url = API.getAbsolutePath(uri);
+        Log.e("url",url);
         return call(url, builder, false);
     }
 
@@ -111,6 +112,7 @@ public class HttpGetBase {
         this.uri = uri;
         this.action = action;
         String url = API.getAbsolutePath(uri) + "?" + param;
+        Log.e("url",url);
         return call(url, null, true);
     }
 
