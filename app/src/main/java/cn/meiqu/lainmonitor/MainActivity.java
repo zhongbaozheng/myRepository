@@ -19,6 +19,10 @@ import cn.meiqu.lainmonitor.adapter.PagerHomeAdapter;
 import cn.meiqu.lainmonitor.aui.ControlActivity;
 import cn.meiqu.lainmonitor.view.NoScrollViewPager;
 
+/**
+ * 主要是ViewPager与TableLayout和Fragment的结合使用
+ */
+
 public class MainActivity extends AppCompatActivity{
 
     private String[] mTitles = {"主页","我的"};
@@ -38,13 +42,14 @@ public class MainActivity extends AppCompatActivity{
         setViewPager();
     }
 
+    //主页 和 我的
     private void addFragments(){
         mFragments.add(new HomeFragment());
         mFragments.add(new MineFragment());
     }
 
-    private void setViewPager(){
 
+    private void setViewPager(){
         PagerHomeAdapter tabAdapter = new PagerHomeAdapter(getSupportFragmentManager(),mFragments,mTitles);
         mViewPager.setAdapter(tabAdapter);
         tabLayout.setTabTextColors(getResources().getColor(R.color.white), getResources().getColor(R.color.color_green));//设置文本在选中和为选中时候的颜色
@@ -68,8 +73,13 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
-
-
+    /**
+     * 获取当前PageNumber（如环境监控）  ItemNumber（环境监控下的温湿度模块）
+     * 和 每一个class（温湿度模块对应的class文件的名字）文件的名字
+     * @param pId
+     * @param cId
+     * @param name
+     */
     public void jumpControlActivity(String pId, String cId, String name) {
         Intent intent = new Intent(this, ControlActivity.class);
         intent.putExtra(ControlActivity.extra_pId, pId);

@@ -24,8 +24,7 @@ import cn.meiqu.lainmonitor.adapter.PagerHomeAdapter;
 import cn.meiqu.lainmonitor.bean.ThirdPage;
 
 /**
- * Created by Fatel on 16-5-24.
- * 这里更新每一个fragment的界面的变化
+ * Created by zhongbao on 16-5-24.
  */
 public abstract class FragmentControl extends BaseFragment {
     String className = getClass().getName();
@@ -65,7 +64,9 @@ public abstract class FragmentControl extends BaseFragment {
 //            fragments.add(new FragmentTemp());
             titles[i] = thirdPages.get(i).getName();
         }
+
         initFragments(fragments, thirdPages);
+
         if (!thirdPages.isEmpty()) {
             View top = findViewById(R.id.lin_top);
             top.setVisibility(View.VISIBLE);

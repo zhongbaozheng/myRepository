@@ -85,7 +85,7 @@ public   class BaseRecycleHolder<T> extends RecyclerView.ViewHolder implements V
      */
 
 
-    /****以下为辅助方法,如果控件缺少，可以在这里添加，完成我们的控件实例化和设置*****/
+    /****以下为辅助方法,如果控件缺少，可以在这里添加，完成我们的控件实例化和设置，假设需要其他的再加上去*****/
 
     /**
      * 设置TextView的值

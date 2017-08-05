@@ -9,7 +9,11 @@ import cn.meiqu.baseproject.baseUi.BaseApp;
 import cn.meiqu.baseproject.util.JsonUtil;
 import cn.meiqu.baseproject.util.ToastUtil;
 
-
+/**
+ * 这里的网络请求的格式：okhttp的访问格式
+ * 通过httpGetBase的call方法请求，通过向当前页发送一个对应（class文件名字+url）的广播action
+ * 然后在当前页接收广播，解析我们的json数据
+ */
 public class HttpResponController implements IHttpResponListener {
 
     private static HttpResponController responController = new HttpResponController();
@@ -43,6 +47,7 @@ public class HttpResponController implements IHttpResponListener {
         }
         Intent intent = new Intent(action);
         intent.putExtra("data", object);
+        //广播机制
         LocalBroadcastManager.getInstance(BaseApp.mContext).sendBroadcast(intent);
 //        mData = object;
     }

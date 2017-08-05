@@ -15,8 +15,10 @@ import cn.meiqu.lainmonitor.R;
 
 /**
  * Created by Fatel on 16-5-25.
+ * SwipeRefreshLayout刷新加上监听
  */
 public abstract class FragmentReal extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
+
     public String className = getClass().getName() + Math.random() * 10000;
     private SwipeRefreshLayout mSwipe;
     public RecyclerView mRecycleV;

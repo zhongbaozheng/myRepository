@@ -14,6 +14,9 @@ import java.util.ArrayList;
 
 public abstract class CommonAdapter<T> extends BaseRecycleAdapter<BaseRecycleHolder> implements BaseRecycleHolder.RecycleViewItemClickListener{
 
+    /**
+     * 当recycleview的Item为不同类型的时候
+     */
     public interface Type{
        public static int ITEM_TYPE_0 = 0;
         public static int ITEM_TYPE_1 = 1;
