@@ -53,6 +53,7 @@ public class HomeFragment extends BaseFragment {
        homeView = inflater.inflate(R.layout.home_fragment,container,false);
         assignViews();
         initPager();
+        //广播方式接收我们的json数据
         initReceiver(new String[]{action_getHomePage});
         return homeView;
     }
@@ -77,6 +78,10 @@ public class HomeFragment extends BaseFragment {
     }
 
 
+    /**
+     * 这里实时更新我们的tab,对tab的个数进行管理
+     * @param data
+     */
     public void handleHomePage(String data) {
         ArrayList<HomePage> temps = new Gson().fromJson(data, new TypeToken<ArrayList<HomePage>>() {
         }.getType());
@@ -87,8 +92,6 @@ public class HomeFragment extends BaseFragment {
 //                    temps.remove(homePage);
 //                }
 //            }
-            //  containerId = R.id.frame_fragment;这是这里的fragment的container容器
-            //所以这里可以试试按照自己的那个popStack的方法除去当前的fragment
             for(int i=0;i<temps.size();i++){
                 if(temps.get(i).getIsShow()!=1){
                     temps.remove(i);
@@ -109,7 +112,6 @@ public class HomeFragment extends BaseFragment {
     }
 
     private void assignViews() {
-
         mTabL = (TabLayout) homeView.findViewById(R.id.tabL);
         mViewP = (ViewPager) homeView.findViewById(R.id.viewP);
     }
@@ -127,6 +129,7 @@ public class HomeFragment extends BaseFragment {
     }
 
 
+    //每一次的请求数据要先清空原有的数据
     public void initData() {
         homePages.clear();
         fragments.clear();
@@ -135,9 +138,12 @@ public class HomeFragment extends BaseFragment {
             ArrayList<HomePage> temps = new Gson().fromJson(jsonData, new TypeToken<ArrayList<HomePage>>() {
             }.getType());
             homePages.addAll(temps);
+
             for (int i = 0; i < homePages.size(); i++) {
+                //每一个MainFragment
                 fragments.add(MainFragment.newInstance(homePages.get(i).getNumber() + ""));
                 titles[i] = homePages.get(i).getName();
+
             }
         }
         adapter.notifyDataSetChanged();

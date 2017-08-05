@@ -39,7 +39,7 @@ public class FragmentEnv extends FragmentControl {
     @Override
     public void initFragments(List<Fragment> fragments, ArrayList<ThirdPage> thirdPages) {
         LogUtil.log("initFragments=" + number2);
-        //温湿度
+        //温湿度模块下面的 实时数据、报警数据、历史记录表、设备管理
         if (number2.equals("1")) {
             if (thirdPages.size() >= 1)
                 fragments.add(new FragmentTempReal());

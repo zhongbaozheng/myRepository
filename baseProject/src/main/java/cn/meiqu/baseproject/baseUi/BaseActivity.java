@@ -73,6 +73,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         initTitle(new SpannableStringBuilder(title));
     }
 
+    /**
+     * toobar要求theme必须是NoActionBar
+     * @param title
+     */
     public void initTitle(SpannableStringBuilder title) {
         toolbar = (Toolbar) findViewById(R.id.toolBar);
         setSupportActionBar(toolbar);

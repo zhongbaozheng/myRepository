@@ -15,7 +15,10 @@ import cn.meiqu.baseproject.view.RippleView;
 import cn.meiqu.lainmonitor.R;
 import cn.meiqu.lainmonitor.bean.TempReal;
 
-
+/**
+ * 这里的BaseRecycleAdapter自由度比较高，可以实现很多功能，但是封装性不好
+ * 所以封装了一个CommonAdapter<T>代替
+ */
 public class RecycleTempRealAdapter extends BaseRecycleAdapter {
     private Context mContent;
     private ArrayList<TempReal> tempReals;

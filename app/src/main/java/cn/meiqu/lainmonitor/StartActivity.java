@@ -85,7 +85,7 @@ public class StartActivity extends BaseActivity {
     }
 
     /**
-     * 跳转下一个页面
+     * 跳转下一个页面，如果已经登录，那么用户下次登录时不用调到登录界面
      */
     private void jumpNextPage() {
         if (StringUtil.isEmpty(SettingDao.getInstance().getHostIp()) && StringUtil.isEmpty(SettingDao.getInstance().getHostAddr())) {
