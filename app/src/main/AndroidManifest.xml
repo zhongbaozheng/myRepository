@@ -49,10 +49,18 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:name=".hkvideo.SimpleActivity"/>
         <activity android:name=".hkvideo.OnlyLoginIdActivity"/>
-        <activity android:name=".hkvideo.VideoActivity"/>
+        <activity android:name=".hkvideo.CameraMoveActivity"/>
+        <activity android:name=".hkvideo.HKControlActivity"/>
         <activity
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:name=".hkvideo.PlayBackActivity"/>
+        <activity
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:name=".hkvideo.CameraPlayActivity"/>
+
+        <activity
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:name=".hkvideo.CameraPBActivity"/>
     </application>
 
 </manifest>

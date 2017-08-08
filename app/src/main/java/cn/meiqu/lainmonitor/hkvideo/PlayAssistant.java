@@ -465,7 +465,7 @@ public class PlayAssistant implements Callback
 		return iLogID;
 	}
 
-	//上下左右
+	//上下左右   左上4   右上 5  左下6 右下 7
 	//0 1 2 3
 	public void startPTZControl(int contrl){
 		if(m_iLogID<0){
@@ -485,6 +485,22 @@ public class PlayAssistant implements Callback
 				}
 			}else if(contrl == 3){
 				if(!HCNetSDK.getInstance().NET_DVR_PTZControl_Other(m_iLogID,m_iStartChan, PTZCommand.PAN_RIGHT,0)){
+					Log.e(TAG,"right control failed");
+				}
+			}else if(contrl == 4){
+				if(!HCNetSDK.getInstance().NET_DVR_PTZControl_Other(m_iLogID,m_iStartChan, PTZCommand.UP_LEFT,0)){
+					Log.e(TAG,"right control failed");
+				}
+			}else if(contrl == 5){
+				if(!HCNetSDK.getInstance().NET_DVR_PTZControl_Other(m_iLogID,m_iStartChan, PTZCommand.UP_RIGHT,0)){
+					Log.e(TAG,"right control failed");
+				}
+			}else if(contrl == 6){
+				if(!HCNetSDK.getInstance().NET_DVR_PTZControl_Other(m_iLogID,m_iStartChan, PTZCommand.DOWN_LEFT ,0)){
+					Log.e(TAG,"right control failed");
+				}
+			}else if(contrl == 7){
+				if(!HCNetSDK.getInstance().NET_DVR_PTZControl_Other(m_iLogID,m_iStartChan, PTZCommand.DOWN_RIGHT,0)){
 					Log.e(TAG,"right control failed");
 				}
 			}
@@ -512,6 +528,22 @@ public class PlayAssistant implements Callback
 				}
 			}else if(contrl == 3){
 				if(!HCNetSDK.getInstance().NET_DVR_PTZControl_Other(m_iLogID,m_iStartChan, PTZCommand.PAN_RIGHT,1)){
+					Log.e(TAG,"right control failed");
+				}
+			}else if(contrl == 4){
+				if(!HCNetSDK.getInstance().NET_DVR_PTZControl_Other(m_iLogID,m_iStartChan, PTZCommand.UP_LEFT,1)){
+					Log.e(TAG,"right control failed");
+				}
+			}else if(contrl == 5){
+				if(!HCNetSDK.getInstance().NET_DVR_PTZControl_Other(m_iLogID,m_iStartChan, PTZCommand.UP_RIGHT,1)){
+					Log.e(TAG,"right control failed");
+				}
+			}else if(contrl == 6){
+				if(!HCNetSDK.getInstance().NET_DVR_PTZControl_Other(m_iLogID,m_iStartChan, PTZCommand.DOWN_LEFT ,1)){
+					Log.e(TAG,"right control failed");
+				}
+			}else if(contrl == 7){
+				if(!HCNetSDK.getInstance().NET_DVR_PTZControl_Other(m_iLogID,m_iStartChan, PTZCommand.DOWN_RIGHT,1)){
 					Log.e(TAG,"right control failed");
 				}
 			}
