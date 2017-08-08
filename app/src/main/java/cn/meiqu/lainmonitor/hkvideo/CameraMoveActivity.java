@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -24,10 +23,10 @@ import cn.meiqu.lainmonitor.R;
 import cn.meiqu.lainmonitor.common.BaseRecycleAdapter;
 
 /**
- * Created by Administrator on 2017/6/28.
+ * Created by Administrator on 2017/8/8.
  */
 
-public class OnlyLoginIdActivity extends BaseActivity {
+public class CameraMoveActivity extends BaseActivity {
 
     private NET_DVR_DEVICEINFO_V30 m_oNetDvrDeviceInfoV30 = null;
     private int m_iStartChan = 0; // start channel no
@@ -50,7 +49,7 @@ public class OnlyLoginIdActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onlylogin);
         Config.register(this);
-        initTitle("视频列表一");
+        initTitle("视频列表二");
 
 
         if (!initeSdk()) {
@@ -66,15 +65,15 @@ public class OnlyLoginIdActivity extends BaseActivity {
             public void OnItemClick(View view, int position) {
                 //点击监听
                 Config.putInt("channel",position+1);
-                startActivity(new Intent(OnlyLoginIdActivity.this,SimpleActivity.class));
+                startActivity(new Intent(CameraMoveActivity.this,CameraPlayActivity.class));
             }
         });
         recyclerView.setAdapter(mAdapter);
 
-        String strIP = "192.168.1.65";
+        String strIP = "192.168.1.64";
         int nPort = 8000;
         String strUser = "admin";
-        String strPsd = "lain123456";
+        String strPsd = "admin123";
 
         mLoginId = loginNormalDevice(strIP,nPort,strUser,strPsd,channel+32);
 
@@ -82,22 +81,22 @@ public class OnlyLoginIdActivity extends BaseActivity {
 
         if( mLoginId>=0){
 
-        for(int i=0;i<16;i++){
+            for(int i=0;i<1;i++){
 
                 NET_DVR_JPEGPARA net_dvr_jpegpara = new NET_DVR_JPEGPARA();
                 net_dvr_jpegpara.wPicSize = 1280*720;
                 net_dvr_jpegpara.wPicQuality = 1;
 
-                File file = new File("/mnt/sdcard/surface/");
+                File file = new File("/mnt/sdcard/surface2/");
                 if(!file.exists()){
                     file.mkdir();
                     Log.e("mkdir","make success");
                 }
-
-                if (HCNetSDK.getInstance().NET_DVR_CaptureJPEGPicture(mLoginId, channel + 32, net_dvr_jpegpara, "/mnt/sdcard/surface/" + channel + ".jpg"))
+                //云台转动的频道并不在32以上，而是从1开始。。。。
+                if (HCNetSDK.getInstance().NET_DVR_CaptureJPEGPicture(mLoginId, channel, net_dvr_jpegpara, "/mnt/sdcard/surface2/" + channel + ".jpg"))
                 {
                     Log.e(TAG,"capture success!");
-                    String myJpgPath = "/mnt/sdcard/surface/" + channel + ".jpg";
+                    String myJpgPath = "/mnt/sdcard/surface2/" + channel + ".jpg";
                     BitmapFactory.Options options = new BitmapFactory.Options();
                     options.inSampleSize = 2;
                     Bitmap bm = BitmapFactory.decodeFile(myJpgPath, options);
@@ -118,31 +117,31 @@ public class OnlyLoginIdActivity extends BaseActivity {
 
 
 
-        if(mLoginId>=0 ){
-            NET_DVR_JPEGPARA net_dvr_jpegpara = new NET_DVR_JPEGPARA();
-            net_dvr_jpegpara.wPicSize = 1280*720;
-            net_dvr_jpegpara.wPicQuality = 1;
-            File file = new File("/mnt/sdcard/surface/");
-            if(!file.exists()){
-                file.mkdir();
-                Log.e("mkdir","make success");
-            }
-            if(file.exists()) {
-                if (HCNetSDK.getInstance().NET_DVR_CaptureJPEGPicture(mLoginId, channel + 32, net_dvr_jpegpara, "/mnt/sdcard/surface/" + channel + ".jpg")) {
-
-                    String myJpgPath = "/mnt/sdcard/surface/" + channel + ".jpg";
-                    BitmapFactory.Options options = new BitmapFactory.Options();
-                    options.inSampleSize = 2;
-                    Bitmap bm = BitmapFactory.decodeFile(myJpgPath, options);
-//                    mImage.setImageBitmap(bm);
-
-                    Log.e(TAG, "capture success");
-                } else {
-                    Log.e(TAG, "capture error!");
-                }
-
-            }
-        }
+//        if(mLoginId>=0 ){
+//            NET_DVR_JPEGPARA net_dvr_jpegpara = new NET_DVR_JPEGPARA();
+//            net_dvr_jpegpara.wPicSize = 1280*720;
+//            net_dvr_jpegpara.wPicQuality = 1;
+//            File file = new File("/mnt/sdcard/surface/");
+//            if(!file.exists()){
+//                file.mkdir();
+//                Log.e("mkdir","make success");
+//            }
+//            if(file.exists()) {
+//                if (HCNetSDK.getInstance().NET_DVR_CaptureJPEGPicture(mLoginId, channel + 32, net_dvr_jpegpara, "/mnt/sdcard/surface/" + channel + ".jpg")) {
+//
+//                    String myJpgPath = "/mnt/sdcard/surface/" + channel + ".jpg";
+//                    BitmapFactory.Options options = new BitmapFactory.Options();
+//                    options.inSampleSize = 2;
+//                    Bitmap bm = BitmapFactory.decodeFile(myJpgPath, options);
+////                    mImage.setImageBitmap(bm);
+//
+//                    Log.e(TAG, "capture success");
+//                } else {
+//                    Log.e(TAG, "capture error!");
+//                }
+//
+//            }
+//        }
 
 
 

@@ -63,7 +63,7 @@ public class PlayBackActivity extends BaseActivity implements View.OnClickListen
     private long progressMillns;
     private float mProgress;
 
-    int loginId;
+    public int loginId;
 
 
     ImageView iV;
@@ -73,7 +73,7 @@ public class PlayBackActivity extends BaseActivity implements View.OnClickListen
     NET_DVR_TIME time;
     String end = "";
     NET_DVR_TIME time2;
-    PlayAssistant assistant;
+    public PlayAssistant assistant;
 
     String showTime = "";
     SeekBar seekBar;
@@ -97,8 +97,12 @@ public class PlayBackActivity extends BaseActivity implements View.OnClickListen
         assignView();
         HCNetSDK.getInstance().NET_DVR_Init();
         assistant = new PlayAssistant(mSurface);
-        loginId = assistant.login("192.168.1.65",8000,"admin","lain123456",Config.getInt("channel"));
+        getLoginId();
         addViews();
+    }
+
+    public void getLoginId(){
+        loginId = assistant.login("192.168.1.65",8000,"admin","lain123456",Config.getInt("channel"));
     }
 
 

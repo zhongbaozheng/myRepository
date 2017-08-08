@@ -21,6 +21,7 @@ import cn.meiqu.lainmonitor.aui.security.infrared.FragmentInfraredReal;
 import cn.meiqu.lainmonitor.aui.security.smoke.FragmentSmokeAlart;
 import cn.meiqu.lainmonitor.aui.security.smoke.FragmentSmokeReal;
 import cn.meiqu.lainmonitor.bean.ThirdPage;
+import cn.meiqu.lainmonitor.hkvideo.HKControlActivity;
 import cn.meiqu.lainmonitor.hkvideo.OnlyLoginIdActivity;
 
 /**
@@ -75,7 +76,7 @@ public class FragmentSecy extends FragmentControl {
         }
         //视频监控
         else if (number2.equals("7")) {
-            startActivity(new Intent(getActivity(), OnlyLoginIdActivity.class));
+            startActivity(new Intent(getActivity(), HKControlActivity.class));
             getActivity().finish();
         }
     }
