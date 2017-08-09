@@ -34,6 +34,12 @@ public class CameraPlayActivity extends SimpleActivity implements View.OnTouchLi
         startActivity(new Intent(this,CameraPBActivity.class));
     }
 
+    /**
+     * 云台控制功能
+     * @param view
+     * @param motionEvent
+     * @return
+     */
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
         switch (motionEvent.getAction()){

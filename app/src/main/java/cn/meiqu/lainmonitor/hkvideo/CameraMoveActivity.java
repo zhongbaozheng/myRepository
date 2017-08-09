@@ -92,7 +92,7 @@ public class CameraMoveActivity extends BaseActivity {
                     file.mkdir();
                     Log.e("mkdir","make success");
                 }
-                //云台转动的频道并不在32以上，而是从1开始。。。。
+                //云台转动的截图频道的并不在32以上，而是从1开始。。。。
                 if (HCNetSDK.getInstance().NET_DVR_CaptureJPEGPicture(mLoginId, channel, net_dvr_jpegpara, "/mnt/sdcard/surface2/" + channel + ".jpg"))
                 {
                     Log.e(TAG,"capture success!");
@@ -113,35 +113,6 @@ public class CameraMoveActivity extends BaseActivity {
             mAdapter.notifyDataSetChanged();
 
         }
-
-
-
-
-//        if(mLoginId>=0 ){
-//            NET_DVR_JPEGPARA net_dvr_jpegpara = new NET_DVR_JPEGPARA();
-//            net_dvr_jpegpara.wPicSize = 1280*720;
-//            net_dvr_jpegpara.wPicQuality = 1;
-//            File file = new File("/mnt/sdcard/surface/");
-//            if(!file.exists()){
-//                file.mkdir();
-//                Log.e("mkdir","make success");
-//            }
-//            if(file.exists()) {
-//                if (HCNetSDK.getInstance().NET_DVR_CaptureJPEGPicture(mLoginId, channel + 32, net_dvr_jpegpara, "/mnt/sdcard/surface/" + channel + ".jpg")) {
-//
-//                    String myJpgPath = "/mnt/sdcard/surface/" + channel + ".jpg";
-//                    BitmapFactory.Options options = new BitmapFactory.Options();
-//                    options.inSampleSize = 2;
-//                    Bitmap bm = BitmapFactory.decodeFile(myJpgPath, options);
-////                    mImage.setImageBitmap(bm);
-//
-//                    Log.e(TAG, "capture success");
-//                } else {
-//                    Log.e(TAG, "capture error!");
-//                }
-//
-//            }
-//        }
 
 
 

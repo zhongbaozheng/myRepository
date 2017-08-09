@@ -217,7 +217,7 @@ public class SimpleActivity extends BaseActivity implements View.OnClickListener
         }
 
     }
-
+    //全屏横屏控制
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
@@ -233,7 +233,6 @@ public class SimpleActivity extends BaseActivity implements View.OnClickListener
             tv3.setLayoutParams(lp3);
             toolbar.setVisibility(View.GONE);
             tv3.setImageResource(R.mipmap.ic_full_exit);
-//            tv3.setText("竖屏");
 
         }
         if(configuration.orientation == Configuration.ORIENTATION_PORTRAIT){
@@ -246,7 +245,6 @@ public class SimpleActivity extends BaseActivity implements View.OnClickListener
             tv2.setLayoutParams(lp2);
             tv3.setLayoutParams(lp3);
             tv3.setImageResource(R.mipmap.ic_full);
-//            tv3.setText("横屏");
         }
 
     }

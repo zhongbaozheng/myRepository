@@ -45,7 +45,7 @@ public class IpSettingActivity extends BaseActivity implements RippleView.OnRipp
     }
 
 
-    //permissonManage
+    //permisson Manage
     public void permissionManage(){
 
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M){

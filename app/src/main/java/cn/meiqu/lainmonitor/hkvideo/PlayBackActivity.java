@@ -58,9 +58,9 @@ public class PlayBackActivity extends BaseActivity implements View.OnClickListen
     FrameLayout.LayoutParams lp2;
     LinearLayout linearLayout;
 
-    private Thread mProgressThread;
+    private Thread mProgressThread; //进度条线程
     private  int  isStop = -1;   //-1表示没有点击的状态，0表示继续，1停止
-    private long progressMillns;
+    private long progressMillns; //进度条对应的时间
     private float mProgress;
 
     public int loginId;
@@ -70,14 +70,14 @@ public class PlayBackActivity extends BaseActivity implements View.OnClickListen
     ImageView iV2;
 
     String start = "";
-    NET_DVR_TIME time;
+    NET_DVR_TIME time;  //查询时间类
     String end = "";
     NET_DVR_TIME time2;
-    public PlayAssistant assistant;
+    public PlayAssistant assistant;  //HKSDK控制方法类
 
     String showTime = "";
     SeekBar seekBar;
-
+    //更新进度条
     private Handler mHandler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -342,6 +342,7 @@ public class PlayBackActivity extends BaseActivity implements View.OnClickListen
     }
 
 
+    //创建控制进度条线程
     public void createProgessThread(){
         mProgressThread = new Thread(new Runnable() {
             @Override
@@ -355,7 +356,7 @@ public class PlayBackActivity extends BaseActivity implements View.OnClickListen
                         message.what = 1;
                         message.obj = mProgress;
                         mHandler.sendMessage(message);
-
+                        //线程锁，等待唤醒
                         synchronized (mProgressThread){
                             //控制暂停
                             Log.e("isStop",isStop+"");
@@ -399,6 +400,7 @@ public class PlayBackActivity extends BaseActivity implements View.OnClickListen
     }
 
 
+    //核对我们的时间是否正确
     private boolean checkDate(){
 
         start = mStartTime.getText().toString()+" "+mStartmin.getText().toString()+":00";
@@ -432,7 +434,7 @@ public class PlayBackActivity extends BaseActivity implements View.OnClickListen
         mConcert.setOnClickListener(this);
     }
 
-
+    //时间选择器-日期
     public void showEndDate() {
         final Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
@@ -454,7 +456,7 @@ public class PlayBackActivity extends BaseActivity implements View.OnClickListen
         datePickerDialog.show();
     }
 
-
+    //时间选择器-小时-分钟
     public void showEndTime(){
 
         final Calendar calendar = Calendar.getInstance();

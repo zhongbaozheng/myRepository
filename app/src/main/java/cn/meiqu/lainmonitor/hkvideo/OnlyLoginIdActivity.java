@@ -37,7 +37,7 @@ public class OnlyLoginIdActivity extends BaseActivity {
     private ArrayList<DeviceBean> deviceBeanArrayList = new ArrayList<>();
 
     private RecyclerView recyclerView;
-    private DeviceAdapter mAdapter;
+    private DeviceAdapter mAdapter;    //视频列表适配器
 
 
     @Override
@@ -81,7 +81,7 @@ public class OnlyLoginIdActivity extends BaseActivity {
 
 
         if( mLoginId>=0){
-
+        //组装数据，由于没有从自己服务器获取数据，从HK获取的请自行封装自己的数据，16可自行修改
         for(int i=0;i<16;i++){
 
                 NET_DVR_JPEGPARA net_dvr_jpegpara = new NET_DVR_JPEGPARA();
@@ -93,7 +93,7 @@ public class OnlyLoginIdActivity extends BaseActivity {
                     file.mkdir();
                     Log.e("mkdir","make success");
                 }
-
+                //截图设置到recycleView中
                 if (HCNetSDK.getInstance().NET_DVR_CaptureJPEGPicture(mLoginId, channel + 32, net_dvr_jpegpara, "/mnt/sdcard/surface/" + channel + ".jpg"))
                 {
                     Log.e(TAG,"capture success!");
