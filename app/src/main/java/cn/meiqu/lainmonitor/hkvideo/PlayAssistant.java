@@ -51,7 +51,7 @@ public class PlayAssistant implements Callback
 	{
 		if (m_iLogID >= 0 || m_iPlayID >= 0 )
 		{
-			// 只要有一个大于0即认为登录
+			// 只要有一个大于或等于0即认为登录
 			return true;
 		}
 		else
